@@ -88,12 +88,41 @@ function hs_course_details_cb( WP_Post $post ) {
 // ── Curriculum Builder ────────────────────────────────────
 function hs_curriculum_cb( WP_Post $post ) {
     $curriculum = get_post_meta($post->ID, '_hs_curriculum', true) ?: [];
-    $json = htmlspecialchars(json_encode($curriculum), ENT_QUOTES, 'UTF-8');
+    $json = htmlspecialchars(wp_json_encode($curriculum), ENT_QUOTES, 'UTF-8');
+
+    $quizzes = get_posts([
+        'post_type'   => 'hubskills_quiz',
+        'numberposts' => -1,
+        'post_status' => ['publish','draft','pending'],
+        'orderby'     => 'title',
+        'order'       => 'ASC',
+    ]);
+    $quiz_options = [];
+    foreach ( $quizzes as $quiz ) $quiz_options[] = [ 'id' => $quiz->ID, 'title' => $quiz->post_title ];
+
+    $assets = function_exists('hs_lms_secure_assets') ? hs_lms_secure_assets($post->ID) : [];
+    $asset_options = [];
+    foreach ( (array) $assets as $asset ) {
+        $asset_options[] = [
+            'id'   => sanitize_key($asset['id'] ?? ''),
+            'name' => sanitize_text_field($asset['name'] ?? ''),
+            'type' => sanitize_key($asset['type'] ?? 'resource'),
+        ];
+    }
     ?>
-    <p style="color:#666;font-size:13px"><?php _e('Defina o currículo em formato JSON. Cada seção contém um nome e array de aulas.', 'hubskills-lms'); ?></p>
-    <p style="color:#666;font-size:12px"><?php _e('Exemplo:', 'hubskills-lms'); ?></p>
-    <pre style="font-size:11px;background:#f5f5f5;padding:8px;border-radius:4px;overflow:auto;max-height:120px">[{"section":"Módulo 1","lessons":[{"id":1,"title":"Introdução","duration":"10min","type":"video","video_url":"https://..."}]}]</pre>
-    <textarea name="_hs_curriculum_json" rows="12" style="width:100%;font-family:monospace;font-size:12px;border:1px solid #ddd;border-radius:4px;padding:8px"><?php echo $json; ?></textarea>
+    <div id="hs-curriculum-builder" class="hs-builder"
+         data-quizzes="<?php echo esc_attr(wp_json_encode($quiz_options)); ?>"
+         data-assets="<?php echo esc_attr(wp_json_encode($asset_options)); ?>">
+        <p class="hs-builder-loading"><?php _e('Carregando builder…', 'hubskills-lms'); ?></p>
+    </div>
+    <div class="hs-builder-toolbar">
+        <button type="button" class="button button-primary hs-add-section"><?php _e('+ Adicionar módulo', 'hubskills-lms'); ?></button>
+        <button type="button" class="button hs-toggle-advanced" data-target="#hs-curriculum-advanced"><?php _e('Modo avançado (JSON)', 'hubskills-lms'); ?></button>
+    </div>
+    <div id="hs-curriculum-advanced" class="hs-builder-advanced" style="display:none">
+        <p style="color:#666;font-size:12px"><?php _e('Edição direta do JSON. Alterações aqui sobrescrevem o builder visual ao salvar.', 'hubskills-lms'); ?></p>
+        <textarea id="hs_curriculum" name="_hs_curriculum_json" rows="12" style="width:100%;font-family:monospace;font-size:12px;border:1px solid #ddd;border-radius:4px;padding:8px"><?php echo $json; ?></textarea>
+    </div>
     <?php
 }
 
@@ -137,10 +166,40 @@ function hs_quiz_questions_cb( WP_Post $post ) {
             <input type="number" name="_hs_pass_threshold" value="<?php echo (int)$threshold; ?>" min="0" max="100" style="width:100%;border:1px solid #ddd;border-radius:4px;padding:6px 10px;margin-top:4px">
         </div>
     </div>
-    <p style="color:#666;font-size:13px"><?php _e('Questões em JSON. Cada questão tem: id, text, options (array de 4), correct (0-3), explanation.', 'hubskills-lms'); ?></p>
-    <pre style="font-size:11px;background:#f5f5f5;padding:8px;border-radius:4px;max-height:100px;overflow:auto">[{"id":1,"text":"Qual é...?","options":["A","B","C","D"],"correct":2,"explanation":"Porque..."}]</pre>
-    <textarea name="_hs_questions_json" rows="14" style="width:100%;font-family:monospace;font-size:12px;border:1px solid #ddd;border-radius:4px;padding:8px"><?php echo $json; ?></textarea>
+    <div id="hs-quiz-builder" class="hs-builder">
+        <p class="hs-builder-loading"><?php _e('Carregando builder…', 'hubskills-lms'); ?></p>
+    </div>
+    <div class="hs-builder-toolbar">
+        <button type="button" class="button button-primary hs-add-question"><?php _e('+ Adicionar questão', 'hubskills-lms'); ?></button>
+        <button type="button" class="button hs-toggle-advanced" data-target="#hs-quiz-advanced"><?php _e('Modo avançado (JSON)', 'hubskills-lms'); ?></button>
+    </div>
+    <div id="hs-quiz-advanced" class="hs-builder-advanced" style="display:none">
+        <p style="color:#666;font-size:12px"><?php _e('Edição direta do JSON. Alterações aqui sobrescrevem o builder visual ao salvar.', 'hubskills-lms'); ?></p>
+        <textarea id="hs_quiz_questions" name="_hs_questions_json" rows="14" style="width:100%;font-family:monospace;font-size:12px;border:1px solid #ddd;border-radius:4px;padding:8px"><?php echo $json; ?></textarea>
+    </div>
     <?php
+}
+
+// ── Quiz questions sanitizer ──────────────────────────────
+function hs_sanitize_quiz_questions( array $questions ): array {
+    $clean = [];
+    $auto_id = time();
+    foreach ( $questions as $q ) {
+        if ( ! is_array($q) ) continue;
+        $text = sanitize_text_field( $q['text'] ?? '' );
+        if ( $text === '' ) continue;
+        $options = array_values( array_map( 'sanitize_text_field', array_slice( (array) ( $q['options'] ?? [] ), 0, 6 ) ) );
+        if ( count($options) < 2 ) continue;
+        $correct = (int) ( $q['correct'] ?? 0 );
+        $clean[] = [
+            'id'          => absint( $q['id'] ?? 0 ) ?: ++$auto_id,
+            'text'        => $text,
+            'options'     => $options,
+            'correct'     => max( 0, min( count($options) - 1, $correct ) ),
+            'explanation' => sanitize_textarea_field( $q['explanation'] ?? '' ),
+        ];
+    }
+    return $clean;
 }
 
 // ── Save Meta ─────────────────────────────────────────────
@@ -162,7 +221,14 @@ function hs_save_course_meta( int $post_id ) {
 
         if ( isset($_POST['_hs_curriculum_json']) ) {
             $decoded = json_decode(wp_unslash($_POST['_hs_curriculum_json']), true);
-            if (is_array($decoded)) update_post_meta($post_id, '_hs_curriculum', $decoded);
+            if (is_array($decoded)) {
+                if ( function_exists('hs_lms_sanitize_curriculum') ) $decoded = hs_lms_sanitize_curriculum($decoded);
+                update_post_meta($post_id, '_hs_curriculum', $decoded);
+
+                $lessons_count = 0;
+                foreach ( $decoded as $section ) $lessons_count += count( (array) ( $section['lessons'] ?? [] ) );
+                update_post_meta($post_id, '_hs_lessons_count', $lessons_count);
+            }
         }
 
         if ( function_exists( 'hs_save_certificate_course_settings' ) ) {
@@ -188,7 +254,7 @@ function hs_save_course_meta( int $post_id ) {
 
         if ( isset($_POST['_hs_questions_json']) ) {
             $decoded = json_decode(wp_unslash($_POST['_hs_questions_json']), true);
-            if (is_array($decoded)) update_post_meta($post_id, '_hs_questions', $decoded);
+            if (is_array($decoded)) update_post_meta($post_id, '_hs_questions', hs_sanitize_quiz_questions($decoded));
         }
     }
 }

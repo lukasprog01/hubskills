@@ -114,6 +114,13 @@ function hs_lms_admin_assets( $hook ) {
     if ( ! in_array( $hook, [ 'post.php', 'post-new.php' ], true ) && strpos( (string) $hook, 'hubskills' ) === false ) return;
     wp_enqueue_style( 'hs-lms-admin', HS_LMS_URL . 'assets/css/admin.css', [], HS_LMS_VERSION );
     wp_enqueue_script( 'hs-lms-admin', HS_LMS_URL . 'assets/js/admin.js', [ 'jquery', 'wp-util' ], HS_LMS_VERSION, true );
+
+    // Builder visual nas telas de edição de curso e quiz
+    $screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+    if ( $screen && in_array( $screen->post_type, [ 'hubskills_course', 'hubskills_quiz' ], true ) ) {
+        $builder_version = file_exists( HS_LMS_DIR . 'assets/js/builder.js' ) ? (string) filemtime( HS_LMS_DIR . 'assets/js/builder.js' ) : HS_LMS_VERSION;
+        wp_enqueue_script( 'hs-lms-builder', HS_LMS_URL . 'assets/js/builder.js', [ 'jquery', 'jquery-ui-sortable' ], $builder_version, true );
+    }
 }
 
 // ── Plugin Action Links ───────────────────────────────────

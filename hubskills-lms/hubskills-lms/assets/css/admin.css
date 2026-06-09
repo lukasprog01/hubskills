@@ -3,3 +3,47 @@
 .hs-field { display:flex; flex-direction:column; gap:4px; }
 .hs-field label { font-weight:600; font-size:12px; text-transform:uppercase; color:#666; }
 .hs-field input, .hs-field select { border:1px solid #ddd; border-radius:4px; padding:6px 10px; }
+
+/* ── Builder visual (currículo + quiz) ── */
+.hs-builder { margin:12px 0; }
+.hs-builder-empty { color:#666; background:#f8f8f8; border:1px dashed #ccc; border-radius:6px; padding:24px; text-align:center; }
+.hs-builder-toolbar { display:flex; gap:8px; margin:12px 0; }
+.hs-builder-advanced { margin-top:8px; }
+.hs-drag { cursor:grab; color:#aaa; flex-shrink:0; }
+.hs-drag:hover { color:#7C3AED; }
+.hs-sort-placeholder { background:#f0ebff; border:2px dashed #7C3AED; border-radius:6px; min-height:44px; margin:6px 0; }
+
+.hs-section { background:#fff; border:1px solid #ddd; border-radius:8px; margin-bottom:14px; overflow:hidden; }
+.hs-section-head { display:flex; align-items:center; gap:8px; padding:10px 12px; background:#f6f4ff; border-bottom:1px solid #e6e0fa; }
+.hs-section-head .hs-s-title { flex:1; font-weight:600; border:1px solid transparent; background:transparent; border-radius:4px; padding:5px 8px; }
+.hs-section-head .hs-s-title:hover, .hs-section-head .hs-s-title:focus { border-color:#ccc; background:#fff; }
+.hs-s-count { color:#888; font-size:12px; white-space:nowrap; }
+.hs-s-remove .dashicons, .hs-l-remove .dashicons { color:#b32d2e; }
+.hs-s-remove:hover .dashicons, .hs-l-remove:hover .dashicons { color:#dc2626; }
+
+.hs-lessons { padding:8px 12px; min-height:20px; }
+.hs-lesson { background:#fafafa; border:1px solid #e5e5e5; border-radius:6px; margin:6px 0; }
+.hs-lesson-row { display:flex; align-items:center; gap:8px; padding:8px 10px; }
+.hs-lesson-row .hs-l-title { flex:1; border:1px solid #ddd; border-radius:4px; padding:5px 8px; }
+.hs-lesson-row .hs-l-duration { width:80px; border:1px solid #ddd; border-radius:4px; padding:5px 8px; }
+.hs-lesson-row .hs-l-type { width:130px; }
+.hs-lesson-detail { padding:10px 12px 14px 34px; border-top:1px dashed #e0e0e0; background:#fff; border-radius:0 0 6px 6px; }
+.hs-lesson-detail label { display:block; font-size:12px; font-weight:600; color:#555; margin-bottom:10px; }
+.hs-lesson-detail input, .hs-lesson-detail select, .hs-lesson-detail textarea { display:block; width:100%; margin-top:4px; font-weight:400; }
+.hs-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 16px; }
+
+.hs-question { background:#fff; border:1px solid #ddd; border-radius:8px; margin-bottom:14px; padding:12px 14px; }
+.hs-question-head { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+.hs-question-head .hs-q-number { flex:1; color:#7C3AED; }
+.hs-q-text { width:100%; border:1px solid #ddd; border-radius:4px; padding:7px 10px; margin-bottom:10px; }
+.hs-q-options { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px; }
+.hs-q-option { display:flex; align-items:center; gap:8px; background:#fafafa; border:1px solid #eee; border-radius:6px; padding:6px 10px; }
+.hs-q-option input[type=radio]:checked + .hs-q-opt-text { border-color:#16a34a; background:#f0fdf4; }
+.hs-q-opt-text { flex:1; border:1px solid #ddd; border-radius:4px; padding:5px 8px; }
+.hs-q-explanation-label { display:block; font-size:12px; font-weight:600; color:#555; }
+.hs-q-explanation { width:100%; margin-top:4px; }
+
+@media (max-width:782px) {
+  .hs-detail-grid, .hs-q-options { grid-template-columns:1fr; }
+  .hs-lesson-row { flex-wrap:wrap; }
+}
