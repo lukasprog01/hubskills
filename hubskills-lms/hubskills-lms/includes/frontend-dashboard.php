@@ -485,61 +485,8 @@ function hs_lms_ajax_secure_asset() {
         status_header( 404 ); exit;
     }
 
-    $size = filesize( $path );
     $mime = hs_lms_asset_mime_type( $asset, $path );
-    $start = 0;
-    $end = $size - 1;
-    $is_range = false;
-    if ( ! empty( $_SERVER['HTTP_RANGE'] ) && preg_match( '/bytes=(\d*)-(\d*)/', sanitize_text_field( wp_unslash( $_SERVER['HTTP_RANGE'] ) ), $m ) ) {
-        if ( $m[1] === '' && $m[2] !== '' ) {
-            $suffix = min( (int) $m[2], $size );
-            $start = max( 0, $size - $suffix );
-        } elseif ( $m[1] !== '' ) {
-            $start = max( 0, (int) $m[1] );
-        }
-        if ( $m[2] !== '' && $m[1] !== '' ) $end = min( $end, (int) $m[2] );
-        if ( $start > $end || $start >= $size ) {
-            status_header( 416 );
-            header( "Content-Range: bytes */{$size}" );
-            exit;
-        }
-        $is_range = true;
-    }
-
-    $length = $end - $start + 1;
-    @set_time_limit( 0 );
-    @ini_set( 'zlib.output_compression', 'Off' );
-    while ( ob_get_level() > 0 ) {
-        if ( ! @ob_end_clean() ) break;
-    }
-
-    status_header( $is_range ? 206 : 200 );
-    nocache_headers();
-    header( 'Content-Type: ' . $mime );
-    header( 'Accept-Ranges: bytes' );
-    if ( $is_range ) header( "Content-Range: bytes {$start}-{$end}/{$size}" );
-    header( 'Content-Length: ' . $length );
-    header( 'Content-Transfer-Encoding: binary' );
-    header( 'X-Content-Type-Options: nosniff' );
-    header( 'X-Accel-Buffering: no' );
-    header( 'X-Robots-Tag: noindex, nofollow' );
-    header( 'Cache-Control: private, no-store, no-cache, must-revalidate, max-age=0' );
-    header( 'Content-Disposition: ' . ( ! empty( $_GET['download'] ) ? 'attachment' : 'inline' ) . '; filename="' . sanitize_file_name( $asset['name'] ?: basename( $path ) ) . '"' );
-
-    $handle = fopen( $path, 'rb' );
-    if ( ! $handle ) {
-        status_header( 500 ); exit;
-    }
-    fseek( $handle, $start );
-    $sent = 0;
-    while ( ! feof( $handle ) && $sent < $length ) {
-        $chunk = min( 1024 * 1024, $length - $sent );
-        echo fread( $handle, $chunk );
-        $sent += $chunk;
-        @flush();
-    }
-    fclose( $handle );
-    exit;
+    hs_lms_stream_file_range( $path, $mime, (string) ( $asset['name'] ?: basename( $path ) ), ! empty( $_GET['download'] ) );
 }
 
 function hs_lms_youtube_embed_url( string $url ): string {
@@ -564,6 +511,19 @@ function hs_lms_render_lesson_media( int $course_id, array $lesson ): string {
     $provider = sanitize_key( $lesson['video_provider'] ?? '' );
     $asset_id = sanitize_key( $lesson['secure_asset_id'] ?? '' );
     $url = esc_url_raw( $lesson['video_url'] ?? '' );
+    // Arquivos locais em uploads passam pelo proxy protegido (matrícula + assinatura).
+    // A URL original continua sendo usada para detectar provider/extensão.
+    $stream_url = ( $url && function_exists( 'hs_lms_protected_media_url' ) )
+        ? hs_lms_protected_media_url( $course_id, $url )
+        : $url;
+
+    // Aulas legadas (JSON antigo) não têm video_provider — inferir pela URL
+    if ( ( $provider === '' || $provider === 'none' ) && $url ) {
+        $host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
+        if ( strpos( $host, 'youtu' ) !== false ) $provider = 'youtube';
+        elseif ( strpos( $host, 'vimeo' ) !== false ) $provider = 'vimeo';
+        else $provider = 'external';
+    }
     $title = sanitize_text_field( $lesson['title'] ?? get_the_title( $course_id ) );
     $watermark = trim( wp_get_current_user()->display_name . ' #' . get_current_user_id() );
     $asset = $asset_id ? hs_lms_find_secure_asset( $course_id, $asset_id ) : false;
@@ -591,10 +551,10 @@ function hs_lms_render_lesson_media( int $course_id, array $lesson ): string {
     <?php elseif ( $url && preg_match( '/\.(mp4|m4v|webm|mov)(\?.*)?$/i', $url ) ) : ?>
         <div class="hs-secure-player" data-watermark="<?php echo esc_attr( $watermark ); ?>">
             <video id="courseVideo" class="hs-native-video" controls controlsList="nodownload noremoteplayback" disablePictureInPicture preload="metadata" playsinline>
-                <source src="<?php echo esc_url( $url ); ?>" type="<?php echo esc_attr( $url_mime ); ?>">
+                <source src="<?php echo esc_url( $stream_url ); ?>" type="<?php echo esc_attr( $url_mime ); ?>">
                 <p><?php _e( 'Seu navegador nao conseguiu abrir este video.', 'hubskills-lms' ); ?></p>
             </video>
-            <a class="hs-video-open-link" href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener"><?php _e( 'Abrir video em nova aba', 'hubskills-lms' ); ?></a>
+            <a class="hs-video-open-link" href="<?php echo esc_url( $stream_url ); ?>" target="_blank" rel="noopener"><?php _e( 'Abrir video em nova aba', 'hubskills-lms' ); ?></a>
             <span class="hs-player-watermark"><?php echo esc_html( $watermark ); ?></span>
         </div>
     <?php endif;
@@ -603,7 +563,13 @@ function hs_lms_render_lesson_media( int $course_id, array $lesson ): string {
 
 function hs_lms_get_resource_url( int $course_id, array $resource ): string {
     $asset_id = sanitize_key( $resource['asset_id'] ?? '' );
-    return $asset_id ? hs_lms_secure_asset_url( $course_id, $asset_id, true ) : esc_url_raw( $resource['url'] ?? '' );
+    if ( $asset_id ) return hs_lms_secure_asset_url( $course_id, $asset_id, true );
+
+    $url = esc_url_raw( $resource['url'] ?? '' );
+    if ( $url && function_exists( 'hs_lms_protected_media_url' ) ) {
+        $url = hs_lms_protected_media_url( $course_id, $url, true );
+    }
+    return $url;
 }
 
 function hs_lms_render_dashboard_tools(): string {

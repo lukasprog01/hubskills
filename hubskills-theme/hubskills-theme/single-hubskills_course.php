@@ -117,9 +117,13 @@ $video_url = $current_lesson['video_url'] ?? '';
                 if ( $media_html ) :
                     echo $media_html;
                 elseif ( $video_url ) :
+                    // Fallback (plugin sem render de mídia): rotear arquivos locais pelo proxy protegido
+                    $fallback_url = function_exists( 'hs_lms_protected_media_url' )
+                        ? hs_lms_protected_media_url( $course_id, $video_url )
+                        : $video_url;
                 ?>
                 <video id="courseVideo" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="100%" height="480" data-setup='{}'>
-                    <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+                    <source src="<?php echo esc_url($fallback_url); ?>" type="video/mp4">
                     <p class="vjs-no-js"><?php _e('Para ver este vídeo, habilite JavaScript.', 'hubskills'); ?></p>
                 </video>
                 <?php else : ?>

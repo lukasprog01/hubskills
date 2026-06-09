@@ -36,6 +36,7 @@ require_once HS_LMS_DIR . 'includes/payments.php';
 require_once HS_LMS_DIR . 'includes/reviews.php';
 require_once HS_LMS_DIR . 'includes/shortcodes.php';
 require_once HS_LMS_DIR . 'includes/ajax.php';
+require_once HS_LMS_DIR . 'includes/secure-media.php';
 require_once HS_LMS_DIR . 'includes/frontend-dashboard.php';
 require_once HS_LMS_DIR . 'includes/rest-api.php';
 if ( is_admin() ) {
