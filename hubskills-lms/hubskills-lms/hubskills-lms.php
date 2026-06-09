@@ -58,6 +58,14 @@ function hs_lms_activate() {
     hs_lms_create_pages();
 }
 
+// Cria páginas novas em instalações já ativas (hs_lms_create_pages pula slugs existentes)
+add_action( 'init', 'hs_lms_maybe_create_new_pages', 20 );
+function hs_lms_maybe_create_new_pages() {
+    if ( get_option( 'hs_lms_pages_version' ) === '2' ) return;
+    hs_lms_create_pages();
+    update_option( 'hs_lms_pages_version', '2' );
+}
+
 register_deactivation_hook( __FILE__, 'hs_lms_deactivate_cleanup' );
 function hs_lms_deactivate_cleanup() {
     do_action( 'hs_lms_deactivate' );
@@ -68,6 +76,7 @@ function hs_lms_create_pages() {
     $pages = [
         'dashboard'          => [ 'title' => 'Dashboard',           'template' => 'page-dashboard.php' ],
         'cursos'             => [ 'title' => 'Cursos',               'template' => 'page-courses.php' ],
+        'meus-cursos'        => [ 'title' => 'Meus Cursos',          'template' => 'page-dashboard-courses.php' ],
         'perfil'             => [ 'title' => 'Meu Perfil',           'template' => 'page-student-profile-enhanced.php' ],
         'certificados'       => [ 'title' => 'Certificados',         'template' => 'page-certificate.php' ],
         'seja-instrutor'     => [ 'title' => 'Seja Instrutor',       'template' => 'page-instructor-register.php' ],

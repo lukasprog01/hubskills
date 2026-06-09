@@ -212,3 +212,14 @@
     padding: 22px !important;
   }
 }
+
+/* ── Cursos no dashboard ────────────────────────────────── */
+.courses-app-page { padding: 8px 0 32px; }
+.dash-section-head { display:flex; align-items:center; justify-content:space-between; gap:16px; margin:8px 0 20px; flex-wrap:wrap; }
+.dash-section-head h2 { font-size:1.35rem; }
+.hs-count-pill { background:rgba(124,58,237,.12); color:var(--primary); font-weight:600; font-size:.85rem; padding:6px 14px; border-radius:99px; white-space:nowrap; }
+.courses-app-page .course-search-panel { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:20px; }
+.courses-app-page .courses-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
+.courses-app-page .pagination-wrap { display:flex; gap:8px; justify-content:center; margin-top:28px; }
+.courses-app-page .page-numbers { padding:8px 14px; border-radius:8px; background:rgba(255,255,255,.06); color:var(--text); text-decoration:none; }
+.courses-app-page .page-numbers.current { background:var(--primary); color:#fff; }

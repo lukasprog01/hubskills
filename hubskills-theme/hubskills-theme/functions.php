@@ -12,6 +12,7 @@ define( 'HUBSKILLS_THEME_PATH', get_template_directory() );
 function hubskills_uses_app_layout(): bool {
     $templates = [
         'page-dashboard.php',
+        'page-dashboard-courses.php',
         'page-profile.php',
         'page-student-profile-enhanced.php',
         'page-certificate.php',

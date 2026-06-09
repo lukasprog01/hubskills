@@ -48,8 +48,8 @@
                         <i class="fas fa-th-large"></i><span><?php _e( 'Dashboard', 'hubskills' ); ?></span>
                     </a>
                 </li>
-                <li class="<?php echo is_page_template('page-courses.php') ? 'active' : ''; ?>">
-                    <a href="<?php echo esc_url( home_url('/cursos/') ); ?>">
+                <li class="<?php echo is_page_template(['page-courses.php','page-dashboard-courses.php']) ? 'active' : ''; ?>">
+                    <a href="<?php echo esc_url( home_url( is_user_logged_in() ? '/meus-cursos/' : '/cursos/' ) ); ?>">
                         <i class="fas fa-graduation-cap"></i><span><?php _e( 'Cursos', 'hubskills' ); ?></span>
                     </a>
                 </li>
