@@ -13,10 +13,10 @@ wordpress-site/
 
 # Builds e pacotes (gerados a partir do codigo)
 dist/
-*.zip
+/*.zip
 
-# Screenshots de preview/QA
-*.png
+# Screenshots de preview/QA (apenas na raiz; imagens do tema sao versionadas)
+/*.png
 
 # Dependencias
 node_modules/

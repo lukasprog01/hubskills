@@ -44,23 +44,26 @@ function hubskills_theme_setup() {
 // ─── Scripts & Styles ────────────────────────────────────────────────────────
 add_action( 'wp_enqueue_scripts', 'hubskills_enqueue_assets' );
 function hubskills_enqueue_assets() {
-    // Google Fonts
-    wp_enqueue_style( 'hubskills-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap', [], null );
+    // Bibliotecas locais (assets/vendor) — sem dependência de CDN externo (LGPD/desempenho)
+    $vendor = HUBSKILLS_THEME_URL . '/assets/vendor';
+
+    // Google Fonts (Poppins + Inter) servidas localmente
+    wp_enqueue_style( 'hubskills-fonts', $vendor . '/fonts/fonts.css', [], HUBSKILLS_THEME_VERSION );
 
     // Bootstrap 5
-    wp_enqueue_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css', [], '5.3.2' );
+    wp_enqueue_style( 'bootstrap', $vendor . '/bootstrap/bootstrap.min.css', [], '5.3.2' );
 
     // Font Awesome
-    wp_enqueue_style( 'fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', [], '6.5.1' );
+    wp_enqueue_style( 'fontawesome', $vendor . '/fontawesome/css/all.min.css', [], '6.5.1' );
 
     // AOS
-    wp_enqueue_style( 'aos', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css', [], '2.3.4' );
+    wp_enqueue_style( 'aos', $vendor . '/aos/aos.css', [], '2.3.4' );
 
     // Swiper
-    wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', [], '11' );
+    wp_enqueue_style( 'swiper', $vendor . '/swiper/swiper-bundle.min.css', [], '11' );
 
     // Video.js
-    wp_enqueue_style( 'videojs', 'https://vjs.zencdn.net/8.6.1/video-js.css', [], '8.6.1' );
+    wp_enqueue_style( 'videojs', $vendor . '/videojs/video-js.css', [], '8.6.1' );
 
     // Theme CSS
     $main_css_version = file_exists( HUBSKILLS_THEME_PATH . '/assets/css/main.css' )
@@ -77,29 +80,29 @@ function hubskills_enqueue_assets() {
     }
 
     // Bootstrap JS
-    wp_enqueue_script( 'bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', [], '5.3.2', true );
+    wp_enqueue_script( 'bootstrap-bundle', $vendor . '/bootstrap/bootstrap.bundle.min.js', [], '5.3.2', true );
 
     // AOS
-    wp_enqueue_script( 'aos-js', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js', [], '2.3.4', true );
+    wp_enqueue_script( 'aos-js', $vendor . '/aos/aos.js', [], '2.3.4', true );
 
     // GSAP
-    wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js', [], '3.12.5', true );
-    wp_enqueue_script( 'gsap-scroll', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js', [ 'gsap' ], '3.12.5', true );
+    wp_enqueue_script( 'gsap', $vendor . '/gsap/gsap.min.js', [], '3.12.5', true );
+    wp_enqueue_script( 'gsap-scroll', $vendor . '/gsap/ScrollTrigger.min.js', [ 'gsap' ], '3.12.5', true );
 
     // Swiper
-    wp_enqueue_script( 'swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], '11', true );
+    wp_enqueue_script( 'swiper-js', $vendor . '/swiper/swiper-bundle.min.js', [], '11', true );
 
     // Chart.js
-    wp_enqueue_script( 'chartjs', 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js', [], '4.4.2', true );
+    wp_enqueue_script( 'chartjs', $vendor . '/chartjs/chart.umd.min.js', [], '4.4.2', true );
 
     // Particles.js
-    wp_enqueue_script( 'particles', 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js', [], '2.0.0', true );
+    wp_enqueue_script( 'particles', $vendor . '/particles/particles.min.js', [], '2.0.0', true );
 
     // Video.js
-    wp_enqueue_script( 'videojs', 'https://vjs.zencdn.net/8.6.1/video.min.js', [], '8.6.1', true );
+    wp_enqueue_script( 'videojs', $vendor . '/videojs/video.min.js', [], '8.6.1', true );
 
     // VanillaTilt
-    wp_enqueue_script( 'vanillatilt', 'https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js', [], '1.8.1', true );
+    wp_enqueue_script( 'vanillatilt', $vendor . '/vanilla-tilt/vanilla-tilt.min.js', [], '1.8.1', true );
 
     // Theme JS
     wp_enqueue_script( 'hubskills-theme', HUBSKILLS_THEME_URL . '/assets/js/theme.js', [ 'jquery', 'bootstrap-bundle', 'gsap', 'swiper-js', 'chartjs' ], HUBSKILLS_THEME_VERSION, true );
