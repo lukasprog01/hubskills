@@ -1,0 +1,28 @@
+# Segredos
+.env
+
+# Perfis de navegador e runtime de testes (gerados automaticamente)
+.chrome-profile*/
+.edge-profile*/
+.runtime/
+.sixth/
+.opencode/
+
+# Instalacao WordPress local de testes (nao e codigo-fonte)
+wordpress-site/
+
+# Builds e pacotes (gerados a partir do codigo)
+dist/
+*.zip
+
+# Screenshots de preview/QA
+*.png
+
+# Dependencias
+node_modules/
+vendor/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini

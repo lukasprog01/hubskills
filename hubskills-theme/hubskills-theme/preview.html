@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview HubSkills Theme</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .row { display: flex; flex-wrap: wrap; margin: 0 -12px; }
+    .g-4 { row-gap: 24px; }
+    .col-md-4 { width: 33.333%; padding: 0 12px; }
+    .navbar { display: flex; align-items: center; justify-content: space-between; }
+    .navbar-collapse { display: flex; align-items: center; justify-content: space-between; flex: 1; }
+    .navbar-nav { display: flex; align-items: center; margin: 0 auto; }
+    .nav-item a { display: block; }
+    .header-cta { display: flex; }
+    .fa-headset::before { content: "☝"; }
+    .fa-check::before { content: "✓"; }
+    @media (max-width: 768px) {
+      .col-md-4 { width: 100%; }
+      .navbar, .navbar-collapse, .navbar-nav { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="promo-banner">
+    <span class="promo-brand">Hubforms:</span>
+    Seu checklist Digital com vantagens exclusivas para membros Hubskills.
+    <a href="#">Clique aqui</a>
+  </div>
+
+  <header class="site-header">
+    <div class="container-xl">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+          <img class="brand-logo" src="assets/images/hubskills-logo.png" alt="HubSkills">
+        </a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item current-menu-item"><a href="#">Home</a></li>
+            <li class="nav-item"><a href="#courses">Todos os cursos</a></li>
+            <li class="nav-item"><a href="#">Contatos</a></li>
+            <li class="nav-item"><a href="#">Blog</a></li>
+          </ul>
+          <div class="header-cta">
+            <a href="#" class="btn btn-student btn-sm">Área do Aluno</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section" data-page="home">
+      <div class="container-xl hero-container">
+        <div class="hero-copy">
+          <p class="hero-pretitle">HubSkills, aprendizagem quando e onde você quiser</p>
+          <h1 class="hero-title"><span aria-hidden="true">🚀</span> Desenvolvimento alinhado à sua rotina!</h1>
+          <p class="hero-desc">Transformando conhecimento digital em mudanças reais.</p>
+          <div class="hero-cta">
+            <a href="#" class="btn btn-yellow btn-lg">Começar Cursos Agora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories-section">
+      <div class="container-xl">
+        <div class="row g-4 categories-row">
+          <div class="col-md-4">
+            <article class="category-card">
+              <img class="category-image" src="assets/images/category-safety.jpg" alt="Segurança do Trabalho">
+              <div class="category-content">
+                <h3>Segurança do Trabalho</h3>
+                <p>Conheça práticas essenciais para proteger colaboradores e garantir ambientes seguros.</p>
+                <a href="#" class="btn btn-primary btn-sm category-btn">Ver Categoria</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="category-card">
+              <img class="category-image" src="assets/images/category-management.jpg" alt="Gestão Pedagógica">
+              <div class="category-content">
+                <h3>Gestão Pedagógica</h3>
+                <p>Explore estratégias educacionais para liderar equipes e transformar o aprendizado.</p>
+                <a href="#" class="btn btn-primary btn-sm category-btn">Ver Categoria</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="category-card">
+              <img class="category-image" src="assets/images/category-health.jpg" alt="Saúde">
+              <div class="category-content">
+                <h3>Saúde</h3>
+                <p>Aprenda sobre bem-estar físico e mental para promover qualidade de vida no trabalho.</p>
+                <a href="#" class="btn btn-primary btn-sm category-btn">Ver Categoria</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits-section">
+      <div class="container-xl benefits-container">
+        <div class="section-header">
+          <h2>Por que escolher a <span>Hubskills.com.br</span>?</h2>
+        </div>
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon benefit-icon--support"><i class="fas fa-headset"></i></div>
+            <div class="benefit-content">
+              <h3>Suporte Humanizado</h3>
+              <p>Equipe pronta para te acompanhar de perto, com respostas rápidas e foco na sua jornada de aprendizado.</p>
+            </div>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon benefit-icon--cert"><i class="fas fa-check"></i></div>
+            <div class="benefit-content">
+              <h3>Certificação Reconhecida</h3>
+              <p>Ao concluir cada curso, você recebe certificados válidos que valorizam seu perfil profissional.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

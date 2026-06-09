@@ -1,0 +1,5 @@
+/* HubSkills LMS — Admin Styles */
+.hs-meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; padding:16px 0; }
+.hs-field { display:flex; flex-direction:column; gap:4px; }
+.hs-field label { font-weight:600; font-size:12px; text-transform:uppercase; color:#666; }
+.hs-field input, .hs-field select { border:1px solid #ddd; border-radius:4px; padding:6px 10px; }

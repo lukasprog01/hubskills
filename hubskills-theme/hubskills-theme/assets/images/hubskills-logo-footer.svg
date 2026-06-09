@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="88" viewBox="0 0 260 88" role="img" aria-labelledby="title desc">
+  <title id="title">HubSkills</title>
+  <desc id="desc">Logo vetorial da plataforma HubSkills para rodapé escuro</desc>
+  <defs>
+    <linearGradient id="mark" x1="18" y1="15" x2="80" y2="72" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#58A6FF"/>
+      <stop offset="1" stop-color="#04D4E8"/>
+    </linearGradient>
+    <linearGradient id="skills" x1="152" y1="24" x2="250" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#66B4FF"/>
+      <stop offset="1" stop-color="#16D5EA"/>
+    </linearGradient>
+    <filter id="glow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#04D4E8" flood-opacity=".2"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#glow)">
+    <path d="M42 15 75 30 42 45 9 30 42 15Z" fill="url(#mark)"/>
+    <path d="M20 38 42 48 64 38v15c0 9-10 16-22 16s-22-7-22-16V38Z" fill="#2085FF"/>
+    <path d="M70 32v23" stroke="#16D5EA" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="70" cy="61" r="5" fill="#16D5EA"/>
+    <path d="M42 15 75 30 42 45 9 30 42 15Z" fill="none" stroke="#FFFFFF" stroke-opacity=".72" stroke-width="2"/>
+  </g>
+
+  <text x="94" y="48" font-family="Poppins, Inter, Arial, sans-serif" font-size="32" font-weight="800" letter-spacing="-.4">
+    <tspan fill="#FFFFFF">Hub</tspan><tspan fill="url(#skills)">Skills</tspan>
+  </text>
+  <text x="96" y="68" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800" letter-spacing="2.1" fill="#A7B6CE">
+    EAD FRAMEWORK
+  </text>
+</svg>
