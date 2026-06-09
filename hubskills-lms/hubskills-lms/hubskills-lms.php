@@ -34,6 +34,7 @@ require_once HS_LMS_DIR . 'includes/certificates.php';
 require_once HS_LMS_DIR . 'includes/instructors.php';
 require_once HS_LMS_DIR . 'includes/payments.php';
 require_once HS_LMS_DIR . 'includes/refunds.php';
+require_once HS_LMS_DIR . 'includes/privacy.php';
 require_once HS_LMS_DIR . 'includes/reviews.php';
 require_once HS_LMS_DIR . 'includes/shortcodes.php';
 require_once HS_LMS_DIR . 'includes/ajax.php';
