@@ -188,3 +188,58 @@ function hs_ajax_get_notes() {
 
     wp_send_json_success( [ 'content' => $notes ] );
 }
+
+// ── Edição de perfil no frontend (sem wp-admin) ────────────────────────────
+add_action( 'wp_ajax_hs_update_profile', 'hs_ajax_update_profile' );
+function hs_ajax_update_profile() {
+    hs_ajax_check();
+
+    $user_id = get_current_user_id();
+    $display_name = sanitize_text_field( wp_unslash( $_POST['display_name'] ?? '' ) );
+    $email        = sanitize_email( wp_unslash( $_POST['email'] ?? '' ) );
+    $password     = (string) ( $_POST['new_password'] ?? '' );
+    $password2    = (string) ( $_POST['new_password_confirm'] ?? '' );
+
+    if ( mb_strlen( $display_name ) < 2 ) {
+        wp_send_json_error( [ 'message' => __( 'Informe um nome válido.', 'hubskills-lms' ) ], 400 );
+    }
+    if ( ! is_email( $email ) ) {
+        wp_send_json_error( [ 'message' => __( 'Informe um e-mail válido.', 'hubskills-lms' ) ], 400 );
+    }
+    $existing = email_exists( $email );
+    if ( $existing && (int) $existing !== $user_id ) {
+        wp_send_json_error( [ 'message' => __( 'Este e-mail já está em uso por outra conta.', 'hubskills-lms' ) ], 400 );
+    }
+
+    $data = [
+        'ID'           => $user_id,
+        'display_name' => $display_name,
+        'user_email'   => $email,
+    ];
+
+    if ( $password !== '' ) {
+        if ( strlen( $password ) < 8 ) {
+            wp_send_json_error( [ 'message' => __( 'A nova senha precisa ter ao menos 8 caracteres.', 'hubskills-lms' ) ], 400 );
+        }
+        if ( $password !== $password2 ) {
+            wp_send_json_error( [ 'message' => __( 'A confirmação de senha não confere.', 'hubskills-lms' ) ], 400 );
+        }
+        $data['user_pass'] = $password;
+    }
+
+    $result = wp_update_user( $data );
+    if ( is_wp_error( $result ) ) {
+        wp_send_json_error( [ 'message' => $result->get_error_message() ], 500 );
+    }
+
+    if ( function_exists( 'hs_audit_log' ) ) {
+        hs_audit_log( $user_id, 'update_profile', 'Perfil atualizado pelo dashboard' );
+    }
+
+    // Senha alterada derruba a sessão atual — reautentica para manter o usuário logado
+    if ( $password !== '' ) {
+        wp_set_auth_cookie( $user_id, true );
+    }
+
+    wp_send_json_success( [ 'message' => __( 'Perfil atualizado com sucesso!', 'hubskills-lms' ) ] );
+}

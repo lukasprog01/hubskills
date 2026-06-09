@@ -143,7 +143,7 @@ get_header();
             <?php elseif ($tab === 'courses') : ?>
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
                 <h3><?php _e('Meus Cursos','hubskills-lms'); ?></h3>
-                <a href="<?php echo esc_url(admin_url('post-new.php?post_type=hubskills_course')); ?>" class="btn btn-gradient btn-sm">
+                <a href="<?php echo esc_url(home_url('/dashboard/')); ?>" class="btn btn-gradient btn-sm">
                     <i class="fas fa-plus me-1"></i><?php _e('Novo Curso','hubskills-lms'); ?>
                 </a>
             </div>
@@ -176,7 +176,7 @@ get_header();
                             <span style="color:var(--primary);font-weight:600"><?php echo esc_html($price); ?></span>
                         </div>
                         <div style="display:flex;gap:8px;margin-top:12px">
-                            <a href="<?php echo esc_url(get_edit_post_link($c->ID)); ?>" class="btn btn-sm" style="flex:1;text-align:center;font-size:12px;padding:6px"><?php _e('Editar','hubskills-lms'); ?></a>
+                            <a href="<?php echo esc_url( home_url('/dashboard/') ); ?>" class="btn btn-sm" style="flex:1;text-align:center;font-size:12px;padding:6px"><?php _e('Editar','hubskills-lms'); ?></a>
                             <a href="<?php echo esc_url(get_permalink($c->ID)); ?>" class="btn btn-sm" style="flex:1;text-align:center;font-size:12px;padding:6px" target="_blank"><?php echo $is_enrolled ? esc_html__( 'Estudar', 'hubskills-lms' ) : esc_html__( 'Ver', 'hubskills-lms' ); ?></a>
                         </div>
                     </div>
@@ -187,7 +187,7 @@ get_header();
                 <div style="font-size:56px">📚</div>
                 <h3><?php _e('Nenhum curso ainda','hubskills-lms'); ?></h3>
                 <p style="color:var(--text-muted)"><?php _e('Crie seu primeiro curso e comece a ensinar!','hubskills-lms'); ?></p>
-                <a href="<?php echo esc_url(admin_url('post-new.php?post_type=hubskills_course')); ?>" class="btn btn-gradient"><?php _e('Criar Primeiro Curso','hubskills-lms'); ?></a>
+                <a href="<?php echo esc_url(home_url('/dashboard/')); ?>" class="btn btn-gradient"><?php _e('Criar Primeiro Curso','hubskills-lms'); ?></a>
             </div>
             <?php endif; ?>
 

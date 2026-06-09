@@ -33,7 +33,7 @@ $xp_pct  = $xp_next > $xp_prev ? round((($xp-$xp_prev)/($xp_next-$xp_prev))*100)
                     <span><i class="fas fa-medal"></i> <?php echo count($badges); ?> <?php _e('conquistas', 'hubskills'); ?></span>
                 </div>
             </div>
-            <a href="<?php echo esc_url(admin_url('profile.php')); ?>" class="btn btn-ghost btn-sm">
+            <a href="<?php echo esc_url( home_url('/perfil/?tab=settings') ); ?>" class="btn btn-ghost btn-sm">
                 <i class="fas fa-edit me-1"></i><?php _e('Editar Perfil', 'hubskills'); ?>
             </a>
         </div>

@@ -68,7 +68,7 @@
             <div class="nav-section-label" style="margin-top: 24px"><?php _e( 'Configurações', 'hubskills' ); ?></div>
             <ul>
                 <li>
-                    <a href="<?php echo esc_url( admin_url('profile.php') ); ?>">
+                    <a href="<?php echo esc_url( home_url('/perfil/?tab=settings') ); ?>">
                         <i class="fas fa-cog"></i><span><?php _e( 'Configurações', 'hubskills' ); ?></span>
                     </a>
                 </li>

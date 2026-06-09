@@ -262,12 +262,46 @@ get_header();
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:800px">
                 <div class="glass-card">
                     <h4><?php _e('Informações da Conta','hubskills-lms'); ?></h4>
-                    <div style="font-size:14px;color:var(--text-muted);line-height:2">
-                        <div><strong style="color:var(--text)"><?php _e('Nome:','hubskills-lms'); ?></strong> <?php echo esc_html($user->display_name); ?></div>
-                        <div><strong style="color:var(--text)"><?php _e('Email:','hubskills-lms'); ?></strong> <?php echo esc_html($user->user_email); ?></div>
-                        <div><strong style="color:var(--text)"><?php _e('Cadastro:','hubskills-lms'); ?></strong> <?php echo esc_html(date_i18n('d/m/Y',strtotime($user->user_registered))); ?></div>
-                    </div>
-                    <a href="<?php echo esc_url(admin_url('profile.php')); ?>" class="btn btn-sm mt-3" style="font-size:13px"><?php _e('Editar no WordPress','hubskills-lms'); ?></a>
+                    <form id="hs-profile-form" style="display:flex;flex-direction:column;gap:12px;font-size:14px">
+                        <label style="display:flex;flex-direction:column;gap:4px;color:var(--text-muted)"><?php _e('Nome','hubskills-lms'); ?>
+                            <input type="text" name="display_name" value="<?php echo esc_attr($user->display_name); ?>" required minlength="2" style="padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:var(--text)">
+                        </label>
+                        <label style="display:flex;flex-direction:column;gap:4px;color:var(--text-muted)"><?php _e('E-mail','hubskills-lms'); ?>
+                            <input type="email" name="email" value="<?php echo esc_attr($user->user_email); ?>" required style="padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:var(--text)">
+                        </label>
+                        <label style="display:flex;flex-direction:column;gap:4px;color:var(--text-muted)"><?php _e('Nova senha (opcional)','hubskills-lms'); ?>
+                            <input type="password" name="new_password" minlength="8" autocomplete="new-password" placeholder="<?php esc_attr_e('Deixe em branco para manter','hubskills-lms'); ?>" style="padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:var(--text)">
+                        </label>
+                        <label style="display:flex;flex-direction:column;gap:4px;color:var(--text-muted)"><?php _e('Confirmar nova senha','hubskills-lms'); ?>
+                            <input type="password" name="new_password_confirm" autocomplete="new-password" style="padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:var(--text)">
+                        </label>
+                        <div style="font-size:12px;color:var(--text-muted)"><?php _e('Cadastro:','hubskills-lms'); ?> <?php echo esc_html(date_i18n('d/m/Y',strtotime($user->user_registered))); ?></div>
+                        <button type="submit" class="btn btn-gradient btn-sm" style="align-self:flex-start"><?php _e('Salvar alterações','hubskills-lms'); ?></button>
+                        <div id="hs-profile-msg" style="font-size:13px;display:none"></div>
+                    </form>
+                    <script>
+                    document.getElementById('hs-profile-form').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        var form = this, msg = document.getElementById('hs-profile-msg');
+                        var data = new FormData(form);
+                        data.append('action', 'hs_update_profile');
+                        data.append('nonce', '<?php echo esc_js( wp_create_nonce('hubskills_nonce') ); ?>');
+                        form.querySelector('button[type=submit]').disabled = true;
+                        fetch('<?php echo esc_js( admin_url('admin-ajax.php') ); ?>', { method: 'POST', credentials: 'same-origin', body: data })
+                            .then(function(r){ return r.json(); })
+                            .then(function(res) {
+                                msg.style.display = 'block';
+                                msg.style.color = res.success ? '#10b981' : '#ef4444';
+                                msg.textContent = (res.data && res.data.message) ? res.data.message : 'Erro ao salvar.';
+                                form.querySelector('button[type=submit]').disabled = false;
+                                if (res.success) setTimeout(function(){ location.reload(); }, 1200);
+                            })
+                            .catch(function() {
+                                msg.style.display = 'block'; msg.style.color = '#ef4444'; msg.textContent = 'Erro de conexão.';
+                                form.querySelector('button[type=submit]').disabled = false;
+                            });
+                    });
+                    </script>
                 </div>
                 <div class="glass-card" style="border:1px solid rgba(239,68,68,.3)">
                     <h4 style="color:#ef4444"><?php _e('Zona de Perigo','hubskills-lms'); ?></h4>

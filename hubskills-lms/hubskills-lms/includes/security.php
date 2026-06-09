@@ -294,3 +294,42 @@ function hs_verify_request( string $action = 'hubskills_nonce', bool $require_lo
         wp_send_json_error( [ 'message' => __( 'Você precisa estar logado.', 'hubskills-lms' ) ], 401 );
     }
 }
+
+// ── Bloqueio do painel WordPress para alunos e instrutores ─────────────────
+/**
+ * Alunos e instrutores vivem 100% no dashboard frontend. Qualquer tentativa
+ * de acessar o wp-admin redireciona para o dashboard. AJAX continua liberado
+ * (o frontend depende do admin-ajax.php). Administradores não são afetados.
+ */
+function hs_lms_user_is_dashboard_only( int $user_id ): bool {
+    if ( ! $user_id ) return false;
+    if ( user_can( $user_id, 'manage_options' ) ) return false;
+    if ( function_exists( 'hs_is_hs_admin' ) && hs_is_hs_admin( $user_id ) ) return false;
+    $role = function_exists( 'hs_get_user_role' ) ? hs_get_user_role( $user_id ) : false;
+    return in_array( $role, [ 'hs_student', 'hs_instructor' ], true );
+}
+
+add_action( 'admin_init', 'hs_lms_block_wp_admin' );
+function hs_lms_block_wp_admin() {
+    if ( wp_doing_ajax() ) return;
+    if ( hs_lms_user_is_dashboard_only( get_current_user_id() ) ) {
+        wp_safe_redirect( home_url( '/dashboard/' ) );
+        exit;
+    }
+}
+
+// Esconde a barra de admin (que tem links para o wp-admin)
+add_filter( 'show_admin_bar', 'hs_lms_hide_admin_bar' );
+function hs_lms_hide_admin_bar( $show ) {
+    if ( hs_lms_user_is_dashboard_only( get_current_user_id() ) ) return false;
+    return $show;
+}
+
+// Após o login, aluno/instrutor vai direto para o dashboard
+add_filter( 'login_redirect', 'hs_lms_login_redirect', 10, 3 );
+function hs_lms_login_redirect( $redirect_to, $requested, $user ) {
+    if ( $user instanceof WP_User && hs_lms_user_is_dashboard_only( (int) $user->ID ) ) {
+        return home_url( '/dashboard/' );
+    }
+    return $redirect_to;
+}
