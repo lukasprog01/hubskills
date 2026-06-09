@@ -19,15 +19,19 @@
 - `xmlrpc.php` desativado via filtro.
 - Chaves/salts do `wp-config.php` substituidas por valores unicos locais.
 
+## Corrigido na rodada de 09/06/2026
+
+- Builder visual de curriculo/quizzes no wp-admin (drag-and-drop de modulos, aulas e questoes; JSON segue disponivel no modo avancado; sanitizacao centralizada no save).
+- Midia local protegida: URLs de arquivos em uploads trocadas por URLs assinadas (HMAC + expiracao 6h) servidas por proxy que valida login, assinatura e matricula, com allowlist de extensoes e HTTP Range. Aulas legadas sem video_provider inferem o provider pela URL.
+- Workflow de reembolso: aluno solicita em "Meus pedidos" no perfil (janela configuravel, padrao 7 dias - CDC art. 49); admin aprova/nega na pagina de Pedidos; notificacoes por e-mail e audit log.
+- LGPD: consentimento obrigatorio no cadastro (data + versao da politica), exportador e apagador integrados as ferramentas nativas do WP, retencao documentada (pedidos/certificados), texto sugerido de politica de privacidade.
+- Suite de testes automatizados: 39 testes em tests/ (rodar com `php tests/run-tests.php`) cobrindo preco, sanitizacao de curriculo/quiz, midia assinada, path traversal, elegibilidade de reembolso e embeds.
+- CDNs eliminados: 15 bibliotecas + Google Fonts (28 woff2) servidas localmente de assets/vendor.
+
 ## Ainda falta para producao
 
 - Configurar HTTPS real, dominio final, SMTP transacional e backups.
 - Configurar e testar credenciais reais de Stripe/PayPal/Mercado Pago/PagSeguro/PIX.
 - Validar webhooks em ambiente publico com logs e retentativas.
-- Definir politica de reembolso e workflow de solicitacao para alunos.
-- Criar builder visual de curriculo/quizzes; hoje o admin ainda depende de JSON em metabox.
-- Proteger arquivos e videos privados; URLs diretas de video ainda precisam de estrategia de media privada/CDN.
-- Criar testes automatizados para matricula, pagamento, progresso, certificados, quizzes e permissoes.
-- Revisar LGPD: politica de privacidade, consentimento, exportacao/exclusao de dados e retencao.
-- Trocar dependencias de CDN por assets locais ou configurar CSP/SRI quando o ambiente final exigir mais controle.
 - Criar conteudo real, categorias/termos e menu final no WordPress ativo.
+- (Opcional) Estornar automaticamente no gateway ao aprovar reembolso - hoje o estorno financeiro e manual no painel do gateway.
