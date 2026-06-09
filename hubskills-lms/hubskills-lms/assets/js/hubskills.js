@@ -893,3 +893,36 @@ function escAttr(str) {
 }
 
 })();
+
+/* ── Reembolso: solicitação pelo aluno ───────────────────── */
+(function() {
+    'use strict';
+    if (typeof HSLMS === 'undefined') return;
+
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.hs-request-refund');
+        if (!btn) return;
+
+        var orderId = btn.getAttribute('data-order');
+        var reason = prompt('Por que você deseja o reembolso? (mínimo 10 caracteres)');
+        if (reason === null) return;
+        if (reason.trim().length < 10) { alert('Descreva o motivo com pelo menos 10 caracteres.'); return; }
+
+        btn.disabled = true;
+        var data = new URLSearchParams({
+            action: 'hs_request_refund',
+            nonce: HSLMS.nonce,
+            order_id: orderId,
+            reason: reason.trim()
+        });
+
+        fetch(HSLMS.ajaxurl, { method: 'POST', credentials: 'same-origin', body: data })
+            .then(function(r) { return r.json(); })
+            .then(function(res) {
+                alert(res.data && res.data.message ? res.data.message : (res.success ? 'Solicitação enviada!' : 'Erro ao enviar.'));
+                if (res.success) location.reload();
+                else btn.disabled = false;
+            })
+            .catch(function() { alert('Erro de conexão.'); btn.disabled = false; });
+    });
+})();

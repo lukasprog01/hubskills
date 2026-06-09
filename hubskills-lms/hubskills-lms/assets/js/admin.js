@@ -69,6 +69,22 @@
         hsAdminAjax('hs_admin_mark_order_paid', { order_id: oid });
     });
 
+    // ── Refund Request Review ─────────────────────────────────────────────────
+    $(document).on('click', '.hs-approve-refund', function() {
+        var oid = $(this).data('oid');
+        if (!confirm('Aprovar o reembolso do pedido #' + oid + '? O aluno será des-matriculado e notificado por e-mail.')) return;
+        var note = prompt('Observação para o aluno (opcional):') || '';
+        hsAdminAjax('hs_admin_review_refund', { order_id: oid, decision: 'approve', note: note });
+    });
+
+    $(document).on('click', '.hs-deny-refund', function() {
+        var oid  = $(this).data('oid');
+        var note = prompt('Motivo da negativa (será enviado ao aluno):');
+        if (note === null) return;
+        if (!note.trim()) { alert('Informe o motivo da negativa.'); return; }
+        hsAdminAjax('hs_admin_review_refund', { order_id: oid, decision: 'deny', note: note });
+    });
+
     // ── Unblock IP ────────────────────────────────────────────────────────────
     $(document).on('click', '#hs-unblock-btn', function() {
         var ip = $('#hs-unblock-ip').val().trim();

@@ -122,6 +122,14 @@ $xp_pct  = $xp_next > $xp_prev ? round((($xp-$xp_prev)/($xp_next-$xp_prev))*100)
             </div>
         </div>
     </div>
+
+    <?php if ( function_exists( 'hs_lms_render_my_orders' ) ) : ?>
+    <div class="row mt-4" data-aos="fade-up">
+        <div class="col-12">
+            <?php echo hs_lms_render_my_orders(); ?>
+        </div>
+    </div>
+    <?php endif; ?>
 </div>
 
 <?php get_footer(); ?>

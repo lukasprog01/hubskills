@@ -464,21 +464,38 @@ function hs_admin_page_orders() {
                 $user    = get_userdata($uid);
                 $colors  = ['paid'=>'#10b981','pending'=>'#f59e0b','refunded'=>'#06b6d4','failed'=>'#ef4444'];
                 $scolor  = $colors[$ostatus] ?? '#999';
+                $refund_req = function_exists('hs_lms_get_refund_request') ? hs_lms_get_refund_request($order->ID) : [];
+                $has_pending_refund = ($refund_req['status'] ?? '') === 'pending';
                 ?>
-                <tr>
+                <tr<?php if ($has_pending_refund) echo ' style="background:#fffbeb"'; ?>>
                     <td>#<?php echo (int)$order->ID; ?></td>
                     <td><?php echo $user ? esc_html($user->display_name) : '#'.$uid; ?></td>
                     <td><?php echo esc_html(get_the_title($cid)); ?></td>
                     <td>R$ <?php echo number_format($amount, 2, ',', '.'); ?></td>
                     <td><?php echo esc_html(strtoupper($gateway)); ?></td>
-                    <td><span style="color:<?php echo esc_attr($scolor); ?>;font-weight:600">● <?php echo esc_html(ucfirst($ostatus)); ?></span></td>
+                    <td>
+                        <span style="color:<?php echo esc_attr($scolor); ?>;font-weight:600">● <?php echo esc_html(ucfirst($ostatus)); ?></span>
+                        <?php if ($has_pending_refund) : ?>
+                        <br><span style="color:#b45309;font-size:11px;font-weight:600">⚠ <?php _e('Reembolso solicitado','hubskills-lms'); ?></span>
+                        <?php elseif (!empty($refund_req['status'])) : ?>
+                        <br><span style="color:#666;font-size:11px"><?php echo $refund_req['status']==='approved' ? esc_html__('Reembolso aprovado','hubskills-lms') : esc_html__('Reembolso negado','hubskills-lms'); ?></span>
+                        <?php endif; ?>
+                    </td>
                     <td><?php echo esc_html($created); ?></td>
                     <td>
-                        <?php if ($ostatus === 'pending') : ?>
-                        <button class="button button-small button-primary hs-mark-order-paid" data-oid="<?php echo (int)$order->ID; ?>"><?php _e('Marcar pago','hubskills-lms'); ?></button>
-                        <?php endif; ?>
-                        <?php if ($ostatus === 'paid') : ?>
-                        <button class="button button-small hs-refund-order" data-oid="<?php echo (int)$order->ID; ?>"><?php _e('Reembolsar','hubskills-lms'); ?></button>
+                        <?php if ($has_pending_refund) : ?>
+                        <div style="margin-bottom:6px;font-size:12px;color:#555;max-width:240px" title="<?php echo esc_attr($refund_req['reason'] ?? ''); ?>">
+                            <strong><?php _e('Motivo:','hubskills-lms'); ?></strong> <?php echo esc_html(wp_trim_words($refund_req['reason'] ?? '', 14, '…')); ?>
+                        </div>
+                        <button class="button button-small button-primary hs-approve-refund" data-oid="<?php echo (int)$order->ID; ?>"><?php _e('Aprovar reembolso','hubskills-lms'); ?></button>
+                        <button class="button button-small hs-deny-refund" data-oid="<?php echo (int)$order->ID; ?>"><?php _e('Negar','hubskills-lms'); ?></button>
+                        <?php else : ?>
+                            <?php if ($ostatus === 'pending') : ?>
+                            <button class="button button-small button-primary hs-mark-order-paid" data-oid="<?php echo (int)$order->ID; ?>"><?php _e('Marcar pago','hubskills-lms'); ?></button>
+                            <?php endif; ?>
+                            <?php if ($ostatus === 'paid') : ?>
+                            <button class="button button-small hs-refund-order" data-oid="<?php echo (int)$order->ID; ?>"><?php _e('Reembolsar','hubskills-lms'); ?></button>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </td>
                 </tr>

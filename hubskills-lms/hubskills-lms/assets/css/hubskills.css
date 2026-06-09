@@ -686,3 +686,21 @@
     flex-direction: column;
   }
 }
+
+/* ── Meus pedidos / reembolso ───────────────────────────── */
+.hs-my-orders { background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:24px; }
+.hs-my-orders h3 { margin:0 0 4px; font-size:1.1rem; display:flex; align-items:center; gap:8px; }
+.hs-orders-hint { color:#6b7280; font-size:.85rem; margin:0 0 16px; }
+.hs-orders-table { width:100%; border-collapse:collapse; font-size:.9rem; }
+.hs-orders-table th { text-align:left; color:#6b7280; font-size:.75rem; text-transform:uppercase; letter-spacing:.03em; padding:8px 10px; border-bottom:1px solid #e5e7eb; }
+.hs-orders-table td { padding:10px; border-bottom:1px solid #f3f4f6; vertical-align:middle; }
+.hs-order-status { font-weight:600; font-size:.8rem; padding:3px 10px; border-radius:99px; background:#f3f4f6; color:#374151; }
+.hs-order-paid { background:#ecfdf5; color:#047857; }
+.hs-order-pending { background:#fffbeb; color:#b45309; }
+.hs-order-refunded { background:#ecfeff; color:#0e7490; }
+.hs-order-failed, .hs-order-canceled { background:#fef2f2; color:#b91c1c; }
+.hs-refund-status { display:inline-block; margin-left:6px; font-size:.75rem; font-weight:600; padding:2px 8px; border-radius:99px; }
+.hs-refund-pending { background:#fffbeb; color:#b45309; }
+.hs-refund-approved { background:#ecfdf5; color:#047857; }
+.hs-refund-denied { background:#fef2f2; color:#b91c1c; }
+@media (max-width:640px) { .hs-orders-table th:nth-child(5), .hs-orders-table td:nth-child(5) { white-space:nowrap; } }
