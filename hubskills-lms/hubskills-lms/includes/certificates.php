@@ -12,6 +12,7 @@ function hs_certificate_templates(): array {
 function hs_certificate_default_course_settings( int $course_id ): array {
     return [
         'template'        => 'modern',
+        'auto_issue'      => '1',
         'course_workload' => get_post_meta( $course_id, '_hs_duration', true ),
         'instructor_name' => get_post_meta( $course_id, '_hs_instructor', true ),
         'issuer_name'     => get_bloginfo( 'name' ) ?: 'HubSkills',
@@ -30,6 +31,7 @@ function hs_certificate_sanitize_course_settings( array $settings ): array {
 
     return [
         'template'        => $template,
+        'auto_issue'      => ( $settings['auto_issue'] ?? '1' ) === '0' ? '0' : '1',
         'course_workload' => sanitize_text_field( wp_unslash( $settings['course_workload'] ?? '' ) ),
         'instructor_name' => sanitize_text_field( wp_unslash( $settings['instructor_name'] ?? '' ) ),
         'issuer_name'     => sanitize_text_field( wp_unslash( $settings['issuer_name'] ?? '' ) ),
@@ -39,19 +41,41 @@ function hs_certificate_sanitize_course_settings( array $settings ): array {
     ];
 }
 
-function hs_certificate_course_settings( int $course_id ): array {
+/**
+ * Configuração bruta salva no curso (campos vazios = "puxar automático").
+ */
+function hs_certificate_course_settings_raw( int $course_id ): array {
     $stored = get_post_meta( $course_id, '_hs_certificate_settings', true );
-    if ( ! is_array( $stored ) ) {
-        $stored = [];
-    }
+    return is_array( $stored ) ? $stored : [];
+}
+
+/**
+ * Configuração efetiva: o que foi salvo manualmente vence; campos vazios
+ * caem para os dados automáticos do banco (curso, instrutor, site).
+ */
+function hs_certificate_course_settings( int $course_id ): array {
+    $stored = hs_certificate_course_settings_raw( $course_id );
+    // Strings vazias NÃO sobrescrevem os padrões automáticos
+    $stored = array_filter( $stored, static function ( $value ) {
+        return $value !== '' && $value !== null;
+    } );
 
     return hs_certificate_sanitize_course_settings( array_merge( hs_certificate_default_course_settings( $course_id ), $stored ) );
 }
 
 function hs_save_certificate_course_settings( int $course_id, array $settings ): array {
-    $settings = hs_certificate_sanitize_course_settings( array_merge( hs_certificate_default_course_settings( $course_id ), $settings ) );
+    // Salva apenas o que foi digitado; vazio permanece vazio (= automático)
+    $settings = hs_certificate_sanitize_course_settings( $settings );
     update_post_meta( $course_id, '_hs_certificate_settings', $settings );
     return $settings;
+}
+
+/**
+ * Emissão automática habilitada para o curso?
+ */
+function hs_certificate_auto_issue_enabled( int $course_id ): bool {
+    $settings = hs_certificate_course_settings( $course_id );
+    return ( $settings['auto_issue'] ?? '1' ) !== '0';
 }
 
 /**
@@ -64,11 +88,15 @@ function hs_certificate_default_details( int $user_id, int $course_id ): array {
     $date    = $date ?: date_i18n( 'd/m/Y', current_time( 'timestamp' ) );
     $settings = hs_certificate_course_settings( $course_id );
 
+    $document = get_user_meta( $user_id, 'hs_document', true )
+        ?: get_user_meta( $user_id, 'billing_cpf', true )
+        ?: get_user_meta( $user_id, 'cpf', true );
+
     return [
         'template'         => $settings['template'],
         'student_name'     => $student ? $student->display_name : '',
         'student_email'    => $student ? $student->user_email : '',
-        'student_document' => '',
+        'student_document' => sanitize_text_field( (string) $document ),
         'course_title'     => $course ? get_the_title( $course ) : '',
         'course_workload'  => $settings['course_workload'],
         'completion_date'  => $date,
@@ -143,6 +171,11 @@ function hs_certificate_details( int $user_id, int $course_id ): array {
     if ( ! is_array( $stored ) ) {
         $stored = [];
     }
+
+    // Campos vazios salvos não sobrescrevem os dados automáticos do aluno/curso
+    $stored = array_filter( $stored, static function ( $value ) {
+        return $value !== '' && $value !== null;
+    } );
 
     return hs_certificate_sanitize_details( array_merge( hs_certificate_default_details( $user_id, $course_id ), $stored ) );
 }

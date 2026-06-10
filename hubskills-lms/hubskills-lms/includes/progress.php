@@ -25,23 +25,28 @@ function hs_course_certificate_url( int $course_id ): string {
 
 function hs_complete_course_if_ready( int $user_id, int $course_id, array &$data ): bool {
     if ( (int) ( $data['progress'] ?? 0 ) < 100 ) return false;
-    if ( ( $data['status'] ?? '' ) === 'completed' && function_exists( 'hs_has_certificate' ) && hs_has_certificate( $user_id, $course_id ) ) return false;
+
+    $auto_issue = ! function_exists( 'hs_certificate_auto_issue_enabled' ) || hs_certificate_auto_issue_enabled( $course_id );
+    $has_cert   = function_exists( 'hs_has_certificate' ) && hs_has_certificate( $user_id, $course_id );
+
+    // Já concluído e nada mais a fazer (certificado já emitido, ou emissão automática desligada)
+    if ( ( $data['status'] ?? '' ) === 'completed' && ( $has_cert || ! $auto_issue ) ) return false;
 
     $data['status']       = 'completed';
     $data['progress']     = 100;
-    $data['completed_at'] = current_time( 'mysql' );
+    $data['completed_at'] = ! empty( $data['completed_at'] ) ? $data['completed_at'] : current_time( 'mysql' );
 
-    if ( function_exists( 'hs_award_certificate' ) ) {
+    if ( $auto_issue && function_exists( 'hs_award_certificate' ) ) {
         hs_award_certificate( $user_id, $course_id );
     }
     if ( function_exists( 'hs_award_badge' ) ) {
         hs_award_badge( $user_id, 'graduate' );
     }
     if ( function_exists( 'hs_log_activity' ) ) {
-        hs_log_activity( $user_id, 'cert', sprintf(
-            __( 'Completou o curso <strong>%s</strong> e recebeu o certificado automaticamente 🎓', 'hubskills-lms' ),
-            get_the_title( $course_id )
-        ) );
+        hs_log_activity( $user_id, 'cert', $auto_issue
+            ? sprintf( __( 'Completou o curso <strong>%s</strong> e recebeu o certificado automaticamente 🎓', 'hubskills-lms' ), get_the_title( $course_id ) )
+            : sprintf( __( 'Completou o curso <strong>%s</strong> 🎉', 'hubskills-lms' ), get_the_title( $course_id ) )
+        );
     }
 
     return true;

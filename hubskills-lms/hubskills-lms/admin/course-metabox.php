@@ -127,24 +127,39 @@ function hs_curriculum_cb( WP_Post $post ) {
 }
 
 function hs_course_certificate_cb( WP_Post $post ) {
-    $settings = function_exists( 'hs_certificate_course_settings' ) ? hs_certificate_course_settings( $post->ID ) : [];
+    // Valores brutos salvos (vazio = puxar automático do banco)
+    $raw = function_exists( 'hs_certificate_course_settings_raw' ) ? hs_certificate_course_settings_raw( $post->ID ) : [];
+    // Valores efetivos, usados como placeholder para mostrar o que será puxado
+    $auto = function_exists( 'hs_certificate_default_course_settings' ) ? hs_certificate_default_course_settings( $post->ID ) : [];
     $templates = function_exists( 'hs_certificate_templates' ) ? hs_certificate_templates() : [ 'modern' => __( 'Moderno azul e ciano', 'hubskills-lms' ) ];
+    $auto_issue = ( $raw['auto_issue'] ?? '1' ) !== '0';
     ?>
-    <p style="color:#666;font-size:12px;margin-top:0"><?php _e('Usado quando o aluno conclui todas as partes do curso.', 'hubskills-lms'); ?></p>
+    <p style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:8px 10px;margin-top:0">
+        <label style="font-weight:600;color:#166534">
+            <input type="hidden" name="_hs_certificate_auto_present" value="1">
+            <input type="checkbox" name="_hs_certificate_auto" value="1" <?php checked( $auto_issue ); ?>>
+            <?php _e('Emitir automaticamente ao concluir o curso', 'hubskills-lms'); ?>
+        </label>
+        <span style="display:block;font-size:11px;color:#15803d;margin-top:4px"><?php _e('O certificado é gerado e enviado por e-mail assim que o aluno completa 100% das aulas e quizzes.', 'hubskills-lms'); ?></span>
+    </p>
+    <p style="color:#666;font-size:12px"><?php _e('💡 Deixe os campos abaixo em branco para preencher automaticamente com os dados do curso, do aluno e do site.', 'hubskills-lms'); ?></p>
     <p>
         <label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Modelo', 'hubskills-lms'); ?></label>
         <select name="_hs_certificate_template" style="width:100%">
             <?php foreach ( $templates as $slug => $label ) : ?>
-                <option value="<?php echo esc_attr( $slug ); ?>" <?php selected( $settings['template'] ?? 'modern', $slug ); ?>><?php echo esc_html( $label ); ?></option>
+                <option value="<?php echo esc_attr( $slug ); ?>" <?php selected( $raw['template'] ?? 'modern', $slug ); ?>><?php echo esc_html( $label ); ?></option>
             <?php endforeach; ?>
         </select>
     </p>
-    <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Carga horária', 'hubskills-lms'); ?></label><input type="text" name="_hs_certificate_workload" value="<?php echo esc_attr( $settings['course_workload'] ?? '' ); ?>" style="width:100%"></p>
-    <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Instrutor/assinatura', 'hubskills-lms'); ?></label><input type="text" name="_hs_certificate_instructor" value="<?php echo esc_attr( $settings['instructor_name'] ?? '' ); ?>" style="width:100%"></p>
-    <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Instituição', 'hubskills-lms'); ?></label><input type="text" name="_hs_certificate_issuer" value="<?php echo esc_attr( $settings['issuer_name'] ?? '' ); ?>" style="width:100%"></p>
-    <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Cargo da instituição', 'hubskills-lms'); ?></label><input type="text" name="_hs_certificate_issuer_title" value="<?php echo esc_attr( $settings['issuer_title'] ?? '' ); ?>" style="width:100%"></p>
-    <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Local', 'hubskills-lms'); ?></label><input type="text" name="_hs_certificate_location" value="<?php echo esc_attr( $settings['location'] ?? '' ); ?>" style="width:100%"></p>
-    <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Observação padrão', 'hubskills-lms'); ?></label><textarea name="_hs_certificate_note" rows="4" style="width:100%"><?php echo esc_textarea( $settings['note'] ?? '' ); ?></textarea></p>
+    <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Carga horária', 'hubskills-lms'); ?></label><input type="text" name="_hs_certificate_workload" value="<?php echo esc_attr( $raw['course_workload'] ?? '' ); ?>" placeholder="<?php echo esc_attr( sprintf( __( 'Automático: %s', 'hubskills-lms' ), $auto['course_workload'] ?: __( 'duração do curso', 'hubskills-lms' ) ) ); ?>" style="width:100%"></p>
+    <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Instrutor/assinatura', 'hubskills-lms'); ?></label><input type="text" name="_hs_certificate_instructor" value="<?php echo esc_attr( $raw['instructor_name'] ?? '' ); ?>" placeholder="<?php echo esc_attr( sprintf( __( 'Automático: %s', 'hubskills-lms' ), $auto['instructor_name'] ?: __( 'instrutor do curso', 'hubskills-lms' ) ) ); ?>" style="width:100%"></p>
+    <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Instituição', 'hubskills-lms'); ?></label><input type="text" name="_hs_certificate_issuer" value="<?php echo esc_attr( $raw['issuer_name'] ?? '' ); ?>" placeholder="<?php echo esc_attr( sprintf( __( 'Automático: %s', 'hubskills-lms' ), $auto['issuer_name'] ) ); ?>" style="width:100%"></p>
+    <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Cargo da instituição', 'hubskills-lms'); ?></label><input type="text" name="_hs_certificate_issuer_title" value="<?php echo esc_attr( $raw['issuer_title'] ?? '' ); ?>" placeholder="<?php echo esc_attr( sprintf( __( 'Automático: %s', 'hubskills-lms' ), $auto['issuer_title'] ) ); ?>" style="width:100%"></p>
+    <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Local', 'hubskills-lms'); ?></label><input type="text" name="_hs_certificate_location" value="<?php echo esc_attr( $raw['location'] ?? '' ); ?>" style="width:100%"></p>
+    <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Observação padrão', 'hubskills-lms'); ?></label><textarea name="_hs_certificate_note" rows="4" style="width:100%"><?php echo esc_textarea( $raw['note'] ?? '' ); ?></textarea></p>
+    <p style="color:#666;font-size:11px;border-top:1px dashed #ddd;padding-top:8px">
+        <?php _e('Dados puxados automaticamente por aluno: nome, e-mail, documento (CPF se cadastrado), data de conclusão, código de verificação único.', 'hubskills-lms'); ?>
+    </p>
     <?php
 }
 
@@ -233,6 +248,7 @@ function hs_save_course_meta( int $post_id ) {
 
         if ( function_exists( 'hs_save_certificate_course_settings' ) ) {
             hs_save_certificate_course_settings( $post_id, [
+                'auto_issue'      => isset( $_POST['_hs_certificate_auto'] ) ? '1' : ( isset( $_POST['_hs_certificate_auto_present'] ) ? '0' : '1' ),
                 'template'        => sanitize_key( $_POST['_hs_certificate_template'] ?? '' ),
                 'course_workload' => sanitize_text_field( wp_unslash( $_POST['_hs_certificate_workload'] ?? '' ) ),
                 'instructor_name' => sanitize_text_field( wp_unslash( $_POST['_hs_certificate_instructor'] ?? '' ) ),

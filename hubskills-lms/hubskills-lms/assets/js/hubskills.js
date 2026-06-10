@@ -482,12 +482,16 @@ function initCertificateForm(root) {
         input('issuer_title').value = opt?.dataset.issuerTitle || input('issuer_title').value || 'Diretor Academico';
         input('location').value = opt?.dataset.location || '';
         input('note').value = opt?.dataset.note || '';
+        const autoToggle = input('auto_issue');
+        if (autoToggle) autoToggle.checked = (opt?.dataset.autoIssue ?? '1') !== '0';
     }
 
     function syncStudentFields() {
         const opt = selectedOption(studentSelect);
         input('student_name').value = opt?.dataset.name || '';
         input('student_email').value = opt?.dataset.email || '';
+        const docField = input('student_document');
+        if (docField) docField.value = opt?.dataset.document || '';
     }
 
     function getCertificateValues() {
@@ -607,6 +611,8 @@ function initCertificateForm(root) {
         const fd = new FormData(form);
         fd.append('action', 'hs_lms_save_certificate_settings');
         fd.append('nonce', API.nonce || '');
+        const autoToggle = input('auto_issue');
+        if (autoToggle) fd.set('auto_issue', autoToggle.checked ? '1' : '0');
 
         try {
             const response = await fetch(API.ajaxurl, { method: 'POST', body: fd });
@@ -616,6 +622,7 @@ function initCertificateForm(root) {
             const opt = selectedOption(courseSelect);
             const settings = data.data?.settings || {};
             if (opt) {
+                opt.dataset.autoIssue = settings.auto_issue || (input('auto_issue')?.checked ? '1' : '0');
                 opt.dataset.template = settings.template || input('template').value || 'modern';
                 opt.dataset.workload = settings.course_workload || input('course_workload').value || '';
                 opt.dataset.instructor = settings.instructor_name || input('instructor_name').value || '';

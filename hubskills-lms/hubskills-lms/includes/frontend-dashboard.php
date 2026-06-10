@@ -428,6 +428,7 @@ function hs_lms_ajax_save_certificate_settings() {
     }
 
     $settings = hs_save_certificate_course_settings( $course_id, [
+        'auto_issue'      => ( $_POST['auto_issue'] ?? '1' ) === '0' ? '0' : '1',
         'template'        => sanitize_key( $_POST['template'] ?? '' ),
         'course_workload' => sanitize_text_field( wp_unslash( $_POST['course_workload'] ?? '' ) ),
         'instructor_name' => sanitize_text_field( wp_unslash( $_POST['instructor_name'] ?? '' ) ),
@@ -670,6 +671,7 @@ function hs_lms_render_dashboard_tools(): string {
                                         <?php foreach ( $courses as $course ) : $cert_settings = function_exists( 'hs_certificate_course_settings' ) ? hs_certificate_course_settings( $course->ID ) : []; ?>
                                             <option value="<?php echo (int) $course->ID; ?>"
                                                     data-title="<?php echo esc_attr( $course->post_title ); ?>"
+                                                    data-auto-issue="<?php echo esc_attr( $cert_settings['auto_issue'] ?? '1' ); ?>"
                                                     data-template="<?php echo esc_attr( $cert_settings['template'] ?? 'modern' ); ?>"
                                                     data-workload="<?php echo esc_attr( $cert_settings['course_workload'] ?? get_post_meta( $course->ID, '_hs_duration', true ) ); ?>"
                                                     data-instructor="<?php echo esc_attr( $cert_settings['instructor_name'] ?? get_post_meta( $course->ID, '_hs_instructor', true ) ); ?>"
@@ -685,11 +687,16 @@ function hs_lms_render_dashboard_tools(): string {
                                 <label><?php _e( 'Aluno cadastrado', 'hubskills-lms' ); ?>
                                     <select name="student_id" required>
                                         <option value=""><?php _e( 'Selecione', 'hubskills-lms' ); ?></option>
-                                        <?php foreach ( hs_lms_certificate_students() as $student ) : ?>
+                                        <?php foreach ( hs_lms_certificate_students() as $student ) :
+                                            $student_doc = get_user_meta( $student->ID, 'hs_document', true )
+                                                ?: get_user_meta( $student->ID, 'billing_cpf', true )
+                                                ?: get_user_meta( $student->ID, 'cpf', true );
+                                        ?>
                                             <option value="<?php echo (int) $student->ID; ?>"
                                                     data-course="all"
                                                     data-name="<?php echo esc_attr( $student->display_name ); ?>"
-                                                    data-email="<?php echo esc_attr( $student->user_email ); ?>">
+                                                    data-email="<?php echo esc_attr( $student->user_email ); ?>"
+                                                    data-document="<?php echo esc_attr( (string) $student_doc ); ?>">
                                                 <?php echo esc_html( $student->display_name . ' (' . $student->user_email . ')' ); ?>
                                             </option>
                                         <?php endforeach; ?>
@@ -701,6 +708,10 @@ function hs_lms_render_dashboard_tools(): string {
                                             <option value="<?php echo esc_attr( $template_slug ); ?>"><?php echo esc_html( $template_label ); ?></option>
                                         <?php endforeach; ?>
                                     </select>
+                                </label>
+                                <label class="hs-cert-auto-toggle" style="display:flex;flex-direction:row;align-items:center;gap:8px">
+                                    <input type="checkbox" name="auto_issue" value="1" checked>
+                                    <span><?php _e( 'Emissão automática ao concluir o curso', 'hubskills-lms' ); ?></span>
                                 </label>
                                 <label><?php _e( 'Nome no certificado', 'hubskills-lms' ); ?><input type="text" name="student_name" required></label>
                                 <label><?php _e( 'E-mail do aluno', 'hubskills-lms' ); ?><input type="email" name="student_email"></label>
