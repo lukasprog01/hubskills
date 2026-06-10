@@ -360,6 +360,10 @@ function hubskills_create_nav_menu() {
 // ─── Login/Logout redirect ─────────────────────────────────────────────────────
 add_filter( 'login_redirect', 'hubskills_login_redirect', 10, 3 );
 function hubskills_login_redirect( $redirect_to, $requested_redirect_to, $user ) {
+    // Administradores vão para o wp-admin (ou para onde pediram)
+    if ( $user instanceof WP_User && user_can( $user, 'manage_options' ) ) {
+        return $requested_redirect_to ?: admin_url();
+    }
     $dashboard = get_page_by_path( 'dashboard' );
     if ( $dashboard ) {
         return get_permalink( $dashboard->ID );
