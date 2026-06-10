@@ -11,15 +11,27 @@ function hs_certificate_templates(): array {
 
 function hs_certificate_default_course_settings( int $course_id ): array {
     return [
-        'template'        => 'modern',
-        'auto_issue'      => '1',
-        'course_workload' => get_post_meta( $course_id, '_hs_duration', true ),
-        'instructor_name' => get_post_meta( $course_id, '_hs_instructor', true ),
-        'issuer_name'     => get_bloginfo( 'name' ) ?: 'HubSkills',
-        'issuer_title'    => __( 'Diretor Academico', 'hubskills-lms' ),
-        'location'        => '',
-        'note'            => '',
+        'template'                => 'modern',
+        'auto_issue'              => '1',
+        'course_workload'         => get_post_meta( $course_id, '_hs_duration', true ),
+        'instructor_name'         => get_post_meta( $course_id, '_hs_instructor', true ),
+        'issuer_name'             => get_bloginfo( 'name' ) ?: 'HubSkills',
+        'issuer_title'            => __( 'Diretor Academico', 'hubskills-lms' ),
+        'location'                => '',
+        'note'                    => '',
+        'instructor_signature_id' => 0,
+        'issuer_signature_id'     => 0,
     ];
+}
+
+/**
+ * URL pública da imagem de assinatura (attachment), ou string vazia.
+ */
+function hs_certificate_signature_url( $attachment_id ): string {
+    $attachment_id = absint( $attachment_id );
+    if ( ! $attachment_id ) return '';
+    $url = wp_get_attachment_image_url( $attachment_id, 'medium' );
+    return $url ?: '';
 }
 
 function hs_certificate_sanitize_course_settings( array $settings ): array {
@@ -30,14 +42,16 @@ function hs_certificate_sanitize_course_settings( array $settings ): array {
     }
 
     return [
-        'template'        => $template,
-        'auto_issue'      => ( $settings['auto_issue'] ?? '1' ) === '0' ? '0' : '1',
-        'course_workload' => sanitize_text_field( wp_unslash( $settings['course_workload'] ?? '' ) ),
-        'instructor_name' => sanitize_text_field( wp_unslash( $settings['instructor_name'] ?? '' ) ),
-        'issuer_name'     => sanitize_text_field( wp_unslash( $settings['issuer_name'] ?? '' ) ),
-        'issuer_title'    => sanitize_text_field( wp_unslash( $settings['issuer_title'] ?? '' ) ),
-        'location'        => sanitize_text_field( wp_unslash( $settings['location'] ?? '' ) ),
-        'note'            => sanitize_textarea_field( wp_unslash( $settings['note'] ?? '' ) ),
+        'template'                => $template,
+        'auto_issue'              => ( $settings['auto_issue'] ?? '1' ) === '0' ? '0' : '1',
+        'course_workload'         => sanitize_text_field( wp_unslash( $settings['course_workload'] ?? '' ) ),
+        'instructor_name'         => sanitize_text_field( wp_unslash( $settings['instructor_name'] ?? '' ) ),
+        'issuer_name'             => sanitize_text_field( wp_unslash( $settings['issuer_name'] ?? '' ) ),
+        'issuer_title'            => sanitize_text_field( wp_unslash( $settings['issuer_title'] ?? '' ) ),
+        'location'                => sanitize_text_field( wp_unslash( $settings['location'] ?? '' ) ),
+        'note'                    => sanitize_textarea_field( wp_unslash( $settings['note'] ?? '' ) ),
+        'instructor_signature_id' => absint( $settings['instructor_signature_id'] ?? 0 ),
+        'issuer_signature_id'     => absint( $settings['issuer_signature_id'] ?? 0 ),
     ];
 }
 
@@ -108,6 +122,8 @@ function hs_certificate_default_details( int $user_id, int $course_id ): array {
         'grade'            => '',
         'note'             => $settings['note'],
         'cert_id'          => hs_certificate_id( $user_id, $course_id ),
+        'instructor_signature_id' => $settings['instructor_signature_id'],
+        'issuer_signature_id'     => $settings['issuer_signature_id'],
     ];
 }
 
@@ -139,6 +155,8 @@ function hs_certificate_sanitize_details( array $details ): array {
     $template = sanitize_key( $details['template'] ?? 'modern' );
     $clean['template'] = in_array( $template, array_keys( hs_certificate_templates() ), true ) ? $template : 'modern';
     $clean['note'] = sanitize_textarea_field( wp_unslash( $details['note'] ?? '' ) );
+    $clean['instructor_signature_id'] = absint( $details['instructor_signature_id'] ?? 0 );
+    $clean['issuer_signature_id']     = absint( $details['issuer_signature_id'] ?? 0 );
 
     return $clean;
 }
@@ -176,6 +194,10 @@ function hs_certificate_details( int $user_id, int $course_id ): array {
     $stored = array_filter( $stored, static function ( $value ) {
         return $value !== '' && $value !== null;
     } );
+    // Assinaturas sem imagem caem para a configuração atual do curso
+    foreach ( [ 'instructor_signature_id', 'issuer_signature_id' ] as $sig_key ) {
+        if ( empty( $stored[ $sig_key ] ) ) unset( $stored[ $sig_key ] );
+    }
 
     return hs_certificate_sanitize_details( array_merge( hs_certificate_default_details( $user_id, $course_id ), $stored ) );
 }

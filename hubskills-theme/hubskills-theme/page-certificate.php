@@ -38,6 +38,8 @@ $show_cert = $show_id && in_array($show_id, $certs, false);
                 'note'             => '',
                 'cert_id'          => 'HS-' . strtoupper(substr(md5($user_id.$show_id), 0, 12)),
             ];
+        $instructor_sig_url = function_exists( 'hs_certificate_signature_url' ) ? hs_certificate_signature_url( $details['instructor_signature_id'] ?? 0 ) : '';
+        $issuer_sig_url     = function_exists( 'hs_certificate_signature_url' ) ? hs_certificate_signature_url( $details['issuer_signature_id'] ?? 0 ) : '';
     ?>
     <!-- Certificate Display -->
     <div class="certificate-wrap" data-aos="zoom-in" id="certificate">
@@ -87,6 +89,9 @@ $show_cert = $show_id && in_array($show_id, $certs, false);
                 </div>
                 <div class="cert-footer">
                     <div class="cert-sig">
+                        <?php if ( $instructor_sig_url ) : ?>
+                        <img class="cert-sig-img" src="<?php echo esc_url( $instructor_sig_url ); ?>" alt="<?php esc_attr_e('Assinatura do instrutor', 'hubskills'); ?>">
+                        <?php endif; ?>
                         <div class="cert-sig-line"></div>
                         <strong><?php echo esc_html( $details['instructor_name'] ?: __( 'Instrutor do Curso', 'hubskills' ) ); ?></strong>
                         <span><?php _e('Instrutor do Curso', 'hubskills'); ?></span>
@@ -95,6 +100,9 @@ $show_cert = $show_id && in_array($show_id, $certs, false);
                         <i class="fas fa-award"></i>
                     </div>
                     <div class="cert-sig">
+                        <?php if ( $issuer_sig_url ) : ?>
+                        <img class="cert-sig-img" src="<?php echo esc_url( $issuer_sig_url ); ?>" alt="<?php esc_attr_e('Assinatura da instituição', 'hubskills'); ?>">
+                        <?php endif; ?>
                         <div class="cert-sig-line"></div>
                         <strong><?php echo esc_html( $details['issuer_name'] ?: 'HubSkills' ); ?></strong>
                         <span><?php echo esc_html( $details['issuer_title'] ?: __( 'Diretor Academico', 'hubskills' ) ); ?></span>

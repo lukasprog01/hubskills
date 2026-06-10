@@ -157,6 +157,27 @@ function hs_course_certificate_cb( WP_Post $post ) {
     <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Cargo da instituição', 'hubskills-lms'); ?></label><input type="text" name="_hs_certificate_issuer_title" value="<?php echo esc_attr( $raw['issuer_title'] ?? '' ); ?>" placeholder="<?php echo esc_attr( sprintf( __( 'Automático: %s', 'hubskills-lms' ), $auto['issuer_title'] ) ); ?>" style="width:100%"></p>
     <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Local', 'hubskills-lms'); ?></label><input type="text" name="_hs_certificate_location" value="<?php echo esc_attr( $raw['location'] ?? '' ); ?>" style="width:100%"></p>
     <p><label style="display:block;font-weight:600;margin-bottom:4px"><?php _e('Observação padrão', 'hubskills-lms'); ?></label><textarea name="_hs_certificate_note" rows="4" style="width:100%"><?php echo esc_textarea( $raw['note'] ?? '' ); ?></textarea></p>
+
+    <?php
+    // ── Assinaturas digitais (imagens) ──
+    $sig_fields = [
+        '_hs_certificate_instructor_sig' => [ 'label' => __( 'Assinatura digital do instrutor', 'hubskills-lms' ), 'id' => absint( $raw['instructor_signature_id'] ?? 0 ) ],
+        '_hs_certificate_issuer_sig'     => [ 'label' => __( 'Assinatura digital da instituição', 'hubskills-lms' ), 'id' => absint( $raw['issuer_signature_id'] ?? 0 ) ],
+    ];
+    foreach ( $sig_fields as $field_name => $sig ) :
+        $sig_url = $sig['id'] && function_exists( 'hs_certificate_signature_url' ) ? hs_certificate_signature_url( $sig['id'] ) : '';
+    ?>
+    <div class="hs-sig-field" style="border-top:1px dashed #ddd;padding-top:10px;margin-bottom:10px">
+        <label style="display:block;font-weight:600;margin-bottom:4px"><?php echo esc_html( $sig['label'] ); ?></label>
+        <div class="hs-sig-preview" style="margin-bottom:6px;<?php echo $sig_url ? '' : 'display:none'; ?>">
+            <img src="<?php echo esc_url( $sig_url ); ?>" alt="" style="max-height:50px;max-width:100%;background:#fff;border:1px solid #eee;border-radius:4px;padding:4px">
+        </div>
+        <input type="hidden" name="<?php echo esc_attr( $field_name ); ?>" value="<?php echo (int) $sig['id']; ?>" class="hs-sig-id">
+        <button type="button" class="button hs-sig-upload"><?php _e( 'Enviar/escolher imagem', 'hubskills-lms' ); ?></button>
+        <button type="button" class="button-link hs-sig-remove" style="color:#b32d2e;<?php echo $sig['id'] ? '' : 'display:none'; ?>"><?php _e( 'Remover', 'hubskills-lms' ); ?></button>
+        <p style="color:#888;font-size:11px;margin:4px 0 0"><?php _e( 'PNG com fundo transparente fica melhor. Aparece acima da linha de assinatura.', 'hubskills-lms' ); ?></p>
+    </div>
+    <?php endforeach; ?>
     <p style="color:#666;font-size:11px;border-top:1px dashed #ddd;padding-top:8px">
         <?php _e('Dados puxados automaticamente por aluno: nome, e-mail, documento (CPF se cadastrado), data de conclusão, código de verificação único.', 'hubskills-lms'); ?>
     </p>
@@ -256,6 +277,8 @@ function hs_save_course_meta( int $post_id ) {
                 'issuer_title'    => sanitize_text_field( wp_unslash( $_POST['_hs_certificate_issuer_title'] ?? '' ) ),
                 'location'        => sanitize_text_field( wp_unslash( $_POST['_hs_certificate_location'] ?? '' ) ),
                 'note'            => sanitize_textarea_field( wp_unslash( $_POST['_hs_certificate_note'] ?? '' ) ),
+                'instructor_signature_id' => absint( $_POST['_hs_certificate_instructor_sig'] ?? 0 ),
+                'issuer_signature_id'     => absint( $_POST['_hs_certificate_issuer_sig'] ?? 0 ),
             ] );
         }
     }

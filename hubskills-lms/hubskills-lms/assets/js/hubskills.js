@@ -484,7 +484,63 @@ function initCertificateForm(root) {
         input('note').value = opt?.dataset.note || '';
         const autoToggle = input('auto_issue');
         if (autoToggle) autoToggle.checked = (opt?.dataset.autoIssue ?? '1') !== '0';
+        setSignature('instructor', opt?.dataset.instructorSig || 0, opt?.dataset.instructorSigUrl || '');
+        setSignature('issuer', opt?.dataset.issuerSig || 0, opt?.dataset.issuerSigUrl || '');
     }
+
+    function sigBox(role) {
+        return form.querySelector(`[data-sig-role="${role}"]`);
+    }
+
+    function setSignature(role, id, url) {
+        const box = sigBox(role);
+        if (!box) return;
+        const idField = box.querySelector('[data-sig-id]');
+        const preview = box.querySelector('[data-sig-preview]');
+        const clearBtn = box.querySelector('[data-sig-clear]');
+        idField.value = parseInt(id, 10) || 0;
+        if (url) {
+            preview.src = url;
+            preview.hidden = false;
+            clearBtn.hidden = false;
+        } else {
+            preview.src = '';
+            preview.hidden = true;
+            clearBtn.hidden = true;
+        }
+    }
+
+    function initSignatureUploaders() {
+        form.querySelectorAll('[data-sig-role]').forEach(box => {
+            const fileInput = box.querySelector('[data-sig-file]');
+            const status = box.querySelector('[data-sig-status]');
+            box.querySelector('[data-sig-pick]')?.addEventListener('click', () => fileInput.click());
+            box.querySelector('[data-sig-clear]')?.addEventListener('click', () => setSignature(box.dataset.sigRole, 0, ''));
+            fileInput?.addEventListener('change', async () => {
+                const file = fileInput.files?.[0];
+                if (!file) return;
+                if (file.size > 2 * 1024 * 1024) { status.textContent = 'Imagem acima de 2MB.'; return; }
+                status.textContent = 'Enviando...';
+                const fd = new FormData();
+                fd.append('action', 'hs_lms_upload_signature');
+                fd.append('nonce', API.nonce || '');
+                fd.append('signature', file);
+                try {
+                    const response = await fetch(API.ajaxurl, { method: 'POST', body: fd });
+                    const data = await response.json();
+                    if (!data.success) throw new Error(data.data?.message || 'Erro no upload.');
+                    setSignature(box.dataset.sigRole, data.data.attachment_id, data.data.url);
+                    status.textContent = '';
+                    notify('Assinatura enviada.', 'success');
+                } catch (err) {
+                    status.textContent = err.message || 'Erro no upload.';
+                } finally {
+                    fileInput.value = '';
+                }
+            });
+        });
+    }
+    initSignatureUploaders();
 
     function syncStudentFields() {
         const opt = selectedOption(studentSelect);
@@ -623,6 +679,10 @@ function initCertificateForm(root) {
             const settings = data.data?.settings || {};
             if (opt) {
                 opt.dataset.autoIssue = settings.auto_issue || (input('auto_issue')?.checked ? '1' : '0');
+                opt.dataset.instructorSig = String(settings.instructor_signature_id ?? sigBox('instructor')?.querySelector('[data-sig-id]')?.value ?? 0);
+                opt.dataset.instructorSigUrl = sigBox('instructor')?.querySelector('[data-sig-preview]')?.src || '';
+                opt.dataset.issuerSig = String(settings.issuer_signature_id ?? sigBox('issuer')?.querySelector('[data-sig-id]')?.value ?? 0);
+                opt.dataset.issuerSigUrl = sigBox('issuer')?.querySelector('[data-sig-preview]')?.src || '';
                 opt.dataset.template = settings.template || input('template').value || 'modern';
                 opt.dataset.workload = settings.course_workload || input('course_workload').value || '';
                 opt.dataset.instructor = settings.instructor_name || input('instructor_name').value || '';

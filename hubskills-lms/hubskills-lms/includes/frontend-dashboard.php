@@ -401,6 +401,8 @@ function hs_lms_ajax_issue_certificate() {
         'location'         => sanitize_text_field( wp_unslash( $_POST['location'] ?? '' ) ),
         'grade'            => sanitize_text_field( wp_unslash( $_POST['grade'] ?? '' ) ),
         'note'             => sanitize_textarea_field( wp_unslash( $_POST['note'] ?? '' ) ),
+        'instructor_signature_id' => absint( $_POST['instructor_signature_id'] ?? 0 ),
+        'issuer_signature_id'     => absint( $_POST['issuer_signature_id'] ?? 0 ),
     ];
 
     hs_award_certificate( $student_id, $course_id, $details );
@@ -436,6 +438,8 @@ function hs_lms_ajax_save_certificate_settings() {
         'issuer_title'    => sanitize_text_field( wp_unslash( $_POST['issuer_title'] ?? '' ) ),
         'location'        => sanitize_text_field( wp_unslash( $_POST['location'] ?? '' ) ),
         'note'            => sanitize_textarea_field( wp_unslash( $_POST['note'] ?? '' ) ),
+        'instructor_signature_id' => absint( $_POST['instructor_signature_id'] ?? 0 ),
+        'issuer_signature_id'     => absint( $_POST['issuer_signature_id'] ?? 0 ),
     ] );
 
     if ( function_exists( 'hs_audit_log' ) ) hs_audit_log( $issuer_id, 'save_certificate_settings', 'Modelo de certificado salvo para curso #' . $course_id );
@@ -678,7 +682,11 @@ function hs_lms_render_dashboard_tools(): string {
                                                     data-issuer="<?php echo esc_attr( $cert_settings['issuer_name'] ?? get_bloginfo( 'name' ) ); ?>"
                                                     data-issuer-title="<?php echo esc_attr( $cert_settings['issuer_title'] ?? __( 'Diretor Academico', 'hubskills-lms' ) ); ?>"
                                                     data-location="<?php echo esc_attr( $cert_settings['location'] ?? '' ); ?>"
-                                                    data-note="<?php echo esc_attr( $cert_settings['note'] ?? '' ); ?>">
+                                                    data-note="<?php echo esc_attr( $cert_settings['note'] ?? '' ); ?>"
+                                                    data-instructor-sig="<?php echo (int) ( $cert_settings['instructor_signature_id'] ?? 0 ); ?>"
+                                                    data-instructor-sig-url="<?php echo esc_attr( function_exists( 'hs_certificate_signature_url' ) ? hs_certificate_signature_url( $cert_settings['instructor_signature_id'] ?? 0 ) : '' ); ?>"
+                                                    data-issuer-sig="<?php echo (int) ( $cert_settings['issuer_signature_id'] ?? 0 ); ?>"
+                                                    data-issuer-sig-url="<?php echo esc_attr( function_exists( 'hs_certificate_signature_url' ) ? hs_certificate_signature_url( $cert_settings['issuer_signature_id'] ?? 0 ) : '' ); ?>">
                                                 <?php echo esc_html( $course->post_title ); ?>
                                             </option>
                                         <?php endforeach; ?>
@@ -726,6 +734,32 @@ function hs_lms_render_dashboard_tools(): string {
                                 <label><?php _e( 'Local', 'hubskills-lms' ); ?><input type="text" name="location" placeholder="Cidade/UF"></label>
                                 <label><?php _e( 'Nota ou aproveitamento', 'hubskills-lms' ); ?><input type="text" name="grade" placeholder="Ex: 92%"></label>
                                 <label class="hs-field-wide"><?php _e( 'Observacao do certificado', 'hubskills-lms' ); ?><textarea name="note" rows="3" placeholder="Texto complementar opcional"></textarea></label>
+
+                                <div class="hs-sig-uploader hs-field-wide" data-sig-role="instructor">
+                                    <span class="hs-sig-uploader-label"><?php _e( 'Assinatura digital do instrutor', 'hubskills-lms' ); ?></span>
+                                    <div class="hs-sig-uploader-row">
+                                        <img class="hs-sig-thumb" data-sig-preview src="" alt="" hidden>
+                                        <input type="hidden" name="instructor_signature_id" value="0" data-sig-id>
+                                        <input type="file" accept="image/png,image/jpeg,image/webp" data-sig-file hidden>
+                                        <button type="button" class="hs-ghost-btn" data-sig-pick><i class="fas fa-pen-nib"></i><?php _e( 'Subir assinatura', 'hubskills-lms' ); ?></button>
+                                        <button type="button" class="hs-ghost-btn" data-sig-clear hidden><i class="fas fa-times"></i><?php _e( 'Remover', 'hubskills-lms' ); ?></button>
+                                        <span class="hs-sig-status" data-sig-status></span>
+                                    </div>
+                                    <small><?php _e( 'PNG com fundo transparente, ate 2MB. Aparece acima da linha de assinatura.', 'hubskills-lms' ); ?></small>
+                                </div>
+
+                                <div class="hs-sig-uploader hs-field-wide" data-sig-role="issuer">
+                                    <span class="hs-sig-uploader-label"><?php _e( 'Assinatura digital da instituicao', 'hubskills-lms' ); ?></span>
+                                    <div class="hs-sig-uploader-row">
+                                        <img class="hs-sig-thumb" data-sig-preview src="" alt="" hidden>
+                                        <input type="hidden" name="issuer_signature_id" value="0" data-sig-id>
+                                        <input type="file" accept="image/png,image/jpeg,image/webp" data-sig-file hidden>
+                                        <button type="button" class="hs-ghost-btn" data-sig-pick><i class="fas fa-stamp"></i><?php _e( 'Subir assinatura', 'hubskills-lms' ); ?></button>
+                                        <button type="button" class="hs-ghost-btn" data-sig-clear hidden><i class="fas fa-times"></i><?php _e( 'Remover', 'hubskills-lms' ); ?></button>
+                                        <span class="hs-sig-status" data-sig-status></span>
+                                    </div>
+                                    <small><?php _e( 'Carimbo ou assinatura institucional, ate 2MB.', 'hubskills-lms' ); ?></small>
+                                </div>
                             </div>
                             <div class="hs-cert-actions">
                                 <button type="submit" class="btn btn-gradient"><i class="fas fa-award"></i><?php _e( 'Emitir certificado', 'hubskills-lms' ); ?></button>
@@ -772,4 +806,48 @@ function hs_lms_render_dashboard_tools(): string {
         </div>
     </section>
     <?php return ob_get_clean();
+}
+
+// ── Upload de assinatura digital (criador de certificados) ─────────────────
+add_action( 'wp_ajax_hs_lms_upload_signature', 'hs_lms_ajax_upload_signature' );
+function hs_lms_ajax_upload_signature() {
+    hs_ajax_check();
+
+    $user_id = get_current_user_id();
+    if ( ! hs_lms_is_course_manager( $user_id ) ) {
+        wp_send_json_error( [ 'message' => __( 'Sem permissão para enviar assinaturas.', 'hubskills-lms' ) ], 403 );
+    }
+    if ( empty( $_FILES['signature'] ) || ! empty( $_FILES['signature']['error'] ) ) {
+        wp_send_json_error( [ 'message' => __( 'Falha no upload da assinatura.', 'hubskills-lms' ) ], 400 );
+    }
+
+    $file = $_FILES['signature'];
+    $mb = defined( 'MB_IN_BYTES' ) ? MB_IN_BYTES : 1048576;
+    if ( (int) $file['size'] > 2 * $mb ) {
+        wp_send_json_error( [ 'message' => __( 'Imagem acima de 2MB.', 'hubskills-lms' ) ], 413 );
+    }
+
+    $allowed = [ 'png' => 'image/png', 'jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'webp' => 'image/webp' ];
+    $checked = wp_check_filetype_and_ext( $file['tmp_name'], $file['name'], $allowed );
+    if ( empty( $checked['ext'] ) || empty( $checked['type'] ) ) {
+        wp_send_json_error( [ 'message' => __( 'Use uma imagem PNG, JPG ou WebP.', 'hubskills-lms' ) ], 415 );
+    }
+
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+    require_once ABSPATH . 'wp-admin/includes/image.php';
+    require_once ABSPATH . 'wp-admin/includes/media.php';
+
+    $attachment_id = media_handle_upload( 'signature', 0, [ 'post_title' => sanitize_file_name( 'assinatura-' . $file['name'] ) ] );
+    if ( is_wp_error( $attachment_id ) ) {
+        wp_send_json_error( [ 'message' => $attachment_id->get_error_message() ], 500 );
+    }
+
+    if ( function_exists( 'hs_audit_log' ) ) {
+        hs_audit_log( $user_id, 'upload_signature', 'Assinatura digital enviada: #' . $attachment_id );
+    }
+
+    wp_send_json_success( [
+        'attachment_id' => (int) $attachment_id,
+        'url'           => function_exists( 'hs_certificate_signature_url' ) ? hs_certificate_signature_url( $attachment_id ) : wp_get_attachment_url( $attachment_id ),
+    ] );
 }

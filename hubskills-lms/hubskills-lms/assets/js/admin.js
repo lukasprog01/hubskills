@@ -139,6 +139,36 @@
         }
     });
 
+    // ── Assinatura digital: seletor da biblioteca de mídia ────────────────────
+    $(document).on('click', '.hs-sig-upload', function(e) {
+        e.preventDefault();
+        if (typeof wp === 'undefined' || !wp.media) { alert('Biblioteca de mídia indisponível.'); return; }
+        var $field = $(this).closest('.hs-sig-field');
+        var frame = wp.media({
+            title: 'Escolher imagem de assinatura',
+            library: { type: 'image' },
+            multiple: false,
+            button: { text: 'Usar esta imagem' }
+        });
+        frame.on('select', function() {
+            var att = frame.state().get('selection').first().toJSON();
+            var url = (att.sizes && att.sizes.medium) ? att.sizes.medium.url : att.url;
+            $field.find('.hs-sig-id').val(att.id);
+            $field.find('.hs-sig-preview img').attr('src', url);
+            $field.find('.hs-sig-preview').show();
+            $field.find('.hs-sig-remove').show();
+        });
+        frame.open();
+    });
+
+    $(document).on('click', '.hs-sig-remove', function(e) {
+        e.preventDefault();
+        var $field = $(this).closest('.hs-sig-field');
+        $field.find('.hs-sig-id').val(0);
+        $field.find('.hs-sig-preview').hide();
+        $(this).hide();
+    });
+
     // ── Auto-dismiss success notices ──────────────────────────────────────────
     setTimeout(function() {
         $('.notice-success').fadeOut(600);

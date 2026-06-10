@@ -132,6 +132,7 @@ function hs_lms_admin_assets( $hook ) {
     if ( $screen && in_array( $screen->post_type, [ 'hubskills_course', 'hubskills_quiz' ], true ) ) {
         $builder_version = file_exists( HS_LMS_DIR . 'assets/js/builder.js' ) ? (string) filemtime( HS_LMS_DIR . 'assets/js/builder.js' ) : HS_LMS_VERSION;
         wp_enqueue_script( 'hs-lms-builder', HS_LMS_URL . 'assets/js/builder.js', [ 'jquery', 'jquery-ui-sortable' ], $builder_version, true );
+        wp_enqueue_media(); // seletor de imagem para assinaturas do certificado
     }
 }
 

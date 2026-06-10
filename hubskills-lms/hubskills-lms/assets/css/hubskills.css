@@ -704,3 +704,12 @@
 .hs-refund-approved { background:#ecfdf5; color:#047857; }
 .hs-refund-denied { background:#fef2f2; color:#b91c1c; }
 @media (max-width:640px) { .hs-orders-table th:nth-child(5), .hs-orders-table td:nth-child(5) { white-space:nowrap; } }
+
+/* ── Uploader de assinatura (criador de certificados) ── */
+.hs-sig-uploader { display:flex; flex-direction:column; gap:6px; padding:12px; border:1px dashed rgba(255,255,255,.18); border-radius:10px; }
+.hs-sig-uploader-label { font-weight:600; font-size:13px; }
+.hs-sig-uploader-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.hs-sig-thumb { max-height:46px; max-width:160px; background:#fff; border-radius:6px; padding:4px; object-fit:contain; }
+.hs-sig-status { font-size:12px; color:#f59e0b; }
+.hs-sig-uploader small { color:var(--text-muted, #94a3b8); font-size:11px; }
+.hs-cert-preview-foot img.cert-sig-img { max-height:34px; margin:0 auto -6px; display:block; }
