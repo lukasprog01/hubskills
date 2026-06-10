@@ -249,7 +249,7 @@ if ( function_exists( 'hs_lms_render_dashboard_tools' ) ) {
                     $earned = in_array($badge['id'], (array)$badges, true);
                 ?>
                 <div class="badge-item <?php echo $earned ? 'badge-earned' : 'badge-locked'; ?>" title="<?php echo esc_attr($badge['name']); ?>">
-                    <div class="badge-icon" style="<?php echo $earned ? 'background: '.$badge['color'].'22; border-color: '.$badge['color'].'44;' : ''; ?>">
+                    <div class="badge-icon" style="<?php echo $earned ? esc_attr('background: '.$badge['color'].'22; border-color: '.$badge['color'].'44;') : ''; ?>">
                         <?php echo $earned ? esc_html($badge['icon']) : '<i class="fas fa-lock"></i>'; ?>
                     </div>
                     <span><?php echo esc_html($badge['name']); ?></span>

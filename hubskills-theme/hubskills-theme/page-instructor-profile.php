@@ -126,8 +126,8 @@ get_header();
                     <h4><?php _e('Informações','hubskills-lms'); ?></h4>
                     <div style="font-size:14px;color:#555;line-height:2">
                         <div><i class="fas fa-calendar me-2" style="color:#7C3AED;width:16px"></i><?php _e('Instrutor desde','hubskills-lms'); ?> <?php echo esc_html(date_i18n('d/m/Y', strtotime($profile['joined']))); ?></div>
-                        <div><i class="fas fa-book me-2" style="color:#06B6D4;width:16px"></i><?php echo $stats['courses']; ?> <?php _e('cursos criados','hubskills-lms'); ?></div>
-                        <div><i class="fas fa-users me-2" style="color:#F472B6;width:16px"></i><?php echo $stats['students']; ?> <?php _e('alunos ensinados','hubskills-lms'); ?></div>
+                        <div><i class="fas fa-book me-2" style="color:#06B6D4;width:16px"></i><?php echo (int) $stats['courses']; ?> <?php _e('cursos criados','hubskills-lms'); ?></div>
+                        <div><i class="fas fa-users me-2" style="color:#F472B6;width:16px"></i><?php echo (int) $stats['students']; ?> <?php _e('alunos ensinados','hubskills-lms'); ?></div>
                     </div>
                 </div>
             </div>

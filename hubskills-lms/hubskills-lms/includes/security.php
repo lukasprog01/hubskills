@@ -333,3 +333,107 @@ function hs_lms_login_redirect( $redirect_to, $requested, $user ) {
     }
     return $redirect_to;
 }
+
+// ── Anti-bot: honeypot + tempo mínimo nos formulários públicos ─────────────
+/**
+ * Campos do honeypot: "hs_website" deve ficar vazio (bots preenchem) e
+ * "hs_form_ts" carrega o timestamp de render (envio em menos de 3s = bot).
+ */
+function hs_lms_honeypot_fields(): void {
+    echo '<p style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">';
+    echo '<label>Website<input type="text" name="hs_website" value="" tabindex="-1" autocomplete="off"></label>';
+    echo '</p>';
+    echo '<input type="hidden" name="hs_form_ts" value="' . esc_attr( (string) time() ) . '">';
+}
+
+function hs_lms_honeypot_is_bot( array $data ): bool {
+    if ( ! empty( $data['hs_website'] ) ) return true;
+    $ts = absint( $data['hs_form_ts'] ?? 0 );
+    if ( $ts && ( time() - $ts ) < 3 ) return true;
+    return false;
+}
+
+// Registro padrão do WordPress
+add_action( 'register_form', 'hs_lms_honeypot_fields' );
+add_filter( 'registration_errors', 'hs_lms_check_registration_honeypot', 10, 1 );
+function hs_lms_check_registration_honeypot( $errors ) {
+    if ( hs_lms_honeypot_is_bot( $_POST ) ) {
+        $errors->add( 'hs_bot', __( 'Não foi possível validar o envio. Tente novamente.', 'hubskills-lms' ) );
+        if ( function_exists( 'hs_audit_log' ) ) hs_audit_log( 0, 'bot_blocked', 'Registro bloqueado pelo honeypot' );
+    }
+    return $errors;
+}
+
+// ── Política de senha mínima ────────────────────────────────────────────────
+/**
+ * Mínimo de 8 caracteres com pelo menos uma letra e um número.
+ * Aplica na definição/reset de senha (fluxo padrão do WP).
+ */
+function hs_lms_password_is_strong( string $password ): bool {
+    return strlen( $password ) >= 8
+        && preg_match( '/[A-Za-z]/', $password )
+        && preg_match( '/\d/', $password );
+}
+
+add_action( 'validate_password_reset', 'hs_lms_enforce_password_policy', 10, 2 );
+function hs_lms_enforce_password_policy( $errors, $user ) {
+    $password = (string) ( $_POST['pass1'] ?? '' );
+    if ( $password !== '' && ! hs_lms_password_is_strong( $password ) ) {
+        $errors->add( 'hs_weak_password', __( '<strong>Erro:</strong> a senha precisa ter ao menos 8 caracteres, com letras e números.', 'hubskills-lms' ) );
+    }
+}
+
+// ── Rate limit nos endpoints REST públicos ──────────────────────────────────
+/**
+ * 60 requisições por minuto por IP nos endpoints públicos hubskills/v1.
+ * Usuários logados não são limitados.
+ */
+add_filter( 'rest_pre_dispatch', 'hs_lms_rest_rate_limit', 10, 3 );
+function hs_lms_rest_rate_limit( $result, $server, $request ) {
+    if ( $result !== null ) return $result;
+    if ( is_user_logged_in() ) return $result;
+
+    $route = (string) $request->get_route();
+    if ( strpos( $route, '/hubskills/v1' ) !== 0 ) return $result;
+
+    $ip  = sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ?? '' ) );
+    $key = 'hs_rest_rl_' . md5( $ip );
+    $count = (int) get_transient( $key );
+    $limit = (int) apply_filters( 'hs_lms_rest_rate_limit', 60 );
+
+    if ( $count >= $limit ) {
+        return new WP_Error( 'hs_rate_limited', __( 'Muitas requisições. Aguarde um instante.', 'hubskills-lms' ), [ 'status' => 429 ] );
+    }
+    set_transient( $key, $count + 1, MINUTE_IN_SECONDS );
+
+    return $result;
+}
+
+// ── Headers de segurança ─────────────────────────────────────────────────────
+add_action( 'send_headers', 'hs_lms_security_headers' );
+function hs_lms_security_headers() {
+    if ( headers_sent() ) return;
+    header( 'X-Frame-Options: SAMEORIGIN' );
+    header( 'X-Content-Type-Options: nosniff' );
+    header( 'Referrer-Policy: strict-origin-when-cross-origin' );
+    header( 'Permissions-Policy: camera=(), microphone=(), geolocation=()' );
+}
+
+// ── Retenção do log de auditoria (90 dias) ───────────────────────────────────
+add_action( 'init', 'hs_lms_schedule_audit_cleanup' );
+function hs_lms_schedule_audit_cleanup() {
+    if ( ! wp_next_scheduled( 'hs_lms_audit_cleanup' ) ) {
+        wp_schedule_event( time() + DAY_IN_SECONDS, 'daily', 'hs_lms_audit_cleanup' );
+    }
+}
+
+add_action( 'hs_lms_audit_cleanup', 'hs_lms_run_audit_cleanup' );
+function hs_lms_run_audit_cleanup() {
+    global $wpdb;
+    $table = $wpdb->prefix . 'hs_audit_log';
+    $days  = (int) apply_filters( 'hs_lms_audit_retention_days', 90 );
+    $wpdb->query( $wpdb->prepare(
+        "DELETE FROM {$table} WHERE created_at < DATE_SUB( NOW(), INTERVAL %d DAY )",
+        $days
+    ) );
+}

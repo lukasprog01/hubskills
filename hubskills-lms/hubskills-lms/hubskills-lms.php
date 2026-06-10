@@ -46,6 +46,7 @@ if ( is_admin() ) {
     require_once HS_LMS_DIR . 'admin/course-metabox.php';
     require_once HS_LMS_DIR . 'admin/admin-dashboard.php';
     require_once HS_LMS_DIR . 'admin/ajax-admin.php';
+    require_once HS_LMS_DIR . 'admin/extensions.php';
 }
 
 // ── Activation / Deactivation ─────────────────────────────

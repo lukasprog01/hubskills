@@ -218,8 +218,11 @@ function hs_ajax_update_profile() {
     ];
 
     if ( $password !== '' ) {
-        if ( strlen( $password ) < 8 ) {
-            wp_send_json_error( [ 'message' => __( 'A nova senha precisa ter ao menos 8 caracteres.', 'hubskills-lms' ) ], 400 );
+        $strong = function_exists( 'hs_lms_password_is_strong' )
+            ? hs_lms_password_is_strong( $password )
+            : ( strlen( $password ) >= 8 );
+        if ( ! $strong ) {
+            wp_send_json_error( [ 'message' => __( 'A nova senha precisa ter ao menos 8 caracteres, com letras e números.', 'hubskills-lms' ) ], 400 );
         }
         if ( $password !== $password2 ) {
             wp_send_json_error( [ 'message' => __( 'A confirmação de senha não confere.', 'hubskills-lms' ) ], 400 );

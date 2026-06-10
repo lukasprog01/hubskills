@@ -95,6 +95,7 @@ function hs_render_instructor_apply_form() {
 
     <form id="hs-instructor-apply-form">
         <?php wp_nonce_field('hubskills_nonce','nonce'); ?>
+        <?php if ( function_exists('hs_lms_honeypot_fields') ) hs_lms_honeypot_fields(); ?>
 
         <div class="mb-3">
             <label class="hs-label"><?php _e('Nome completo','hubskills-lms'); ?> *</label>

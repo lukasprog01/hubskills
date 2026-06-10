@@ -328,6 +328,10 @@ function hs_ajax_apply_instructor() {
     if ( ! is_user_logged_in() ) {
         wp_send_json_error( [ 'message' => __( 'Faça login primeiro.', 'hubskills-lms' ) ] );
     }
+    if ( function_exists( 'hs_lms_honeypot_is_bot' ) && hs_lms_honeypot_is_bot( $_POST ) ) {
+        if ( function_exists( 'hs_audit_log' ) ) hs_audit_log( get_current_user_id(), 'bot_blocked', 'Candidatura de instrutor bloqueada pelo honeypot' );
+        wp_send_json_error( [ 'message' => __( 'Não foi possível validar o envio. Tente novamente.', 'hubskills-lms' ) ], 400 );
+    }
 
     $user_id = get_current_user_id();
     $result  = hs_submit_instructor_application( $user_id, $_POST );

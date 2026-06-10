@@ -28,17 +28,17 @@ get_header();
                     <div style="position:relative">
                         <img src="<?php echo esc_url(get_avatar_url($user_id,['size'=>90])); ?>"
                              style="width:90px;height:90px;border-radius:50%;border:3px solid var(--primary)">
-                        <div style="position:absolute;bottom:0;right:0;background:var(--primary);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700"><?php echo $stats['level']; ?></div>
+                        <div style="position:absolute;bottom:0;right:0;background:var(--primary);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700"><?php echo (int) $stats['level']; ?></div>
                     </div>
                     <div style="flex:1">
                         <h2 style="margin:0;font-weight:700"><?php echo esc_html($user->display_name); ?></h2>
                         <div style="color:var(--text-muted);font-size:14px;margin-bottom:12px"><?php echo esc_html($user->user_email); ?></div>
                         <div style="display:flex;align-items:center;gap:8px">
-                            <span style="font-size:13px;color:var(--text-muted)"><?php _e('Nível','hubskills-lms'); ?> <?php echo $stats['level']; ?></span>
+                            <span style="font-size:13px;color:var(--text-muted)"><?php _e('Nível','hubskills-lms'); ?> <?php echo (int) $stats['level']; ?></span>
                             <div style="flex:1;max-width:200px;background:rgba(255,255,255,.1);border-radius:20px;height:8px;overflow:hidden">
-                                <div style="width:<?php echo $xp_data['percent']; ?>%;height:100%;background:var(--gradient-primary);border-radius:20px;transition:.6s"></div>
+                                <div style="width:<?php echo (int) $xp_data['percent']; ?>%;height:100%;background:var(--gradient-primary);border-radius:20px;transition:.6s"></div>
                             </div>
-                            <span style="font-size:13px;color:var(--primary);font-weight:600"><?php echo $stats['xp']; ?> XP</span>
+                            <span style="font-size:13px;color:var(--primary);font-weight:600"><?php echo (int) $stats['xp']; ?> XP</span>
                         </div>
                     </div>
                     <div style="display:flex;gap:16px;flex-wrap:wrap">
@@ -76,7 +76,7 @@ get_header();
                     $style  = $active ? 'border-bottom:2px solid var(--primary);color:var(--primary);' : 'color:var(--text-muted);';
                 ?>
                 <a href="<?php echo esc_url(add_query_arg('tab',$slug)); ?>"
-                   style="padding:12px 20px;text-decoration:none;white-space:nowrap;font-size:14px;font-weight:500;<?php echo $style; ?>">
+                   style="padding:12px 20px;text-decoration:none;white-space:nowrap;font-size:14px;font-weight:500;<?php echo esc_attr($style); ?>">
                     <?php echo esc_html($td[0].' '.$td[1]); ?>
                 </a>
                 <?php endforeach; ?>
@@ -170,10 +170,10 @@ get_header();
                         </div>
                         <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px">
                             <span style="color:var(--text-muted)"><?php echo $status==='completed'?'✅ '.__('Concluído','hubskills-lms'):'📖 '.__('Em Progresso','hubskills-lms'); ?></span>
-                            <span style="color:var(--primary);font-weight:700"><?php echo $progress; ?>%</span>
+                            <span style="color:var(--primary);font-weight:700"><?php echo (int) $progress; ?>%</span>
                         </div>
                         <div style="background:rgba(255,255,255,.1);border-radius:20px;height:6px;overflow:hidden;margin-bottom:12px">
-                            <div style="width:<?php echo $progress; ?>%;height:100%;background:var(--gradient-primary);border-radius:20px"></div>
+                            <div style="width:<?php echo (int) $progress; ?>%;height:100%;background:var(--gradient-primary);border-radius:20px"></div>
                         </div>
                         <a href="<?php echo esc_url(get_permalink($course)); ?>" class="btn btn-sm btn-gradient w-100" style="font-size:13px"><?php echo $status==='completed'?__('Ver Novamente','hubskills-lms'):__('Continuar','hubskills-lms'); ?></a>
                     </div>

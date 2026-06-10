@@ -80,8 +80,8 @@ $xp_pct  = $xp_next > $xp_prev ? round((($xp-$xp_prev)/($xp_next-$xp_prev))*100)
                     <div class="enrolled-thumb" style="background: linear-gradient(135deg, <?php echo esc_attr($cs); ?>, <?php echo esc_attr($ce); ?>)"><?php echo esc_html($icon); ?></div>
                     <div class="enrolled-info flex-grow-1">
                         <h4><?php echo esc_html(get_the_title($ep)); ?></h4>
-                        <div class="progress mt-1"><div class="progress-bar" style="width:<?php echo $prog;?>%"></div></div>
-                        <small class="text-muted"><?php echo $prog; ?>% <?php _e('concluído', 'hubskills'); ?></small>
+                        <div class="progress mt-1"><div class="progress-bar" style="width:<?php echo (int) $prog;?>%"></div></div>
+                        <small class="text-muted"><?php echo (int) $prog; ?>% <?php _e('concluído', 'hubskills'); ?></small>
                     </div>
                     <?php if ($status==='completed') : ?>
                     <span class="badge badge-success"><?php _e('Concluído', 'hubskills'); ?></span>
@@ -112,7 +112,7 @@ $xp_pct  = $xp_next > $xp_prev ? round((($xp-$xp_prev)/($xp_next-$xp_prev))*100)
                         $earned = in_array($b['id'], $badges, true);
                     ?>
                     <div class="badge-item <?php echo $earned ? 'badge-earned' : 'badge-locked'; ?>" title="<?php echo esc_attr($b['name']); ?>">
-                        <div class="badge-icon" style="<?php echo $earned ? 'background:'.$b['color'].'22;border-color:'.$b['color'].'44' : ''; ?>">
+                        <div class="badge-icon" style="<?php echo $earned ? esc_attr('background:'.$b['color'].'22;border-color:'.$b['color'].'44') : ''; ?>">
                             <?php echo $earned ? esc_html($b['icon']) : '<i class="fas fa-lock"></i>'; ?>
                         </div>
                         <span><?php echo esc_html($b['name']); ?></span>

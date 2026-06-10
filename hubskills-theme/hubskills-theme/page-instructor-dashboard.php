@@ -78,7 +78,7 @@ get_header();
                     $active = ($tab === $slug) ? 'border-bottom:2px solid var(--primary);color:var(--primary);' : 'color:var(--text-muted);';
                 ?>
                 <a href="<?php echo esc_url(add_query_arg('tab',$slug)); ?>"
-                   style="padding:10px 20px;font-weight:600;text-decoration:none;<?php echo $active; ?>">
+                   style="padding:10px 20px;font-weight:600;text-decoration:none;<?php echo esc_attr($active); ?>">
                     <?php echo esc_html($label); ?>
                 </a>
                 <?php endforeach; ?>
@@ -107,12 +107,12 @@ get_header();
                             ?>
                             <tr style="border-bottom:1px solid rgba(255,255,255,.05)">
                                 <td style="padding:10px 8px">
-                                    <a href="<?php echo esc_url(get_edit_post_link($c->ID)); ?>" style="color:var(--text);text-decoration:none;font-weight:500">
+                                    <a href="<?php echo esc_url( home_url('/dashboard/') ); ?>" style="color:var(--text);text-decoration:none;font-weight:500">
                                         <?php echo esc_html($c->post_title); ?>
                                     </a>
                                 </td>
                                 <td style="padding:10px 8px;text-align:center;font-size:13px"><?php echo esc_html($smap[$c->post_status] ?? $c->post_status); ?></td>
-                                <td style="padding:10px 8px;text-align:right"><?php echo $students; ?></td>
+                                <td style="padding:10px 8px;text-align:right"><?php echo (int) $students; ?></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
@@ -172,7 +172,7 @@ get_header();
                             </div>
                         </div>
                         <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:13px;color:var(--text-muted)">
-                            <span><i class="fas fa-users me-1"></i><?php echo $students; ?> <?php _e('alunos','hubskills-lms'); ?></span>
+                            <span><i class="fas fa-users me-1"></i><?php echo (int) $students; ?> <?php _e('alunos','hubskills-lms'); ?></span>
                             <span style="color:var(--primary);font-weight:600"><?php echo esc_html($price); ?></span>
                         </div>
                         <div style="display:flex;gap:8px;margin-top:12px">
@@ -303,7 +303,7 @@ get_header();
                         ''
                     ));
                     ?>
-                    <div style="font-size:36px;font-weight:700;color:#7C3AED"><?php echo $sales ?: 0; ?></div>
+                    <div style="font-size:36px;font-weight:700;color:#7C3AED"><?php echo (int) ( $sales ?: 0 ); ?></div>
                     <div style="font-size:13px;color:var(--text-muted);margin-top:4px"><?php _e('vendas realizadas','hubskills-lms'); ?></div>
                 </div>
             </div>
