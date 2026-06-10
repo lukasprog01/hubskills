@@ -142,9 +142,13 @@
                 ] ); ?>
 
                 <div class="header-cta">
-                    <?php if ( is_user_logged_in() ) : ?>
-                    <a href="<?php echo esc_url( home_url('/dashboard/') ); ?>" class="btn btn-primary btn-sm">
-                        <i class="fas fa-th-large"></i> <span><?php _e( 'Dashboard', 'hubskills' ); ?></span>
+                    <?php if ( is_user_logged_in() ) :
+                        $hs_dash_btn = function_exists( 'hubskills_user_dashboard_button' )
+                            ? hubskills_user_dashboard_button()
+                            : [ 'url' => home_url('/dashboard/'), 'label' => __( 'Dashboard', 'hubskills' ), 'icon' => 'fas fa-th-large' ];
+                    ?>
+                    <a href="<?php echo esc_url( $hs_dash_btn['url'] ); ?>" class="btn btn-primary btn-sm">
+                        <i class="<?php echo esc_attr( $hs_dash_btn['icon'] ); ?>"></i> <span><?php echo esc_html( $hs_dash_btn['label'] ); ?></span>
                     </a>
                     <a href="<?php echo esc_url( wp_logout_url( home_url('/') ) ); ?>" class="btn btn-outline-secondary btn-sm">
                         <?php _e( 'Sair', 'hubskills' ); ?>

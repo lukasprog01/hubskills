@@ -357,6 +357,41 @@ function hubskills_create_nav_menu() {
     set_theme_mod( 'nav_menu_locations', $locations );
 }
 
+// ─── Botão de dashboard por papel ──────────────────────────────────────────────
+/**
+ * Retorna o botão de acesso correto para o usuário logado:
+ *  - Administrador  → Painel Administrativo (wp-admin)
+ *  - Instrutor      → Dashboard do Instrutor
+ *  - Aluno (padrão) → Área do Aluno
+ *
+ * @return array{url:string,label:string,icon:string}
+ */
+function hubskills_user_dashboard_button(): array {
+    $user_id = get_current_user_id();
+
+    if ( user_can( $user_id, 'manage_options' ) ) {
+        return [
+            'url'   => admin_url(),
+            'label' => __( 'Painel Administrativo', 'hubskills' ),
+            'icon'  => 'fas fa-shield-halved',
+        ];
+    }
+
+    if ( function_exists( 'hs_is_instructor' ) && hs_is_instructor( $user_id ) ) {
+        return [
+            'url'   => home_url( '/painel-instrutor/' ),
+            'label' => __( 'Dashboard do Instrutor', 'hubskills' ),
+            'icon'  => 'fas fa-chalkboard-teacher',
+        ];
+    }
+
+    return [
+        'url'   => home_url( '/dashboard/' ),
+        'label' => __( 'Área do Aluno', 'hubskills' ),
+        'icon'  => 'fas fa-user-graduate',
+    ];
+}
+
 // ─── Login/Logout redirect ─────────────────────────────────────────────────────
 add_filter( 'login_redirect', 'hubskills_login_redirect', 10, 3 );
 function hubskills_login_redirect( $redirect_to, $requested_redirect_to, $user ) {

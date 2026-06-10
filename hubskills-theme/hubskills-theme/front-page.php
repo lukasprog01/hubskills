@@ -19,9 +19,13 @@ $asset_url = trailingslashit( get_template_directory_uri() ) . 'assets/images/';
                 <?php _e( 'Transformando conhecimento digital em mudanças reais.', 'hubskills' ); ?>
             </p>
             <div class="hero-cta">
-                <?php if ( is_user_logged_in() ) : ?>
-                    <a href="<?php echo esc_url( home_url( '/dashboard/' ) ); ?>" class="btn btn-yellow btn-lg">
-                        <?php _e( 'Ir ao Dashboard', 'hubskills' ); ?>
+                <?php if ( is_user_logged_in() ) :
+                    $hs_dash_btn = function_exists( 'hubskills_user_dashboard_button' )
+                        ? hubskills_user_dashboard_button()
+                        : [ 'url' => home_url('/dashboard/'), 'label' => __( 'Ir ao Dashboard', 'hubskills' ), 'icon' => 'fas fa-th-large' ];
+                ?>
+                    <a href="<?php echo esc_url( $hs_dash_btn['url'] ); ?>" class="btn btn-yellow btn-lg">
+                        <i class="<?php echo esc_attr( $hs_dash_btn['icon'] ); ?> me-2"></i><?php echo esc_html( $hs_dash_btn['label'] ); ?>
                     </a>
                 <?php else : ?>
                     <a href="<?php echo esc_url( home_url( '/cursos/' ) ); ?>" class="btn btn-yellow btn-lg">
