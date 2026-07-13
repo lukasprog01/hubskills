@@ -228,7 +228,7 @@ function hs_lms_sanitize_curriculum( array $curriculum ): array {
         $lessons = [];
         foreach ( (array) ( $section['lessons'] ?? [] ) as $lesson ) {
             $provider = sanitize_key( $lesson['video_provider'] ?? 'none' );
-            if ( ! in_array( $provider, [ 'none', 'secure', 'youtube', 'vimeo', 'external' ], true ) ) $provider = 'none';
+            if ( ! in_array( $provider, [ 'none', 'secure', 'youtube', 'vimeo', 'drm', 'external' ], true ) ) $provider = 'none';
             $lesson_id = absint( $lesson['id'] ?? 0 ) ?: ++$auto_id;
             $lessons[] = [
                 'id'              => $lesson_id,
@@ -512,6 +512,43 @@ function hs_lms_vimeo_embed_url( string $url ): string {
     return ! empty( $m[1] ) ? 'https://player.vimeo.com/video/' . rawurlencode( $m[1] ) : '';
 }
 
+/**
+ * Hosts confiáveis de players de vídeo com DRM/anti-pirataria.
+ * Aceita o domínio exato ou qualquer subdomínio (ex: player-vz-123.tv.pandavideo.com.br).
+ * Extensível via filtro `hs_lms_drm_embed_hosts`.
+ */
+function hs_lms_drm_embed_hosts(): array {
+    return (array) apply_filters( 'hs_lms_drm_embed_hosts', [
+        'pandavideo.com.br',    // Panda Video (DRM social + watermark)
+        'pandavideo.com',
+        'vdocipher.com',        // VdoCipher (Widevine/FairPlay)
+        'mediadelivery.net',    // Bunny Stream (token auth / MediaCage)
+        'videodelivery.net',    // Cloudflare Stream
+        'cloudflarestream.com', // Cloudflare Stream (customer-*)
+        'wistia.net',           // Wistia (restrição de domínio)
+        'wistia.com',
+        'sproutvideo.com',      // SproutVideo
+        'api.video',            // api.video (tokens privados)
+    ] );
+}
+
+/**
+ * Valida a URL de um player externo com DRM. Retorna a URL em https
+ * se o host for confiável, ou '' caso contrário.
+ */
+function hs_lms_drm_embed_url( string $url ): string {
+    $url  = esc_url_raw( trim( $url ) );
+    $host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
+    if ( ! $host ) return '';
+    foreach ( hs_lms_drm_embed_hosts() as $allowed ) {
+        $allowed = strtolower( trim( (string) $allowed ) );
+        if ( $allowed && ( $host === $allowed || substr( $host, -strlen( '.' . $allowed ) ) === '.' . $allowed ) ) {
+            return set_url_scheme( $url, 'https' );
+        }
+    }
+    return '';
+}
+
 function hs_lms_render_lesson_media( int $course_id, array $lesson ): string {
     $provider = sanitize_key( $lesson['video_provider'] ?? '' );
     $asset_id = sanitize_key( $lesson['secure_asset_id'] ?? '' );
@@ -527,6 +564,7 @@ function hs_lms_render_lesson_media( int $course_id, array $lesson ): string {
         $host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
         if ( strpos( $host, 'youtu' ) !== false ) $provider = 'youtube';
         elseif ( strpos( $host, 'vimeo' ) !== false ) $provider = 'vimeo';
+        elseif ( hs_lms_drm_embed_url( $url ) ) $provider = 'drm';
         else $provider = 'external';
     }
     $title = sanitize_text_field( $lesson['title'] ?? get_the_title( $course_id ) );
@@ -553,6 +591,8 @@ function hs_lms_render_lesson_media( int $course_id, array $lesson ): string {
         <div class="hs-embed-player" data-watermark="<?php echo esc_attr( $watermark ); ?>"><iframe src="<?php echo esc_url( $embed ); ?>" title="<?php echo esc_attr( $title ); ?>" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><span class="hs-player-watermark"><?php echo esc_html( $watermark ); ?></span></div>
     <?php elseif ( $provider === 'vimeo' && ( $embed = hs_lms_vimeo_embed_url( $url ) ) ) : ?>
         <div class="hs-embed-player" data-watermark="<?php echo esc_attr( $watermark ); ?>"><iframe src="<?php echo esc_url( $embed ); ?>" title="<?php echo esc_attr( $title ); ?>" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe><span class="hs-player-watermark"><?php echo esc_html( $watermark ); ?></span></div>
+    <?php elseif ( $provider === 'drm' && ( $embed = hs_lms_drm_embed_url( $url ) ) ) : ?>
+        <div class="hs-embed-player" data-watermark="<?php echo esc_attr( $watermark ); ?>"><iframe src="<?php echo esc_url( $embed ); ?>" title="<?php echo esc_attr( $title ); ?>" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen referrerpolicy="origin"></iframe><span class="hs-player-watermark"><?php echo esc_html( $watermark ); ?></span></div>
     <?php elseif ( $url && preg_match( '/\.(mp4|m4v|webm|mov)(\?.*)?$/i', $url ) ) : ?>
         <div class="hs-secure-player" data-watermark="<?php echo esc_attr( $watermark ); ?>">
             <video id="courseVideo" class="hs-native-video" controls controlsList="nodownload noremoteplayback" disablePictureInPicture preload="metadata" playsinline>
@@ -653,7 +693,7 @@ function hs_lms_render_dashboard_tools(): string {
                     <div class="hs-dashboard-card inner"><div class="hs-card-head"><div><span class="hs-kicker"><?php _e( 'Arquivos', 'hubskills-lms' ); ?></span><h3><?php _e( 'PDFs e materiais', 'hubskills-lms' ); ?></h3></div><label class="hs-upload-btn"><i class="fas fa-cloud-upload-alt"></i><?php _e( 'Enviar material', 'hubskills-lms' ); ?><input type="file" multiple data-resource-upload accept=".pdf,.doc,.docx,.ppt,.pptx,.zip"></label></div><div class="hs-resource-list" data-resource-list></div></div>
                 </div>
                 <div class="hs-wizard-step" data-step="3">
-                    <div class="hs-review-grid"><div class="hs-review-item"><i class="fas fa-lock"></i><span><?php _e( 'Arquivos protegidos por login e matricula.', 'hubskills-lms' ); ?></span></div><div class="hs-review-item"><i class="fas fa-video"></i><span><?php _e( 'Upload protegido, YouTube, Vimeo e URL externa.', 'hubskills-lms' ); ?></span></div><div class="hs-review-item"><i class="fas fa-certificate"></i><span><?php _e( 'Certificados por conclusao ou emissao manual.', 'hubskills-lms' ); ?></span></div></div>
+                    <div class="hs-review-grid"><div class="hs-review-item"><i class="fas fa-lock"></i><span><?php _e( 'Arquivos protegidos por login e matricula.', 'hubskills-lms' ); ?></span></div><div class="hs-review-item"><i class="fas fa-video"></i><span><?php _e( 'Upload protegido, YouTube, Vimeo, players com DRM e URL externa.', 'hubskills-lms' ); ?></span></div><div class="hs-review-item"><i class="fas fa-certificate"></i><span><?php _e( 'Certificados por conclusao ou emissao manual.', 'hubskills-lms' ); ?></span></div></div>
                 </div>
                 <div class="hs-form-notice" data-form-notice hidden></div>
                 <div class="hs-wizard-actions"><button type="button" class="hs-ghost-btn" data-wizard-prev><?php _e( 'Voltar', 'hubskills-lms' ); ?></button><button type="button" class="btn btn-gradient" data-wizard-next><?php _e( 'Avancar', 'hubskills-lms' ); ?></button><button type="submit" class="btn btn-gradient" data-save-course hidden><i class="fas fa-save"></i><?php _e( 'Salvar curso', 'hubskills-lms' ); ?></button></div>

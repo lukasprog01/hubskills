@@ -431,3 +431,49 @@ function hubskills_elementor_categories() {
         1
     );
 }
+
+// ─── Tela de login com a identidade do tema ─────────────────────────────────
+add_action( 'login_enqueue_scripts', 'hubskills_login_assets' );
+function hubskills_login_assets() {
+    wp_enqueue_style( 'hubskills-login-fonts', HUBSKILLS_THEME_URL . '/assets/vendor/fonts/fonts.css', [], HUBSKILLS_THEME_VERSION );
+    wp_enqueue_style( 'hubskills-login', HUBSKILLS_THEME_URL . '/assets/css/login.css', [ 'login' ], HUBSKILLS_THEME_VERSION );
+}
+
+// Logo aponta para a home e usa o nome do site como texto alternativo
+add_filter( 'login_headerurl',  function () { return home_url( '/' ); } );
+add_filter( 'login_headertext', function () { return get_bloginfo( 'name' ); } );
+
+// Rótulos do login em português (o WP core vem em inglês neste site)
+add_filter( 'gettext', 'hubskills_login_labels_ptbr', 20, 3 );
+function hubskills_login_labels_ptbr( $translated, $text, $domain ) {
+    if ( $domain !== 'default' ) return $translated;
+    static $map = null;
+    if ( $map === null ) $map = [
+        'Username or Email Address' => 'Usuário ou e-mail',
+        'Password'                  => 'Senha',
+        'Remember Me'               => 'Lembrar-me',
+        'Log In'                    => 'Entrar',
+        'Lost your password?'       => 'Esqueceu a senha?',
+        'Username'                  => 'Usuário',
+        'Email Address'             => 'E-mail',
+        'Get New Password'          => 'Recuperar senha',
+        'Register'                  => 'Cadastrar',
+        '&larr; Go to %s'           => '&larr; Voltar para %s',
+        'Go to %s'                  => 'Voltar para %s',
+    ];
+    // Só intervém na tela de login (evita afetar o admin)
+    if ( isset( $map[ $text ] ) && ( did_action( 'login_init' ) || ( isset( $GLOBALS['pagenow'] ) && $GLOBALS['pagenow'] === 'wp-login.php' ) ) ) {
+        return $map[ $text ];
+    }
+    return $translated;
+}
+
+// Mensagem de boas-vindas acima do formulário
+add_filter( 'login_message', 'hubskills_login_message' );
+function hubskills_login_message( $message ) {
+    if ( ! empty( $message ) ) return $message; // preserva avisos do WP (logout, etc.)
+    return '<div class="hs-login-welcome">'
+        . '<strong>' . esc_html__( 'Área do Aluno', 'hubskills' ) . '</strong>'
+        . '<span>' . esc_html__( 'Entre para acessar seus cursos, progresso e certificados.', 'hubskills' ) . '</span>'
+        . '</div>';
+}

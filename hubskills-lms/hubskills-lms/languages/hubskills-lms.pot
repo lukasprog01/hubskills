@@ -1,0 +1,2015 @@
+# HubSkills LMS — template de tradução
+msgid ""
+msgstr ""
+"Project-Id-Version: HubSkills LMS 1.0.1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"X-Domain: hubskills-lms\n"
+
+#: admin/course-metabox.php:82
+msgid " Destacar curso na Home"
+msgstr ""
+
+#: admin/admin-dashboard.php:105
+msgid "%d candidatura(s) de instrutor aguardando aprovação."
+msgstr ""
+
+#: admin/course-metabox.php:119
+msgid "+ Adicionar módulo"
+msgstr ""
+
+#: admin/course-metabox.php:209
+msgid "+ Adicionar questão"
+msgstr ""
+
+#: admin/admin-dashboard.php:369
+msgid "+ Novo Curso"
+msgstr ""
+
+#: includes/security.php:382
+msgid "<strong>Erro:</strong> a senha precisa ter ao menos 8 caracteres, com letras e números."
+msgstr ""
+
+#: includes/privacy.php:46
+msgid "<strong>Erro:</strong> é necessário aceitar a Política de Privacidade para criar a conta."
+msgstr ""
+
+#: includes/ajax.php:228
+msgid "A confirmação de senha não confere."
+msgstr ""
+
+#: includes/ajax.php:225
+msgid "A nova senha precisa ter ao menos 8 caracteres, com letras e números."
+msgstr ""
+
+#: admin/admin-dashboard.php:794
+msgid "A plataforma ficará com o restante."
+msgstr ""
+
+#: includes/frontend-dashboard.php:844
+msgid "Abrir"
+msgstr ""
+
+#: includes/frontend-dashboard.php:586 includes/frontend-dashboard.php:602
+msgid "Abrir video em nova aba"
+msgstr ""
+
+#: admin/admin-dashboard.php:604
+msgid "Access Token"
+msgstr ""
+
+#: includes/privacy.php:86
+msgid "Aceito em"
+msgstr ""
+
+#: includes/frontend-dashboard.php:841
+msgid "Acesso autenticado"
+msgstr ""
+
+#: admin/admin-dashboard.php:84 admin/ajax-admin.php:10 admin/extensions.php:207
+msgid "Acesso negado."
+msgstr ""
+
+#: includes/taxonomies.php:12
+msgid "Adicionar Categoria"
+msgstr ""
+
+#: includes/post-types.php:77
+msgid "Adicionar Nova Aula"
+msgstr ""
+
+#: includes/post-types.php:51
+msgid "Adicionar Novo Curso"
+msgstr ""
+
+#: includes/post-types.php:99
+msgid "Adicionar Novo Quiz"
+msgstr ""
+
+#: includes/frontend-dashboard.php:632
+msgid "Admin: acesso total"
+msgstr ""
+
+#: includes/refunds.php:197
+msgid "Aguardando pagamento"
+msgstr ""
+
+#: admin/admin-dashboard.php:205 admin/admin-dashboard.php:447 includes/frontend-dashboard.php:632
+msgid "Aluno"
+msgstr ""
+
+#: includes/frontend-dashboard.php:735
+msgid "Aluno cadastrado"
+msgstr ""
+
+#: includes/refunds.php:111
+msgid "Aluno: %s\nCurso: %s\nValor: R$ %s\nMotivo:\n%s\n\nAnalise em: %s"
+msgstr ""
+
+#: admin/admin-dashboard.php:22 admin/admin-dashboard.php:113 admin/admin-dashboard.php:313
+msgid "Alunos"
+msgstr ""
+
+#: admin/extensions.php:286
+msgid "Amplie o seu LMS com módulos oficiais. Ao clicar em \"Comprar módulo\" você será levado à página oficial para concluir a compra — após o pagamento, você recebe o arquivo do módulo e a chave de licença para ativar aqui mesmo."
+msgstr ""
+
+#: includes/privacy.php:159
+msgid "Anotações"
+msgstr ""
+
+#: includes/privacy.php:156
+msgid "Anotações de aulas"
+msgstr ""
+
+#: includes/ajax.php:167
+msgid "Anotações salvas!"
+msgstr ""
+
+#: includes/privacy.php:254
+msgid "Ao criar uma conta e se matricular em cursos, coletamos e tratamos: nome, e-mail, matrículas, progresso de aulas, resultados de quizzes, certificados emitidos, dados de gamificação (XP, conquistas) e registros de pedidos/pagamentos."
+msgstr ""
+
+#: includes/reviews.php:15
+msgid "Apenas alunos matriculados podem avaliar este curso."
+msgstr ""
+
+#: includes/refunds.php:49
+msgid "Apenas pedidos pagos podem ser reembolsados."
+msgstr ""
+
+#: admin/admin-dashboard.php:296
+msgid "Aprovado"
+msgstr ""
+
+#: admin/admin-dashboard.php:293
+msgid "Aprovar"
+msgstr ""
+
+#: admin/admin-dashboard.php:490
+msgid "Aprovar reembolso"
+msgstr ""
+
+#: includes/frontend-dashboard.php:826
+msgid "Aproveitamento"
+msgstr ""
+
+#: includes/frontend-dashboard.php:631
+msgid "Area LMS"
+msgstr ""
+
+#: includes/frontend-dashboard.php:184
+msgid "Arquivo acima do limite."
+msgstr ""
+
+#: includes/frontend-dashboard.php:693
+msgid "Arquivos"
+msgstr ""
+
+#: includes/frontend-dashboard.php:696
+msgid "Arquivos protegidos por login e matricula."
+msgstr ""
+
+#: includes/frontend-dashboard.php:792
+msgid "Assinatura digital da instituicao"
+msgstr ""
+
+#: admin/course-metabox.php:165
+msgid "Assinatura digital da instituição"
+msgstr ""
+
+#: admin/course-metabox.php:164 includes/frontend-dashboard.php:779
+msgid "Assinatura digital do instrutor"
+msgstr ""
+
+#: includes/frontend-dashboard.php:772
+msgid "Assinatura institucional"
+msgstr ""
+
+#: admin/extensions.php:70
+msgid "Assistente de dúvidas por IA dentro da aula, treinado no conteúdo do seu curso."
+msgstr ""
+
+#: admin/admin-dashboard.php:129
+msgid "Atalhos Rápidos"
+msgstr ""
+
+#: admin/extensions.php:338
+msgid "Ativar licença"
+msgstr ""
+
+#: admin/admin-dashboard.php:220
+msgid "Ativo"
+msgstr ""
+
+#: includes/refunds.php:158
+msgid "Atualização sobre sua solicitação de reembolso"
+msgstr ""
+
+#: admin/admin-dashboard.php:28
+msgid "Auditoria"
+msgstr ""
+
+#: includes/post-types.php:75
+msgid "Aula"
+msgstr ""
+
+#: includes/progress.php:108
+msgid "Aula já concluída."
+msgstr ""
+
+#: includes/progress.php:92 includes/progress.php:213
+msgid "Aula não pertence a este curso."
+msgstr ""
+
+#: includes/frontend-dashboard.php:669 includes/post-types.php:74
+msgid "Aulas"
+msgstr ""
+
+#: includes/frontend-dashboard.php:841
+msgid "Aulas exigem login e permissao no curso."
+msgstr ""
+
+#: admin/course-metabox.php:154 admin/course-metabox.php:155 admin/course-metabox.php:156
+msgid "Automático: %s"
+msgstr ""
+
+#: admin/course-metabox.php:57
+msgid "Avaliação (0-5)"
+msgstr ""
+
+#: includes/reviews.php:9
+msgid "Avaliação deve ser entre 1 e 5."
+msgstr ""
+
+#: includes/ajax.php:143
+msgid "Avaliação enviada!"
+msgstr ""
+
+#: includes/frontend-dashboard.php:699
+msgid "Avancar"
+msgstr ""
+
+#: admin/admin-dashboard.php:722
+msgid "Ação"
+msgstr ""
+
+#: admin/admin-dashboard.php:210 admin/admin-dashboard.php:275 admin/admin-dashboard.php:316
+msgid "Ações"
+msgstr ""
+
+#: admin/extensions.php:48
+msgid "B2B & Turmas"
+msgstr ""
+
+#: includes/frontend-dashboard.php:808
+msgid "Baixar imagem"
+msgstr ""
+
+#: includes/frontend-dashboard.php:668
+msgid "Base"
+msgstr ""
+
+#: admin/admin-dashboard.php:198
+msgid "Buscar"
+msgstr ""
+
+#: includes/post-types.php:55
+msgid "Buscar Cursos"
+msgstr ""
+
+#: admin/admin-dashboard.php:197
+msgid "Buscar aluno..."
+msgstr ""
+
+#: includes/refunds.php:201
+msgid "Cancelado"
+msgstr ""
+
+#: admin/admin-dashboard.php:271
+msgid "Candidato"
+msgstr ""
+
+#: includes/privacy.php:165
+msgid "Candidatura de instrutor"
+msgstr ""
+
+#: includes/instructors.php:343
+msgid "Candidatura enviada com sucesso!"
+msgstr ""
+
+#: includes/instructors.php:41 includes/instructors.php:79
+msgid "Candidatura não encontrada."
+msgstr ""
+
+#: admin/ajax-admin.php:38
+msgid "Candidatura rejeitada."
+msgstr ""
+
+#: admin/admin-dashboard.php:261
+msgid "Candidaturas"
+msgstr ""
+
+#: includes/frontend-dashboard.php:768 includes/frontend-dashboard.php:825
+msgid "Carga horaria"
+msgstr ""
+
+#: admin/course-metabox.php:154
+msgid "Carga horária"
+msgstr ""
+
+#: includes/frontend-dashboard.php:773
+msgid "Cargo da assinatura"
+msgstr ""
+
+#: admin/course-metabox.php:157
+msgid "Cargo da instituição"
+msgstr ""
+
+#: includes/frontend-dashboard.php:801
+msgid "Carimbo ou assinatura institucional, ate 2MB."
+msgstr ""
+
+#: admin/course-metabox.php:116 admin/course-metabox.php:206
+msgid "Carregando builder…"
+msgstr ""
+
+#: includes/shortcodes.php:117
+msgid "Carregando quiz..."
+msgstr ""
+
+#: includes/taxonomies.php:10
+msgid "Categoria"
+msgstr ""
+
+#: includes/taxonomies.php:9
+msgid "Categorias"
+msgstr ""
+
+#: admin/extensions.php:348
+msgid "Central de compras e suporte"
+msgstr ""
+
+#: includes/frontend-dashboard.php:639
+msgid "Certificacao"
+msgstr ""
+
+#: includes/frontend-dashboard.php:817
+msgid "Certificado"
+msgstr ""
+
+#: admin/course-metabox.php:8
+msgid "Certificado Automático"
+msgstr ""
+
+#: includes/frontend-dashboard.php:412
+msgid "Certificado emitido."
+msgstr ""
+
+#: includes/rest-api.php:50
+msgid "Certificado não encontrado."
+msgstr ""
+
+#: includes/frontend-dashboard.php:844 includes/privacy.php:128
+msgid "Certificados"
+msgstr ""
+
+#: includes/privacy.php:238
+msgid "Certificados emitidos foram retidos para garantir a verificação pública de autenticidade."
+msgstr ""
+
+#: includes/frontend-dashboard.php:696
+msgid "Certificados por conclusao ou emissao manual."
+msgstr ""
+
+#: includes/frontend-dashboard.php:819
+msgid "Certificamos que"
+msgstr ""
+
+#: admin/admin-dashboard.php:624
+msgid "Chave PIX"
+msgstr ""
+
+#: includes/payments.php:932
+msgid "Chave PIX não configurada."
+msgstr ""
+
+#: admin/admin-dashboard.php:585
+msgid "Chave Pública"
+msgstr ""
+
+#: admin/admin-dashboard.php:586
+msgid "Chave Secreta"
+msgstr ""
+
+#: admin/extensions.php:316
+msgid "Chave de licença"
+msgstr ""
+
+#: admin/extensions.php:141
+msgid "Chave de licença inválida. Confira se copiou a chave completa."
+msgstr ""
+
+#: admin/extensions.php:126
+msgid "Chave de licença recusada pelo servidor de licenças."
+msgstr ""
+
+#: admin/admin-dashboard.php:626
+msgid "Cidade"
+msgstr ""
+
+#: admin/admin-dashboard.php:780
+msgid "Cidade (para PIX)"
+msgstr ""
+
+#: includes/certificates.php:6
+msgid "Classico institucional"
+msgstr ""
+
+#: admin/admin-dashboard.php:595
+msgid "Client ID"
+msgstr ""
+
+#: admin/admin-dashboard.php:596
+msgid "Client Secret"
+msgstr ""
+
+#: admin/admin-dashboard.php:314
+msgid "Comissão"
+msgstr ""
+
+#: admin/admin-dashboard.php:792
+msgid "Comissão Padrão do Instrutor (%)"
+msgstr ""
+
+#: admin/ajax-admin.php:49
+msgid "Comissão atualizada!"
+msgstr ""
+
+#: includes/progress.php:47
+msgid "Completou o curso <strong>%s</strong> e recebeu o certificado automaticamente 🎓"
+msgstr ""
+
+#: includes/progress.php:48
+msgid "Completou o curso <strong>%s</strong> 🎉"
+msgstr ""
+
+#: includes/shortcodes.php:72
+msgid "Comprar curso %s"
+msgstr ""
+
+#: admin/extensions.php:327
+msgid "Comprar módulo"
+msgstr ""
+
+#: includes/progress.php:130
+msgid "Concluiu aula <strong>#%d</strong> em %s"
+msgstr ""
+
+#: includes/frontend-dashboard.php:824
+msgid "Conclusao"
+msgstr ""
+
+#: includes/privacy.php:104
+msgid "Concluído em"
+msgstr ""
+
+#: admin/admin-dashboard.php:30 hubskills-lms.php:143
+msgid "Configurações"
+msgstr ""
+
+#: admin/admin-dashboard.php:772
+msgid "Configurações Gerais"
+msgstr ""
+
+#: admin/admin-dashboard.php:647
+msgid "Configurações de Segurança"
+msgstr ""
+
+#: admin/admin-dashboard.php:549 admin/admin-dashboard.php:768
+msgid "Configurações salvas!"
+msgstr ""
+
+#: admin/admin-dashboard.php:554
+msgid "Configure os métodos de pagamento aceitos na plataforma"
+msgstr ""
+
+#: includes/privacy.php:146
+msgid "Conquistas"
+msgstr ""
+
+#: includes/gamification.php:69
+msgid "Conquistou o badge <strong>%s %s</strong>!"
+msgstr ""
+
+#: includes/privacy.php:83
+msgid "Consentimento LGPD"
+msgstr ""
+
+#: includes/shortcodes.php:66
+msgid "Continuar Curso"
+msgstr ""
+
+#: admin/course-metabox.php:77
+msgid "Cor Gradiente Fim (hex)"
+msgstr ""
+
+#: admin/course-metabox.php:73
+msgid "Cor Gradiente Início (hex)"
+msgstr ""
+
+#: includes/frontend-dashboard.php:706
+msgid "Criador de certificados"
+msgstr ""
+
+#: includes/frontend-dashboard.php:645
+msgid "Criar curso"
+msgstr ""
+
+#: includes/frontend-dashboard.php:689
+msgid "Curriculo do curso"
+msgstr ""
+
+#: admin/course-metabox.php:7
+msgid "Currículo / Aulas"
+msgstr ""
+
+#: admin/admin-dashboard.php:373 admin/admin-dashboard.php:448 includes/frontend-dashboard.php:712
+msgid "Curso"
+msgstr ""
+
+#: includes/enrollment.php:124
+msgid "Curso indisponível."
+msgstr ""
+
+#: includes/enrollment.php:122 includes/payments.php:184 includes/payments.php:1228
+msgid "Curso inválido."
+msgstr ""
+
+#: includes/rest-api.php:94
+msgid "Curso não encontrado."
+msgstr ""
+
+#: includes/frontend-dashboard.php:334
+msgid "Curso salvo com sucesso."
+msgstr ""
+
+#: admin/admin-dashboard.php:24 admin/admin-dashboard.php:207 admin/admin-dashboard.php:312
+msgid "Cursos"
+msgstr ""
+
+#: admin/admin-dashboard.php:115 admin/settings.php:69
+msgid "Cursos Publicados"
+msgstr ""
+
+#: includes/frontend-dashboard.php:645
+msgid "Cursos cadastrados"
+msgstr ""
+
+#: includes/privacy.php:132
+msgid "Código"
+msgstr ""
+
+#: includes/privacy.php:170
+msgid "Dados de instrutor"
+msgstr ""
+
+#: includes/frontend-dashboard.php:373
+msgid "Dados invalidos."
+msgstr ""
+
+#: admin/course-metabox.php:182
+msgid "Dados puxados automaticamente por aluno: nome, e-mail, documento (CPF se cadastrado), data de conclusão, código de verificação único."
+msgstr ""
+
+#: admin/admin-dashboard.php:273 admin/admin-dashboard.php:452 includes/privacy.php:189
+msgid "Data"
+msgstr ""
+
+#: includes/frontend-dashboard.php:769
+msgid "Data de conclusao"
+msgstr ""
+
+#: includes/frontend-dashboard.php:770
+msgid "Data de emissao"
+msgstr ""
+
+#: admin/admin-dashboard.php:725
+msgid "Data/Hora"
+msgstr ""
+
+#: includes/refunds.php:137
+msgid "Decisão inválida."
+msgstr ""
+
+#: admin/admin-dashboard.php:675
+msgid "Desbloquear"
+msgstr ""
+
+#: admin/admin-dashboard.php:672
+msgid "Desbloquear IP"
+msgstr ""
+
+#: includes/refunds.php:86
+msgid "Descreva o motivo da solicitação (mínimo de 10 caracteres)."
+msgstr ""
+
+#: includes/frontend-dashboard.php:685
+msgid "Descricao completa"
+msgstr ""
+
+#: admin/admin-dashboard.php:723
+msgid "Descrição"
+msgstr ""
+
+#: admin/course-metabox.php:6
+msgid "Detalhes do Curso"
+msgstr ""
+
+#: admin/admin-dashboard.php:674
+msgid "Digite o IP..."
+msgstr ""
+
+#: includes/certificates.php:19 includes/frontend-dashboard.php:400 includes/frontend-dashboard.php:723
+msgid "Diretor Academico"
+msgstr ""
+
+#: includes/frontend-dashboard.php:766
+msgid "Documento/ID do aluno"
+msgstr ""
+
+#: admin/extensions.php:41
+msgid "Drip & Trilhas"
+msgstr ""
+
+#: includes/frontend-dashboard.php:677
+msgid "Duracao"
+msgstr ""
+
+#: admin/course-metabox.php:49
+msgid "Duração (ex: 42h)"
+msgstr ""
+
+#: admin/admin-dashboard.php:664
+msgid "Duração do bloqueio"
+msgstr ""
+
+#: includes/frontend-dashboard.php:765
+msgid "E-mail do aluno"
+msgstr ""
+
+#: admin/admin-dashboard.php:398
+msgid "Editar"
+msgstr ""
+
+#: includes/post-types.php:78
+msgid "Editar Aula"
+msgstr ""
+
+#: includes/taxonomies.php:13
+msgid "Editar Categoria"
+msgstr ""
+
+#: includes/post-types.php:52
+msgid "Editar Curso"
+msgstr ""
+
+#: includes/post-types.php:100
+msgid "Editar Quiz"
+msgstr ""
+
+#: admin/course-metabox.php:123 admin/course-metabox.php:213
+msgid "Edição direta do JSON. Alterações aqui sobrescrevem o builder visual ao salvar."
+msgstr ""
+
+#: admin/admin-dashboard.php:206 admin/admin-dashboard.php:614
+msgid "Email"
+msgstr ""
+
+#: admin/extensions.php:62
+msgid "Email & Automations"
+msgstr ""
+
+#: admin/admin-dashboard.php:778
+msgid "Email de Contato"
+msgstr ""
+
+#: includes/frontend-dashboard.php:706
+msgid "Emissao"
+msgstr ""
+
+#: includes/frontend-dashboard.php:762
+msgid "Emissão automática ao concluir o curso"
+msgstr ""
+
+#: includes/privacy.php:133
+msgid "Emitido em"
+msgstr ""
+
+#: admin/course-metabox.php:141
+msgid "Emitir automaticamente ao concluir o curso"
+msgstr ""
+
+#: includes/frontend-dashboard.php:805
+msgid "Emitir certificado"
+msgstr ""
+
+#: includes/shortcodes.php:56
+msgid "Entrar para Matricular-se"
+msgstr ""
+
+#: includes/shortcodes.php:103
+msgid "Entrar para acessar o quiz"
+msgstr ""
+
+#: includes/frontend-dashboard.php:693
+msgid "Enviar material"
+msgstr ""
+
+#: admin/course-metabox.php:176
+msgid "Enviar/escolher imagem"
+msgstr ""
+
+#: includes/payments.php:401
+msgid "Erro Stripe."
+msgstr ""
+
+#: includes/ajax.php:127
+msgid "Erro ao cancelar matrícula."
+msgstr ""
+
+#: includes/payments.php:609
+msgid "Erro ao criar pedido PayPal."
+msgstr ""
+
+#: includes/payments.php:736
+msgid "Erro ao criar preferência Mercado Pago."
+msgstr ""
+
+#: includes/payments.php:831
+msgid "Erro ao criar sessão PagSeguro."
+msgstr ""
+
+#: includes/payments.php:892
+msgid "Erro ao iniciar checkout PagSeguro."
+msgstr ""
+
+#: admin/admin-dashboard.php:272
+msgid "Especialidade"
+msgstr ""
+
+#: includes/progress.php:96 includes/progress.php:217
+msgid "Esta aula ainda não está disponível."
+msgstr ""
+
+#: admin/extensions.php:136
+msgid "Esta chave pertence a outro módulo."
+msgstr ""
+
+#: includes/enrollment.php:133
+msgid "Este curso é pago. Conclua o pagamento antes da matrícula."
+msgstr ""
+
+#: includes/ajax.php:211
+msgid "Este e-mail já está em uso por outra conta."
+msgstr ""
+
+#: includes/certificates.php:8
+msgid "Executivo premium"
+msgstr ""
+
+#: admin/admin-dashboard.php:199
+msgid "Exportar CSV"
+msgstr ""
+
+#: admin/extensions.php:257 admin/extensions.php:258
+msgid "Extensões"
+msgstr ""
+
+#: admin/extensions.php:277
+msgid "Extensões HubSkills"
+msgstr ""
+
+#: includes/refunds.php:150
+msgid "Falha ao processar o reembolso."
+msgstr ""
+
+#: includes/payments.php:543
+msgid "Falha na autenticação PayPal."
+msgstr ""
+
+#: includes/frontend-dashboard.php:861
+msgid "Falha no upload da assinatura."
+msgstr ""
+
+#: includes/frontend-dashboard.php:180
+msgid "Falha no upload."
+msgstr ""
+
+#: admin/admin-dashboard.php:422 includes/refunds.php:200
+msgid "Falhou"
+msgstr ""
+
+#: includes/instructors.php:329
+msgid "Faça login primeiro."
+msgstr ""
+
+#: includes/quiz.php:52
+msgid "Fez o quiz <strong>%s</strong> — %d%%. Continue tentando!"
+msgstr ""
+
+#: includes/privacy.php:255
+msgid "Finalidades: prestação do serviço educacional, emissão e verificação de certificados, processamento de pagamentos e cumprimento de obrigações legais."
+msgstr ""
+
+#: admin/extensions.php:133
+msgid "Formato de chave inválido. Use a chave exatamente como recebida no e-mail de compra."
+msgstr ""
+
+#: admin/extensions.php:35
+msgid "Funil de vendas, engajamento aula a aula, taxa de conclusão e exportações em PDF/Excel."
+msgstr ""
+
+#: admin/extensions.php:76
+msgid "Gamification Pro"
+msgstr ""
+
+#: admin/admin-dashboard.php:782 admin/settings.php:11 includes/privacy.php:141
+msgid "Gamificação"
+msgstr ""
+
+#: admin/admin-dashboard.php:450
+msgid "Gateway"
+msgstr ""
+
+#: admin/admin-dashboard.php:559
+msgid "Gateway Ativo"
+msgstr ""
+
+#: includes/payments.php:1272
+msgid "Gateway de pagamento inválido."
+msgstr ""
+
+#: admin/admin-dashboard.php:26
+msgid "Gateways"
+msgstr ""
+
+#: admin/admin-dashboard.php:554
+msgid "Gateways de Pagamento"
+msgstr ""
+
+#: admin/settings.php:10
+msgid "Geral"
+msgstr ""
+
+#: admin/admin-dashboard.php:193
+msgid "Gerenciar Alunos"
+msgstr ""
+
+#: admin/admin-dashboard.php:361
+msgid "Gerenciar Cursos"
+msgstr ""
+
+#: admin/admin-dashboard.php:257
+msgid "Gerenciar Instrutores"
+msgstr ""
+
+#: includes/frontend-dashboard.php:645
+msgid "Gestao"
+msgstr ""
+
+#: admin/admin-dashboard.php:385
+msgid "Grátis"
+msgstr ""
+
+#: includes/roles.php:131
+msgid "HS Admin"
+msgstr ""
+
+#: includes/roles.php:125
+msgid "HS Instructor"
+msgstr ""
+
+#: includes/roles.php:119
+msgid "HS Student"
+msgstr ""
+
+#: admin/admin-dashboard.php:9 admin/admin-dashboard.php:10 includes/privacy.php:65
+msgid "HubSkills LMS"
+msgstr ""
+
+#: admin/settings.php:43
+msgid "HubSkills LMS — Configurações"
+msgstr ""
+
+#: admin/admin-dashboard.php:101
+msgid "HubSkills LMS — Painel"
+msgstr ""
+
+#: admin/settings.php:61
+msgid "HubSkills LMS — Relatórios"
+msgstr ""
+
+#: admin/extensions.php:69
+msgid "IA Tutor"
+msgstr ""
+
+#: admin/admin-dashboard.php:720
+msgid "ID"
+msgstr ""
+
+#: includes/frontend-dashboard.php:833
+msgid "ID apos emissao"
+msgstr ""
+
+#: includes/ajax.php:20
+msgid "ID de curso inválido."
+msgstr ""
+
+#: admin/admin-dashboard.php:724
+msgid "IP"
+msgstr ""
+
+#: admin/ajax-admin.php:95
+msgid "IP %s desbloqueado."
+msgstr ""
+
+#: admin/ajax-admin.php:91
+msgid "IP inválido."
+msgstr ""
+
+#: includes/frontend-dashboard.php:679
+msgid "Icone"
+msgstr ""
+
+#: includes/frontend-dashboard.php:867
+msgid "Imagem acima de 2MB."
+msgstr ""
+
+#: includes/frontend-dashboard.php:807
+msgid "Imprimir / PDF"
+msgstr ""
+
+#: includes/frontend-dashboard.php:279
+msgid "Informe o nome do curso."
+msgstr ""
+
+#: includes/ajax.php:207
+msgid "Informe um e-mail válido."
+msgstr ""
+
+#: includes/ajax.php:204
+msgid "Informe um nome válido."
+msgstr ""
+
+#: admin/course-metabox.php:156
+msgid "Instituição"
+msgstr ""
+
+#: admin/admin-dashboard.php:311 admin/admin-dashboard.php:374 admin/course-metabox.php:37
+msgid "Instrutor"
+msgstr ""
+
+#: admin/ajax-admin.php:25
+msgid "Instrutor aprovado!"
+msgstr ""
+
+#: includes/frontend-dashboard.php:830
+msgid "Instrutor do Curso"
+msgstr ""
+
+#: includes/frontend-dashboard.php:682
+msgid "Instrutor responsavel"
+msgstr ""
+
+#: admin/course-metabox.php:155
+msgid "Instrutor/assinatura"
+msgstr ""
+
+#: includes/frontend-dashboard.php:771
+msgid "Instrutor/responsavel"
+msgstr ""
+
+#: admin/admin-dashboard.php:23 admin/admin-dashboard.php:114 admin/admin-dashboard.php:791
+msgid "Instrutores"
+msgstr ""
+
+#: admin/admin-dashboard.php:259
+msgid "Instrutores Ativos"
+msgstr ""
+
+#: admin/extensions.php:347
+msgid "Já comprou um módulo? Instale o arquivo recebido (Plugins → Adicionar novo → Enviar plugin) e ative a chave de licença no cartão do módulo acima."
+msgstr ""
+
+#: includes/refunds.php:53
+msgid "Já existe uma solicitação de reembolso para este pedido."
+msgstr ""
+
+#: admin/extensions.php:330
+msgid "Já tenho a chave"
+msgstr ""
+
+#: includes/privacy.php:32
+msgid "Li e concordo com a <a href=\"%s\" target=\"_blank\" rel=\"noopener\">Política de Privacidade</a> e autorizo o tratamento dos meus dados pessoais para fins de matrícula, progresso de cursos e emissão de certificados (LGPD)."
+msgstr ""
+
+#: admin/extensions.php:42
+msgid "Liberação programada de aulas, pré-requisitos entre cursos e trilhas de aprendizado."
+msgstr ""
+
+#: admin/extensions.php:225
+msgid "Licença do módulo %s ativada com sucesso!"
+msgstr ""
+
+#: admin/extensions.php:240
+msgid "Licença removida. O módulo foi desativado."
+msgstr ""
+
+#: admin/course-metabox.php:158 includes/frontend-dashboard.php:774
+msgid "Local"
+msgstr ""
+
+#: admin/admin-dashboard.php:147
+msgid "Log de Atividade Recente"
+msgstr ""
+
+#: admin/admin-dashboard.php:715
+msgid "Log de Auditoria"
+msgstr ""
+
+#: admin/extensions.php:77
+msgid "Loja de pontos, missões semanais, ranking entre turmas e recompensas customizadas."
+msgstr ""
+
+#: admin/extensions.php:29
+msgid "Mais vendido"
+msgstr ""
+
+#: includes/frontend-dashboard.php:841
+msgid "Marca d agua"
+msgstr ""
+
+#: admin/admin-dashboard.php:494
+msgid "Marcar pago"
+msgstr ""
+
+#: admin/extensions.php:55
+msgid "Marketplace"
+msgstr ""
+
+#: includes/frontend-dashboard.php:670
+msgid "Materiais"
+msgstr ""
+
+#: includes/privacy.php:103
+msgid "Matriculado em"
+msgstr ""
+
+#: includes/enrollment.php:158
+msgid "Matriculado em <strong>%s</strong>"
+msgstr ""
+
+#: includes/shortcodes.php:77
+msgid "Matricular-se"
+msgstr ""
+
+#: includes/ajax.php:36
+msgid "Matrícula realizada com sucesso!"
+msgstr ""
+
+#: includes/privacy.php:97
+msgid "Matrículas e progresso"
+msgstr ""
+
+#: includes/payments.php:698
+msgid "Mercado Pago não configurado."
+msgstr ""
+
+#: includes/frontend-dashboard.php:844
+msgid "Meus certificados"
+msgstr ""
+
+#: includes/refunds.php:211
+msgid "Meus pedidos"
+msgstr ""
+
+#: admin/course-metabox.php:147
+msgid "Modelo"
+msgstr ""
+
+#: includes/frontend-dashboard.php:446
+msgid "Modelo automatico do curso salvo."
+msgstr ""
+
+#: includes/frontend-dashboard.php:753
+msgid "Modelo do curso"
+msgstr ""
+
+#: admin/course-metabox.php:134 includes/certificates.php:7
+msgid "Moderno azul e ciano"
+msgstr ""
+
+#: admin/course-metabox.php:120 admin/course-metabox.php:210
+msgid "Modo avançado (JSON)"
+msgstr ""
+
+#: includes/frontend-dashboard.php:246 includes/frontend-dashboard.php:689
+msgid "Modulo"
+msgstr ""
+
+#: includes/frontend-dashboard.php:429
+msgid "Modulo de certificados indisponivel."
+msgstr ""
+
+#: admin/admin-dashboard.php:570
+msgid "Moeda"
+msgstr ""
+
+#: admin/admin-dashboard.php:645
+msgid "Monitoramento de segurança e bloqueios"
+msgstr ""
+
+#: admin/admin-dashboard.php:488 includes/security.php:225
+msgid "Motivo:"
+msgstr ""
+
+#: includes/security.php:405
+msgid "Muitas requisições. Aguarde um instante."
+msgstr ""
+
+#: admin/admin-dashboard.php:660
+msgid "Máx. tentativas de login"
+msgstr ""
+
+#: admin/extensions.php:315
+msgid "Módulo ativo"
+msgstr ""
+
+#: admin/extensions.php:130
+msgid "Módulo desconhecido."
+msgstr ""
+
+#: includes/frontend-dashboard.php:69
+msgid "Nao foi possivel criar a pasta protegida."
+msgstr ""
+
+#: includes/frontend-dashboard.php:197
+msgid "Nao foi possivel salvar o arquivo."
+msgstr ""
+
+#: admin/admin-dashboard.php:491
+msgid "Negar"
+msgstr ""
+
+#: admin/admin-dashboard.php:241
+msgid "Nenhum aluno encontrado."
+msgstr ""
+
+#: includes/frontend-dashboard.php:845
+msgid "Nenhum certificado emitido ainda."
+msgstr ""
+
+#: admin/admin-dashboard.php:403 includes/frontend-dashboard.php:647 includes/post-types.php:56
+msgid "Nenhum curso encontrado."
+msgstr ""
+
+#: admin/admin-dashboard.php:346
+msgid "Nenhum instrutor encontrado."
+msgstr ""
+
+#: admin/admin-dashboard.php:503
+msgid "Nenhum pedido encontrado."
+msgstr ""
+
+#: admin/admin-dashboard.php:739
+msgid "Nenhum registro encontrado."
+msgstr ""
+
+#: admin/admin-dashboard.php:699
+msgid "Nenhum usuário suspenso."
+msgstr ""
+
+#: admin/admin-dashboard.php:161
+msgid "Nenhuma atividade registrada."
+msgstr ""
+
+#: admin/admin-dashboard.php:301
+msgid "Nenhuma candidatura encontrada."
+msgstr ""
+
+#: includes/refunds.php:142
+msgid "Nenhuma solicitação pendente para este pedido."
+msgstr ""
+
+#: includes/frontend-dashboard.php:676
+msgid "Nivel"
+msgstr ""
+
+#: admin/admin-dashboard.php:776 admin/settings.php:14
+msgid "Nome da Plataforma"
+msgstr ""
+
+#: admin/admin-dashboard.php:625
+msgid "Nome do Beneficiário"
+msgstr ""
+
+#: includes/frontend-dashboard.php:820
+msgid "Nome do aluno"
+msgstr ""
+
+#: includes/frontend-dashboard.php:675 includes/frontend-dashboard.php:822
+msgid "Nome do curso"
+msgstr ""
+
+#: includes/frontend-dashboard.php:764
+msgid "Nome no certificado"
+msgstr ""
+
+#: admin/course-metabox.php:201
+msgid "Nota Mínima (%)"
+msgstr ""
+
+#: admin/settings.php:18
+msgid "Nota Mínima Quiz (%)"
+msgstr ""
+
+#: admin/admin-dashboard.php:789
+msgid "Nota mínima Quiz (%)"
+msgstr ""
+
+#: includes/frontend-dashboard.php:775
+msgid "Nota ou aproveitamento"
+msgstr ""
+
+#: includes/post-types.php:76
+msgid "Nova Aula"
+msgstr ""
+
+#: includes/frontend-dashboard.php:235
+msgid "Nova aula"
+msgstr ""
+
+#: admin/extensions.php:71
+msgid "Novo"
+msgstr ""
+
+#: includes/post-types.php:50
+msgid "Novo Curso"
+msgstr ""
+
+#: includes/post-types.php:98
+msgid "Novo Quiz"
+msgstr ""
+
+#: includes/frontend-dashboard.php:638
+msgid "Novo curso"
+msgstr ""
+
+#: admin/course-metabox.php:53
+msgid "Nº de Aulas"
+msgstr ""
+
+#: admin/ajax-admin.php:131
+msgid "Não foi possível confirmar o pagamento."
+msgstr ""
+
+#: includes/instructors.php:333 includes/security.php:361
+msgid "Não foi possível validar o envio. Tente novamente."
+msgstr ""
+
+#: admin/course-metabox.php:41
+msgid "Nível"
+msgstr ""
+
+#: admin/course-metabox.php:61
+msgid "Número de Alunos"
+msgstr ""
+
+#: admin/course-metabox.php:143
+msgid "O certificado é gerado e enviado por e-mail assim que o aluno completa 100% das aulas e quizzes."
+msgstr ""
+
+#: includes/frontend-dashboard.php:841
+msgid "O player identifica o usuario durante a reproducao."
+msgstr ""
+
+#: includes/refunds.php:63
+msgid "O prazo de reembolso (%d dias após a compra) já expirou."
+msgstr ""
+
+#: includes/frontend-dashboard.php:776
+msgid "Observacao do certificado"
+msgstr ""
+
+#: includes/refunds.php:174
+msgid "Observação da equipe:\n%s"
+msgstr ""
+
+#: admin/course-metabox.php:159
+msgid "Observação padrão"
+msgstr ""
+
+#: includes/instructors.php:315
+msgid "Olá %s,\n\nInfelizmente sua candidatura de instrutor não foi aprovada neste momento.\n\n%s\n\nVocê pode se candidatar novamente no futuro.\n\n— HubSkills LMS"
+msgstr ""
+
+#: includes/enrollment.php:175
+msgid "Olá %s,\n\nO aluno %s acabou de se matricular no curso \"%s\".\n\n— HubSkills LMS"
+msgstr ""
+
+#: includes/certificates.php:233
+msgid "Olá %s,\n\nParabéns por completar o curso \"%s\"!\n\nSeu certificado foi emitido com o código: %s\n\nVocê pode verificar seu certificado em: %s\n\n— HubSkills LMS"
+msgstr ""
+
+#: includes/instructors.php:302
+msgid "Olá %s,\n\nSua candidatura para instrutor foi aprovada!\n\nVocê já pode acessar o painel de instrutor e criar seus cursos.\n\n— HubSkills LMS"
+msgstr ""
+
+#: includes/refunds.php:154
+msgid "Olá!\n\nSua solicitação de reembolso do pedido #%1$d (%2$s) foi APROVADA.\nO estorno será processado pelo meio de pagamento original.\n\n%3$s"
+msgstr ""
+
+#: includes/refunds.php:159
+msgid "Olá!\n\nSua solicitação de reembolso do pedido #%1$d (%2$s) foi analisada e NÃO foi aprovada.\n\n%3$s"
+msgstr ""
+
+#: includes/instructors.php:287
+msgid "Olá,\n\nUm novo usuário deseja se tornar instrutor:\n\nNome: %s\nEmail: %s\nEspecialidade: %s\n\nAcesse o painel para aprovar ou rejeitar.\n\n— HubSkills LMS"
+msgstr ""
+
+#: includes/frontend-dashboard.php:693
+msgid "PDFs e materiais"
+msgstr ""
+
+#: admin/extensions.php:28
+msgid "PIX automático com confirmação instantânea, parcelamento no cartão e assinaturas recorrentes."
+msgstr ""
+
+#: admin/course-metabox.php:178
+msgid "PNG com fundo transparente fica melhor. Aparece acima da linha de assinatura."
+msgstr ""
+
+#: includes/frontend-dashboard.php:788
+msgid "PNG com fundo transparente, ate 2MB. Aparece acima da linha de assinatura."
+msgstr ""
+
+#: includes/payments.php:810
+msgid "PagSeguro não configurado."
+msgstr ""
+
+#: includes/payments.php:668
+msgid "Pagamento PayPal não confirmado."
+msgstr ""
+
+#: admin/ajax-admin.php:138
+msgid "Pagamento confirmado e matrícula liberada."
+msgstr ""
+
+#: includes/privacy.php:257
+msgid "Pagamentos são processados por gateways terceiros (Stripe, PayPal, Mercado Pago, PagSeguro); consulte também as políticas de privacidade desses serviços."
+msgstr ""
+
+#: includes/refunds.php:198
+msgid "Pago"
+msgstr ""
+
+#: admin/admin-dashboard.php:422
+msgid "Pagos"
+msgstr ""
+
+#: admin/admin-dashboard.php:19
+msgid "Painel Geral"
+msgstr ""
+
+#: includes/frontend-dashboard.php:631
+msgid "Painel operacional"
+msgstr ""
+
+#: includes/ajax.php:49
+msgid "Parâmetros inválidos."
+msgstr ""
+
+#: includes/quiz.php:46
+msgid "Passou no quiz <strong>%s</strong> com %d%%! 🧠"
+msgstr ""
+
+#: includes/frontend-dashboard.php:841
+msgid "Pasta bloqueada"
+msgstr ""
+
+#: admin/extensions.php:27
+msgid "Payments Pro"
+msgstr ""
+
+#: includes/payments.php:20 includes/privacy.php:185 includes/refunds.php:215
+msgid "Pedido"
+msgstr ""
+
+#: includes/payments.php:354 includes/payments.php:558 includes/payments.php:691
+msgid "Pedido inválido."
+msgstr ""
+
+#: admin/ajax-admin.php:127
+msgid "Pedido já estava pago."
+msgstr ""
+
+#: admin/ajax-admin.php:107 admin/ajax-admin.php:123 includes/payments.php:1310
+msgid "Pedido não encontrado."
+msgstr ""
+
+#: includes/payments.php:195
+msgid "Pedido – Usuário %1$d – Curso %2$d"
+msgstr ""
+
+#: admin/admin-dashboard.php:25 admin/admin-dashboard.php:419 includes/payments.php:19
+msgid "Pedidos"
+msgstr ""
+
+#: includes/privacy.php:237
+msgid "Pedidos de compra foram retidos por obrigação fiscal (art. 16, I, LGPD)."
+msgstr ""
+
+#: admin/admin-dashboard.php:422
+msgid "Pendente"
+msgstr ""
+
+#: includes/ajax.php:247
+msgid "Perfil atualizado com sucesso!"
+msgstr ""
+
+#: includes/instructors.php:356
+msgid "Perfil atualizado!"
+msgstr ""
+
+#: includes/privacy.php:165
+msgid "Perfil de instrutor"
+msgstr ""
+
+#: includes/frontend-dashboard.php:678
+msgid "Preco"
+msgstr ""
+
+#: admin/admin-dashboard.php:375
+msgid "Preço"
+msgstr ""
+
+#: admin/course-metabox.php:65
+msgid "Preço (vazio = Grátis)"
+msgstr ""
+
+#: includes/privacy.php:102
+msgid "Progresso (%)"
+msgstr ""
+
+#: includes/frontend-dashboard.php:640
+msgid "Protecao"
+msgstr ""
+
+#: admin/admin-dashboard.php:605
+msgid "Public Key"
+msgstr ""
+
+#: includes/frontend-dashboard.php:680
+msgid "Publicado"
+msgstr ""
+
+#: includes/frontend-dashboard.php:671
+msgid "Publicar"
+msgstr ""
+
+#: admin/course-metabox.php:9
+msgid "Questões do Quiz"
+msgstr ""
+
+#: includes/post-types.php:97 includes/privacy.php:117
+msgid "Quiz"
+msgstr ""
+
+#: includes/ajax.php:65 includes/progress.php:225
+msgid "Quiz inválido."
+msgstr ""
+
+#: includes/progress.php:240
+msgid "Quiz não disponível para as suas matrículas."
+msgstr ""
+
+#: includes/ajax.php:86
+msgid "Quiz não encontrado."
+msgstr ""
+
+#: includes/post-types.php:96
+msgid "Quizzes"
+msgstr ""
+
+#: includes/frontend-dashboard.php:680
+msgid "Rascunho"
+msgstr ""
+
+#: admin/admin-dashboard.php:233 admin/admin-dashboard.php:339
+msgid "Reativar"
+msgstr ""
+
+#: admin/admin-dashboard.php:116
+msgid "Receita Total"
+msgstr ""
+
+#: admin/admin-dashboard.php:422 includes/refunds.php:199
+msgid "Reembolsado"
+msgstr ""
+
+#: admin/admin-dashboard.php:497
+msgid "Reembolsar"
+msgstr ""
+
+#: admin/admin-dashboard.php:481 includes/refunds.php:205
+msgid "Reembolso aprovado"
+msgstr ""
+
+#: includes/refunds.php:184
+msgid "Reembolso aprovado e matrícula cancelada."
+msgstr ""
+
+#: includes/refunds.php:204
+msgid "Reembolso em análise"
+msgstr ""
+
+#: admin/admin-dashboard.php:481 includes/refunds.php:206
+msgid "Reembolso negado"
+msgstr ""
+
+#: admin/ajax-admin.php:113
+msgid "Reembolso processado."
+msgstr ""
+
+#: admin/admin-dashboard.php:479
+msgid "Reembolso solicitado"
+msgstr ""
+
+#: admin/admin-dashboard.php:715
+msgid "Registro completo de todas as ações administrativas"
+msgstr ""
+
+#: admin/admin-dashboard.php:294
+msgid "Rejeitar"
+msgstr ""
+
+#: admin/admin-dashboard.php:29
+msgid "Relatórios"
+msgstr ""
+
+#: admin/admin-dashboard.php:677
+msgid "Remove o bloqueio de IP de um visitante."
+msgstr ""
+
+#: admin/course-metabox.php:177 includes/frontend-dashboard.php:785 includes/frontend-dashboard.php:798
+msgid "Remover"
+msgstr ""
+
+#: admin/extensions.php:318
+msgid "Remover a licença e desativar este módulo?"
+msgstr ""
+
+#: admin/extensions.php:322
+msgid "Remover licença"
+msgstr ""
+
+#: admin/extensions.php:34
+msgid "Reports & Analytics"
+msgstr ""
+
+#: includes/security.php:290
+msgid "Requisição inválida."
+msgstr ""
+
+#: admin/admin-dashboard.php:237
+msgid "Reset XP"
+msgstr ""
+
+#: includes/privacy.php:118
+msgid "Resultado"
+msgstr ""
+
+#: includes/privacy.php:114
+msgid "Resultados de quizzes"
+msgstr ""
+
+#: includes/frontend-dashboard.php:684
+msgid "Resumo"
+msgstr ""
+
+#: includes/frontend-dashboard.php:680
+msgid "Revisao"
+msgstr ""
+
+#: admin/admin-dashboard.php:668
+msgid "Salvar"
+msgstr ""
+
+#: admin/admin-dashboard.php:629 admin/admin-dashboard.php:796
+msgid "Salvar Configurações"
+msgstr ""
+
+#: includes/frontend-dashboard.php:699
+msgid "Salvar curso"
+msgstr ""
+
+#: includes/frontend-dashboard.php:806
+msgid "Salvar modelo do curso"
+msgstr ""
+
+#: admin/admin-dashboard.php:652
+msgid "Salvo!"
+msgstr ""
+
+#: admin/admin-dashboard.php:597 admin/admin-dashboard.php:606 admin/admin-dashboard.php:616
+msgid "Sandbox"
+msgstr ""
+
+#: admin/admin-dashboard.php:27 admin/admin-dashboard.php:645
+msgid "Segurança"
+msgstr ""
+
+#: includes/frontend-dashboard.php:714 includes/frontend-dashboard.php:737
+msgid "Selecione"
+msgstr ""
+
+#: includes/frontend-dashboard.php:652
+msgid "Sem nivel definido"
+msgstr ""
+
+#: includes/frontend-dashboard.php:179
+msgid "Sem permissao neste curso."
+msgstr ""
+
+#: includes/frontend-dashboard.php:426
+msgid "Sem permissao para configurar este curso."
+msgstr ""
+
+#: includes/frontend-dashboard.php:273
+msgid "Sem permissao para criar cursos."
+msgstr ""
+
+#: includes/frontend-dashboard.php:276
+msgid "Sem permissao para editar este curso."
+msgstr ""
+
+#: includes/frontend-dashboard.php:372
+msgid "Sem permissao para emitir este certificado."
+msgstr ""
+
+#: includes/frontend-dashboard.php:176
+msgid "Sem permissao para enviar arquivos."
+msgstr ""
+
+#: includes/frontend-dashboard.php:858
+msgid "Sem permissão para enviar assinaturas."
+msgstr ""
+
+#: includes/privacy.php:145
+msgid "Sequência (dias)"
+msgstr ""
+
+#: includes/ajax.php:7
+msgid "Sessão expirada. Recarregue a página."
+msgstr ""
+
+#: includes/security.php:137
+msgid "Seu IP foi temporariamente bloqueado. Tente novamente em 1 hora."
+msgstr ""
+
+#: includes/frontend-dashboard.php:584 includes/frontend-dashboard.php:600
+msgid "Seu navegador nao conseguiu abrir este video."
+msgstr ""
+
+#: includes/refunds.php:153
+msgid "Seu reembolso foi aprovado"
+msgstr ""
+
+#: includes/refunds.php:239
+msgid "Solicitar reembolso"
+msgstr ""
+
+#: includes/refunds.php:120
+msgid "Solicitação enviada! Você receberá a resposta por e-mail."
+msgstr ""
+
+#: includes/refunds.php:185
+msgid "Solicitação negada. O aluno foi notificado."
+msgstr ""
+
+#: admin/extensions.php:56
+msgid "Split automático de comissões para instrutores, saques e extrato financeiro individual."
+msgstr ""
+
+#: admin/admin-dashboard.php:209 admin/admin-dashboard.php:274 admin/admin-dashboard.php:315
+msgid "Status"
+msgstr ""
+
+#: includes/payments.php:361
+msgid "Stripe não configurado."
+msgstr ""
+
+#: includes/security.php:224
+msgid "Sua conta foi suspensa."
+msgstr ""
+
+#: includes/frontend-dashboard.php:784 includes/frontend-dashboard.php:797
+msgid "Subir assinatura"
+msgstr ""
+
+#: admin/admin-dashboard.php:235 admin/admin-dashboard.php:341
+msgid "Suspender"
+msgstr ""
+
+#: admin/admin-dashboard.php:219
+msgid "Suspenso"
+msgstr ""
+
+#: includes/taxonomies.php:25
+msgid "Tag"
+msgstr ""
+
+#: includes/taxonomies.php:24
+msgid "Tags de Curso"
+msgstr ""
+
+#: admin/extensions.php:63
+msgid "Templates de e-mail bonitos, sequências automáticas e integração Mailchimp/Brevo."
+msgstr ""
+
+#: admin/course-metabox.php:197
+msgid "Tempo Limite (segundos)"
+msgstr ""
+
+#: includes/frontend-dashboard.php:190
+msgid "Tipo de arquivo nao permitido."
+msgstr ""
+
+#: includes/frontend-dashboard.php:767
+msgid "Titulo do curso"
+msgstr ""
+
+#: includes/post-types.php:79
+msgid "Todas as Aulas"
+msgstr ""
+
+#: includes/taxonomies.php:11
+msgid "Todas as Categorias"
+msgstr ""
+
+#: admin/admin-dashboard.php:422
+msgid "Todos"
+msgstr ""
+
+#: includes/post-types.php:54
+msgid "Todos os Cursos"
+msgstr ""
+
+#: includes/post-types.php:101
+msgid "Todos os Quizzes"
+msgstr ""
+
+#: admin/admin-dashboard.php:615
+msgid "Token"
+msgstr ""
+
+#: admin/settings.php:73
+msgid "Total de Matrículas"
+msgstr ""
+
+#: admin/settings.php:65
+msgid "Total de Usuários"
+msgstr ""
+
+#: admin/admin-dashboard.php:576
+msgid "URL de Cancelamento"
+msgstr ""
+
+#: admin/admin-dashboard.php:573
+msgid "URL de Sucesso"
+msgstr ""
+
+#: includes/frontend-dashboard.php:696
+msgid "Upload protegido, YouTube, Vimeo, players com DRM e URL externa."
+msgstr ""
+
+#: includes/frontend-dashboard.php:841
+msgid "Uploads nao ficam expostos por link publico direto."
+msgstr ""
+
+#: admin/admin-dashboard.php:597 admin/admin-dashboard.php:606 admin/admin-dashboard.php:616
+msgid "Usar modo sandbox"
+msgstr ""
+
+#: includes/frontend-dashboard.php:873
+msgid "Use uma imagem PNG, JPG ou WebP."
+msgstr ""
+
+#: admin/admin-dashboard.php:721
+msgid "Usuário"
+msgstr ""
+
+#: includes/enrollment.php:121 includes/payments.php:180
+msgid "Usuário inválido."
+msgstr ""
+
+#: admin/ajax-admin.php:70
+msgid "Usuário reativado."
+msgstr ""
+
+#: admin/ajax-admin.php:61
+msgid "Usuário suspenso."
+msgstr ""
+
+#: admin/admin-dashboard.php:680
+msgid "Usuários Suspensos"
+msgstr ""
+
+#: admin/admin-dashboard.php:449 includes/privacy.php:187 includes/refunds.php:217
+msgid "Valor"
+msgstr ""
+
+#: admin/extensions.php:49
+msgid "Venda para empresas: matrículas em lote, gestor de turma e relatórios por equipe."
+msgstr ""
+
+#: admin/admin-dashboard.php:399 includes/frontend-dashboard.php:656
+msgid "Ver"
+msgstr ""
+
+#: includes/post-types.php:53
+msgid "Ver Curso"
+msgstr ""
+
+#: admin/admin-dashboard.php:106
+msgid "Ver agora"
+msgstr ""
+
+#: includes/privacy.php:87
+msgid "Versão da política"
+msgstr ""
+
+#: includes/frontend-dashboard.php:580
+msgid "Video protegido nao encontrado."
+msgstr ""
+
+#: admin/admin-dashboard.php:101
+msgid "Visão geral da plataforma"
+msgstr ""
+
+#: includes/ajax.php:26 includes/enrollment.php:139
+msgid "Você já está matriculado neste curso."
+msgstr ""
+
+#: includes/instructors.php:12
+msgid "Você já possui uma candidatura ativa."
+msgstr ""
+
+#: includes/payments.php:1236
+msgid "Você já tem acesso a este curso."
+msgstr ""
+
+#: includes/progress.php:87 includes/progress.php:102 includes/progress.php:208
+msgid "Você não está matriculado neste curso."
+msgstr ""
+
+#: includes/privacy.php:256
+msgid "Você pode solicitar a exportação ou a exclusão dos seus dados pessoais a qualquer momento pelos canais de contato do site. Dados de pedidos são retidos pelo prazo fiscal legal; certificados são retidos para verificação pública de autenticidade."
+msgstr ""
+
+#: includes/refunds.php:212
+msgid "Você pode solicitar reembolso em até %d dias após a compra."
+msgstr ""
+
+#: includes/ajax.php:10 includes/security.php:294
+msgid "Você precisa estar logado."
+msgstr ""
+
+#: includes/progress.php:230
+msgid "Você precisa estar matriculado no curso para acessar este quiz."
+msgstr ""
+
+#: includes/frontend-dashboard.php:699
+msgid "Voltar"
+msgstr ""
+
+#: admin/admin-dashboard.php:587
+msgid "Webhook Secret"
+msgstr ""
+
+#: admin/admin-dashboard.php:588 admin/admin-dashboard.php:607 admin/admin-dashboard.php:617
+msgid "Webhook URL"
+msgstr ""
+
+#: admin/admin-dashboard.php:208 includes/privacy.php:144
+msgid "XP"
+msgstr ""
+
+#: admin/admin-dashboard.php:783
+msgid "XP por Aula"
+msgstr ""
+
+#: admin/settings.php:15
+msgid "XP por Aula Concluída"
+msgstr ""
+
+#: admin/admin-dashboard.php:787
+msgid "XP por Curso Completo"
+msgstr ""
+
+#: admin/settings.php:17
+msgid "XP por Curso Concluído"
+msgstr ""
+
+#: admin/admin-dashboard.php:785 admin/settings.php:16
+msgid "XP por Quiz Aprovado"
+msgstr ""
+
+#: admin/ajax-admin.php:80
+msgid "XP zerado."
+msgstr ""
+
+#: includes/refunds.php:109
+msgid "[%s] Nova solicitação de reembolso — pedido #%d"
+msgstr ""
+
+#: includes/certificates.php:232
+msgid "[HubSkills] Certificado emitido: %s"
+msgstr ""
+
+#: includes/instructors.php:285
+msgid "[HubSkills] Nova candidatura de instrutor: %s"
+msgstr ""
+
+#: includes/enrollment.php:174
+msgid "[HubSkills] Novo aluno matriculado em %s"
+msgstr ""
+
+#: includes/instructors.php:300
+msgid "[HubSkills] Parabéns! Sua candidatura foi aprovada"
+msgstr ""
+
+#: includes/instructors.php:313
+msgid "[HubSkills] Sobre sua candidatura de instrutor"
+msgstr ""
+
+#: includes/frontend-dashboard.php:821
+msgid "concluiu com exito o curso"
+msgstr ""
+
+#: includes/shortcodes.php:92
+msgid "concluído"
+msgstr ""
+
+#: admin/course-metabox.php:154
+msgid "duração do curso"
+msgstr ""
+
+#: admin/course-metabox.php:155
+msgid "instrutor do curso"
+msgstr ""
+
+#: admin/admin-dashboard.php:665
+msgid "minutos"
+msgstr ""
+
+#: admin/admin-dashboard.php:661
+msgid "tentativas antes de bloquear"
+msgstr ""
+
+#: admin/course-metabox.php:69
+msgid "Ícone (emoji)"
+msgstr ""
+
+#: includes/privacy.php:147
+msgid "Última atividade"
+msgstr ""
+
+#: admin/admin-dashboard.php:138
+msgid "➕ Novo Curso"
+msgstr ""
+
+#: admin/admin-dashboard.php:134
+msgid "🎓 Gerenciar Instrutores"
+msgstr ""
+
+#: admin/admin-dashboard.php:133
+msgid "👨‍🎓 Gerenciar Alunos"
+msgstr ""
+
+#: admin/course-metabox.php:145
+msgid "💡 Deixe os campos abaixo em branco para preencher automaticamente com os dados do curso, do aluno e do site."
+msgstr ""
+
+#: admin/admin-dashboard.php:136
+msgid "💳 Configurar Gateways"
+msgstr ""
+
+#: admin/admin-dashboard.php:135
+msgid "📦 Ver Pedidos"
+msgstr ""
+
+#: admin/admin-dashboard.php:137
+msgid "🔒 Segurança"
+msgstr ""
+

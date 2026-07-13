@@ -1,0 +1,1055 @@
+ Destacar curso na Home
+---
+%d candidatura(s) de instrutor aguardando aprovação.
+---
++ Adicionar módulo
+---
++ Adicionar questão
+---
++ Novo Curso
+---
+<strong>Erro:</strong> a senha precisa ter ao menos 8 caracteres, com letras e números.
+---
+<strong>Erro:</strong> é necessário aceitar a Política de Privacidade para criar a conta.
+---
+A confirmação de senha não confere.
+---
+A nova senha precisa ter ao menos 8 caracteres, com letras e números.
+---
+A plataforma ficará com o restante.
+---
+Abrir
+---
+Abrir video em nova aba
+---
+Access Token
+---
+Aceito em
+---
+Acesso autenticado
+---
+Acesso negado.
+---
+Adicionar Categoria
+---
+Adicionar Nova Aula
+---
+Adicionar Novo Curso
+---
+Adicionar Novo Quiz
+---
+Admin: acesso total
+---
+Aguardando pagamento
+---
+Aluno
+---
+Aluno cadastrado
+---
+Aluno: %s
+Curso: %s
+Valor: R$ %s
+Motivo:
+%s
+
+Analise em: %s
+---
+Alunos
+---
+Amplie o seu LMS com módulos oficiais. Ao clicar em "Comprar módulo" você será levado à página oficial para concluir a compra — após o pagamento, você recebe o arquivo do módulo e a chave de licença para ativar aqui mesmo.
+---
+Anotações
+---
+Anotações de aulas
+---
+Anotações salvas!
+---
+Ao criar uma conta e se matricular em cursos, coletamos e tratamos: nome, e-mail, matrículas, progresso de aulas, resultados de quizzes, certificados emitidos, dados de gamificação (XP, conquistas) e registros de pedidos/pagamentos.
+---
+Apenas alunos matriculados podem avaliar este curso.
+---
+Apenas pedidos pagos podem ser reembolsados.
+---
+Aprovado
+---
+Aprovar
+---
+Aprovar reembolso
+---
+Aproveitamento
+---
+Area LMS
+---
+Arquivo acima do limite.
+---
+Arquivos
+---
+Arquivos protegidos por login e matricula.
+---
+Assinatura digital da instituicao
+---
+Assinatura digital da instituição
+---
+Assinatura digital do instrutor
+---
+Assinatura institucional
+---
+Assistente de dúvidas por IA dentro da aula, treinado no conteúdo do seu curso.
+---
+Atalhos Rápidos
+---
+Ativar licença
+---
+Ativo
+---
+Atualização sobre sua solicitação de reembolso
+---
+Auditoria
+---
+Aula
+---
+Aula já concluída.
+---
+Aula não pertence a este curso.
+---
+Aulas
+---
+Aulas exigem login e permissao no curso.
+---
+Automático: %s
+---
+Avaliação (0-5)
+---
+Avaliação deve ser entre 1 e 5.
+---
+Avaliação enviada!
+---
+Avancar
+---
+Ação
+---
+Ações
+---
+B2B & Turmas
+---
+Baixar imagem
+---
+Base
+---
+Buscar
+---
+Buscar Cursos
+---
+Buscar aluno...
+---
+Cancelado
+---
+Candidato
+---
+Candidatura de instrutor
+---
+Candidatura enviada com sucesso!
+---
+Candidatura não encontrada.
+---
+Candidatura rejeitada.
+---
+Candidaturas
+---
+Carga horaria
+---
+Carga horária
+---
+Cargo da assinatura
+---
+Cargo da instituição
+---
+Carimbo ou assinatura institucional, ate 2MB.
+---
+Carregando builder…
+---
+Carregando quiz...
+---
+Categoria
+---
+Categorias
+---
+Central de compras e suporte
+---
+Certificacao
+---
+Certificado
+---
+Certificado Automático
+---
+Certificado emitido.
+---
+Certificado não encontrado.
+---
+Certificados
+---
+Certificados emitidos foram retidos para garantir a verificação pública de autenticidade.
+---
+Certificados por conclusao ou emissao manual.
+---
+Certificamos que
+---
+Chave PIX
+---
+Chave PIX não configurada.
+---
+Chave Pública
+---
+Chave Secreta
+---
+Chave de licença
+---
+Chave de licença inválida. Confira se copiou a chave completa.
+---
+Chave de licença recusada pelo servidor de licenças.
+---
+Cidade
+---
+Cidade (para PIX)
+---
+Classico institucional
+---
+Client ID
+---
+Client Secret
+---
+Comissão
+---
+Comissão Padrão do Instrutor (%)
+---
+Comissão atualizada!
+---
+Completou o curso <strong>%s</strong> e recebeu o certificado automaticamente 🎓
+---
+Completou o curso <strong>%s</strong> 🎉
+---
+Comprar curso %s
+---
+Comprar módulo
+---
+Concluiu aula <strong>#%d</strong> em %s
+---
+Conclusao
+---
+Concluído em
+---
+Configurações
+---
+Configurações Gerais
+---
+Configurações de Segurança
+---
+Configurações salvas!
+---
+Configure os métodos de pagamento aceitos na plataforma
+---
+Conquistas
+---
+Conquistou o badge <strong>%s %s</strong>!
+---
+Consentimento LGPD
+---
+Continuar Curso
+---
+Cor Gradiente Fim (hex)
+---
+Cor Gradiente Início (hex)
+---
+Criador de certificados
+---
+Criar curso
+---
+Curriculo do curso
+---
+Currículo / Aulas
+---
+Curso
+---
+Curso indisponível.
+---
+Curso inválido.
+---
+Curso não encontrado.
+---
+Curso salvo com sucesso.
+---
+Cursos
+---
+Cursos Publicados
+---
+Cursos cadastrados
+---
+Código
+---
+Dados de instrutor
+---
+Dados invalidos.
+---
+Dados puxados automaticamente por aluno: nome, e-mail, documento (CPF se cadastrado), data de conclusão, código de verificação único.
+---
+Data
+---
+Data de conclusao
+---
+Data de emissao
+---
+Data/Hora
+---
+Decisão inválida.
+---
+Desbloquear
+---
+Desbloquear IP
+---
+Descreva o motivo da solicitação (mínimo de 10 caracteres).
+---
+Descricao completa
+---
+Descrição
+---
+Detalhes do Curso
+---
+Digite o IP...
+---
+Diretor Academico
+---
+Documento/ID do aluno
+---
+Drip & Trilhas
+---
+Duracao
+---
+Duração (ex: 42h)
+---
+Duração do bloqueio
+---
+E-mail do aluno
+---
+Editar
+---
+Editar Aula
+---
+Editar Categoria
+---
+Editar Curso
+---
+Editar Quiz
+---
+Edição direta do JSON. Alterações aqui sobrescrevem o builder visual ao salvar.
+---
+Email
+---
+Email & Automations
+---
+Email de Contato
+---
+Emissao
+---
+Emissão automática ao concluir o curso
+---
+Emitido em
+---
+Emitir automaticamente ao concluir o curso
+---
+Emitir certificado
+---
+Entrar para Matricular-se
+---
+Entrar para acessar o quiz
+---
+Enviar material
+---
+Enviar/escolher imagem
+---
+Erro Stripe.
+---
+Erro ao cancelar matrícula.
+---
+Erro ao criar pedido PayPal.
+---
+Erro ao criar preferência Mercado Pago.
+---
+Erro ao criar sessão PagSeguro.
+---
+Erro ao iniciar checkout PagSeguro.
+---
+Especialidade
+---
+Esta aula ainda não está disponível.
+---
+Esta chave pertence a outro módulo.
+---
+Este curso é pago. Conclua o pagamento antes da matrícula.
+---
+Este e-mail já está em uso por outra conta.
+---
+Executivo premium
+---
+Exportar CSV
+---
+Extensões
+---
+Extensões HubSkills
+---
+Falha ao processar o reembolso.
+---
+Falha na autenticação PayPal.
+---
+Falha no upload da assinatura.
+---
+Falha no upload.
+---
+Falhou
+---
+Faça login primeiro.
+---
+Fez o quiz <strong>%s</strong> — %d%%. Continue tentando!
+---
+Finalidades: prestação do serviço educacional, emissão e verificação de certificados, processamento de pagamentos e cumprimento de obrigações legais.
+---
+Formato de chave inválido. Use a chave exatamente como recebida no e-mail de compra.
+---
+Funil de vendas, engajamento aula a aula, taxa de conclusão e exportações em PDF/Excel.
+---
+Gamification Pro
+---
+Gamificação
+---
+Gateway
+---
+Gateway Ativo
+---
+Gateway de pagamento inválido.
+---
+Gateways
+---
+Gateways de Pagamento
+---
+Geral
+---
+Gerenciar Alunos
+---
+Gerenciar Cursos
+---
+Gerenciar Instrutores
+---
+Gestao
+---
+Grátis
+---
+HS Admin
+---
+HS Instructor
+---
+HS Student
+---
+HubSkills LMS
+---
+HubSkills LMS — Configurações
+---
+HubSkills LMS — Painel
+---
+HubSkills LMS — Relatórios
+---
+IA Tutor
+---
+ID
+---
+ID apos emissao
+---
+ID de curso inválido.
+---
+IP
+---
+IP %s desbloqueado.
+---
+IP inválido.
+---
+Icone
+---
+Imagem acima de 2MB.
+---
+Imprimir / PDF
+---
+Informe o nome do curso.
+---
+Informe um e-mail válido.
+---
+Informe um nome válido.
+---
+Instituição
+---
+Instrutor
+---
+Instrutor aprovado!
+---
+Instrutor do Curso
+---
+Instrutor responsavel
+---
+Instrutor/assinatura
+---
+Instrutor/responsavel
+---
+Instrutores
+---
+Instrutores Ativos
+---
+Já comprou um módulo? Instale o arquivo recebido (Plugins → Adicionar novo → Enviar plugin) e ative a chave de licença no cartão do módulo acima.
+---
+Já existe uma solicitação de reembolso para este pedido.
+---
+Já tenho a chave
+---
+Li e concordo com a <a href="%s" target="_blank" rel="noopener">Política de Privacidade</a> e autorizo o tratamento dos meus dados pessoais para fins de matrícula, progresso de cursos e emissão de certificados (LGPD).
+---
+Liberação programada de aulas, pré-requisitos entre cursos e trilhas de aprendizado.
+---
+Licença do módulo %s ativada com sucesso!
+---
+Licença removida. O módulo foi desativado.
+---
+Local
+---
+Log de Atividade Recente
+---
+Log de Auditoria
+---
+Loja de pontos, missões semanais, ranking entre turmas e recompensas customizadas.
+---
+Mais vendido
+---
+Marca d agua
+---
+Marcar pago
+---
+Marketplace
+---
+Materiais
+---
+Matriculado em
+---
+Matriculado em <strong>%s</strong>
+---
+Matricular-se
+---
+Matrícula realizada com sucesso!
+---
+Matrículas e progresso
+---
+Mercado Pago não configurado.
+---
+Meus certificados
+---
+Meus pedidos
+---
+Modelo
+---
+Modelo automatico do curso salvo.
+---
+Modelo do curso
+---
+Moderno azul e ciano
+---
+Modo avançado (JSON)
+---
+Modulo
+---
+Modulo de certificados indisponivel.
+---
+Moeda
+---
+Monitoramento de segurança e bloqueios
+---
+Motivo:
+---
+Muitas requisições. Aguarde um instante.
+---
+Máx. tentativas de login
+---
+Módulo ativo
+---
+Módulo desconhecido.
+---
+Nao foi possivel criar a pasta protegida.
+---
+Nao foi possivel salvar o arquivo.
+---
+Negar
+---
+Nenhum aluno encontrado.
+---
+Nenhum certificado emitido ainda.
+---
+Nenhum curso encontrado.
+---
+Nenhum instrutor encontrado.
+---
+Nenhum pedido encontrado.
+---
+Nenhum registro encontrado.
+---
+Nenhum usuário suspenso.
+---
+Nenhuma atividade registrada.
+---
+Nenhuma candidatura encontrada.
+---
+Nenhuma solicitação pendente para este pedido.
+---
+Nivel
+---
+Nome da Plataforma
+---
+Nome do Beneficiário
+---
+Nome do aluno
+---
+Nome do curso
+---
+Nome no certificado
+---
+Nota Mínima (%)
+---
+Nota Mínima Quiz (%)
+---
+Nota mínima Quiz (%)
+---
+Nota ou aproveitamento
+---
+Nova Aula
+---
+Nova aula
+---
+Novo
+---
+Novo Curso
+---
+Novo Quiz
+---
+Novo curso
+---
+Nº de Aulas
+---
+Não foi possível confirmar o pagamento.
+---
+Não foi possível validar o envio. Tente novamente.
+---
+Nível
+---
+Número de Alunos
+---
+O certificado é gerado e enviado por e-mail assim que o aluno completa 100% das aulas e quizzes.
+---
+O player identifica o usuario durante a reproducao.
+---
+O prazo de reembolso (%d dias após a compra) já expirou.
+---
+Observacao do certificado
+---
+Observação da equipe:
+%s
+---
+Observação padrão
+---
+Olá %s,
+
+Infelizmente sua candidatura de instrutor não foi aprovada neste momento.
+
+%s
+
+Você pode se candidatar novamente no futuro.
+
+— HubSkills LMS
+---
+Olá %s,
+
+O aluno %s acabou de se matricular no curso "%s".
+
+— HubSkills LMS
+---
+Olá %s,
+
+Parabéns por completar o curso "%s"!
+
+Seu certificado foi emitido com o código: %s
+
+Você pode verificar seu certificado em: %s
+
+— HubSkills LMS
+---
+Olá %s,
+
+Sua candidatura para instrutor foi aprovada!
+
+Você já pode acessar o painel de instrutor e criar seus cursos.
+
+— HubSkills LMS
+---
+Olá!
+
+Sua solicitação de reembolso do pedido #%1$d (%2$s) foi APROVADA.
+O estorno será processado pelo meio de pagamento original.
+
+%3$s
+---
+Olá!
+
+Sua solicitação de reembolso do pedido #%1$d (%2$s) foi analisada e NÃO foi aprovada.
+
+%3$s
+---
+Olá,
+
+Um novo usuário deseja se tornar instrutor:
+
+Nome: %s
+Email: %s
+Especialidade: %s
+
+Acesse o painel para aprovar ou rejeitar.
+
+— HubSkills LMS
+---
+PDFs e materiais
+---
+PIX automático com confirmação instantânea, parcelamento no cartão e assinaturas recorrentes.
+---
+PNG com fundo transparente fica melhor. Aparece acima da linha de assinatura.
+---
+PNG com fundo transparente, ate 2MB. Aparece acima da linha de assinatura.
+---
+PagSeguro não configurado.
+---
+Pagamento PayPal não confirmado.
+---
+Pagamento confirmado e matrícula liberada.
+---
+Pagamentos são processados por gateways terceiros (Stripe, PayPal, Mercado Pago, PagSeguro); consulte também as políticas de privacidade desses serviços.
+---
+Pago
+---
+Pagos
+---
+Painel Geral
+---
+Painel operacional
+---
+Parâmetros inválidos.
+---
+Passou no quiz <strong>%s</strong> com %d%%! 🧠
+---
+Pasta bloqueada
+---
+Payments Pro
+---
+Pedido
+---
+Pedido inválido.
+---
+Pedido já estava pago.
+---
+Pedido não encontrado.
+---
+Pedido – Usuário %1$d – Curso %2$d
+---
+Pedidos
+---
+Pedidos de compra foram retidos por obrigação fiscal (art. 16, I, LGPD).
+---
+Pendente
+---
+Perfil atualizado com sucesso!
+---
+Perfil atualizado!
+---
+Perfil de instrutor
+---
+Preco
+---
+Preço
+---
+Preço (vazio = Grátis)
+---
+Progresso (%)
+---
+Protecao
+---
+Public Key
+---
+Publicado
+---
+Publicar
+---
+Questões do Quiz
+---
+Quiz
+---
+Quiz inválido.
+---
+Quiz não disponível para as suas matrículas.
+---
+Quiz não encontrado.
+---
+Quizzes
+---
+Rascunho
+---
+Reativar
+---
+Receita Total
+---
+Reembolsado
+---
+Reembolsar
+---
+Reembolso aprovado
+---
+Reembolso aprovado e matrícula cancelada.
+---
+Reembolso em análise
+---
+Reembolso negado
+---
+Reembolso processado.
+---
+Reembolso solicitado
+---
+Registro completo de todas as ações administrativas
+---
+Rejeitar
+---
+Relatórios
+---
+Remove o bloqueio de IP de um visitante.
+---
+Remover
+---
+Remover a licença e desativar este módulo?
+---
+Remover licença
+---
+Reports & Analytics
+---
+Requisição inválida.
+---
+Reset XP
+---
+Resultado
+---
+Resultados de quizzes
+---
+Resumo
+---
+Revisao
+---
+Salvar
+---
+Salvar Configurações
+---
+Salvar curso
+---
+Salvar modelo do curso
+---
+Salvo!
+---
+Sandbox
+---
+Segurança
+---
+Selecione
+---
+Sem nivel definido
+---
+Sem permissao neste curso.
+---
+Sem permissao para configurar este curso.
+---
+Sem permissao para criar cursos.
+---
+Sem permissao para editar este curso.
+---
+Sem permissao para emitir este certificado.
+---
+Sem permissao para enviar arquivos.
+---
+Sem permissão para enviar assinaturas.
+---
+Sequência (dias)
+---
+Sessão expirada. Recarregue a página.
+---
+Seu IP foi temporariamente bloqueado. Tente novamente em 1 hora.
+---
+Seu navegador nao conseguiu abrir este video.
+---
+Seu reembolso foi aprovado
+---
+Solicitar reembolso
+---
+Solicitação enviada! Você receberá a resposta por e-mail.
+---
+Solicitação negada. O aluno foi notificado.
+---
+Split automático de comissões para instrutores, saques e extrato financeiro individual.
+---
+Status
+---
+Stripe não configurado.
+---
+Sua conta foi suspensa.
+---
+Subir assinatura
+---
+Suspender
+---
+Suspenso
+---
+Tag
+---
+Tags de Curso
+---
+Templates de e-mail bonitos, sequências automáticas e integração Mailchimp/Brevo.
+---
+Tempo Limite (segundos)
+---
+Tipo de arquivo nao permitido.
+---
+Titulo do curso
+---
+Todas as Aulas
+---
+Todas as Categorias
+---
+Todos
+---
+Todos os Cursos
+---
+Todos os Quizzes
+---
+Token
+---
+Total de Matrículas
+---
+Total de Usuários
+---
+URL de Cancelamento
+---
+URL de Sucesso
+---
+Upload protegido, YouTube, Vimeo, players com DRM e URL externa.
+---
+Uploads nao ficam expostos por link publico direto.
+---
+Usar modo sandbox
+---
+Use uma imagem PNG, JPG ou WebP.
+---
+Usuário
+---
+Usuário inválido.
+---
+Usuário reativado.
+---
+Usuário suspenso.
+---
+Usuários Suspensos
+---
+Valor
+---
+Venda para empresas: matrículas em lote, gestor de turma e relatórios por equipe.
+---
+Ver
+---
+Ver Curso
+---
+Ver agora
+---
+Versão da política
+---
+Video protegido nao encontrado.
+---
+Visão geral da plataforma
+---
+Você já está matriculado neste curso.
+---
+Você já possui uma candidatura ativa.
+---
+Você já tem acesso a este curso.
+---
+Você não está matriculado neste curso.
+---
+Você pode solicitar a exportação ou a exclusão dos seus dados pessoais a qualquer momento pelos canais de contato do site. Dados de pedidos são retidos pelo prazo fiscal legal; certificados são retidos para verificação pública de autenticidade.
+---
+Você pode solicitar reembolso em até %d dias após a compra.
+---
+Você precisa estar logado.
+---
+Você precisa estar matriculado no curso para acessar este quiz.
+---
+Voltar
+---
+Webhook Secret
+---
+Webhook URL
+---
+XP
+---
+XP por Aula
+---
+XP por Aula Concluída
+---
+XP por Curso Completo
+---
+XP por Curso Concluído
+---
+XP por Quiz Aprovado
+---
+XP zerado.
+---
+[%s] Nova solicitação de reembolso — pedido #%d
+---
+[HubSkills] Certificado emitido: %s
+---
+[HubSkills] Nova candidatura de instrutor: %s
+---
+[HubSkills] Novo aluno matriculado em %s
+---
+[HubSkills] Parabéns! Sua candidatura foi aprovada
+---
+[HubSkills] Sobre sua candidatura de instrutor
+---
+concluiu com exito o curso
+---
+concluído
+---
+duração do curso
+---
+instrutor do curso
+---
+minutos
+---
+tentativas antes de bloquear
+---
+Ícone (emoji)
+---
+Última atividade
+---
+➕ Novo Curso
+---
+🎓 Gerenciar Instrutores
+---
+👨‍🎓 Gerenciar Alunos
+---
+💡 Deixe os campos abaixo em branco para preencher automaticamente com os dados do curso, do aluno e do site.
+---
+💳 Configurar Gateways
+---
+📦 Ver Pedidos
+---
+🔒 Segurança

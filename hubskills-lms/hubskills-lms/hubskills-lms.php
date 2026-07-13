@@ -3,7 +3,7 @@
  * Plugin Name: HubSkills LMS
  * Plugin URI:  https://hubskills.com.br
  * Description: Sistema LMS completo para plataforma EAD - cursos, matriculas, progresso, quizzes, certificados e gamificacao.
- * Version:     1.0.0
+ * Version:     1.1.1
  * Author:      HubSkills
  * Author URI:  https://hubskills.com.br
  * Text Domain: hubskills-lms
@@ -15,7 +15,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'HS_LMS_VERSION',  '1.0.1' );
+define( 'HS_LMS_VERSION',  '1.1.1' );
 define( 'HS_LMS_PLUGIN',   __FILE__ );
 define( 'HS_LMS_DIR',      plugin_dir_path( __FILE__ ) );
 define( 'HS_LMS_URL',      plugin_dir_url( __FILE__ ) );
@@ -41,6 +41,11 @@ require_once HS_LMS_DIR . 'includes/ajax.php';
 require_once HS_LMS_DIR . 'includes/secure-media.php';
 require_once HS_LMS_DIR . 'includes/frontend-dashboard.php';
 require_once HS_LMS_DIR . 'includes/rest-api.php';
+require_once HS_LMS_DIR . 'includes/ai-lessons-api.php';
+require_once HS_LMS_DIR . 'includes/backup-aws.php';
+require_once HS_LMS_DIR . 'includes/export-weweb.php';
+require_once HS_LMS_DIR . 'includes/code-guard.php';
+require_once HS_LMS_DIR . 'includes/google-login.php';
 if ( is_admin() ) {
     require_once HS_LMS_DIR . 'admin/settings.php';
     require_once HS_LMS_DIR . 'admin/course-metabox.php';

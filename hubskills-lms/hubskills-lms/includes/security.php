@@ -309,13 +309,29 @@ function hs_lms_user_is_dashboard_only( int $user_id ): bool {
     return in_array( $role, [ 'hs_student', 'hs_instructor' ], true );
 }
 
-add_action( 'admin_init', 'hs_lms_block_wp_admin' );
+/** Destino do redirecionamento conforme o papel (instrutor → painel; aluno → dashboard). */
+function hs_lms_dashboard_only_destination( int $uid ): string {
+    return ( function_exists( 'hs_is_instructor' ) && hs_is_instructor( $uid ) )
+        ? home_url( '/painel-instrutor/' )
+        : home_url( '/dashboard/' );
+}
+
+add_action( 'admin_init', 'hs_lms_block_wp_admin', 0 );
 function hs_lms_block_wp_admin() {
     if ( wp_doing_ajax() ) return;
-    if ( hs_lms_user_is_dashboard_only( get_current_user_id() ) ) {
-        wp_safe_redirect( home_url( '/dashboard/' ) );
-        exit;
-    }
+    $uid = get_current_user_id();
+    if ( ! hs_lms_user_is_dashboard_only( $uid ) ) return;
+    wp_safe_redirect( hs_lms_dashboard_only_destination( $uid ) );
+    exit;
+}
+
+// Converte qualquer "Sem permissão" (403) do wp-admin em redirecionamento limpo
+add_action( 'admin_page_access_denied', 'hs_lms_block_wp_admin_denied' );
+function hs_lms_block_wp_admin_denied() {
+    $uid = get_current_user_id();
+    if ( ! hs_lms_user_is_dashboard_only( $uid ) ) return;
+    wp_safe_redirect( hs_lms_dashboard_only_destination( $uid ) );
+    exit;
 }
 
 // Esconde a barra de admin (que tem links para o wp-admin)

@@ -312,7 +312,7 @@ function initCourseWizard(root) {
                 <label>Titulo da aula<input type="text" data-lesson-title value="Nova aula"></label>
                 <label>Duracao<input type="text" data-lesson-duration placeholder="15min"></label>
                 <label>Tipo<select data-lesson-type><option value="video">Video</option><option value="quiz">Quiz</option><option value="project">Projeto</option></select></label>
-                <label>Origem do video<select data-video-provider><option value="secure">Upload protegido</option><option value="youtube">YouTube</option><option value="vimeo">Vimeo</option><option value="external">URL externa</option><option value="none">Sem video</option></select></label>
+                <label>Origem do video<select data-video-provider><option value="secure">Upload protegido</option><option value="youtube">YouTube</option><option value="vimeo">Vimeo</option><option value="drm">Player DRM (Panda, VdoCipher...)</option><option value="external">URL externa</option><option value="none">Sem video</option></select></label>
             </div>
             <div class="hs-lesson-media">
                 <label class="hs-video-url">URL do video<input type="url" data-video-url placeholder="https://youtube.com/..."></label>

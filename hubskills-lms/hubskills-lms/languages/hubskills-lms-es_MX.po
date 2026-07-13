@@ -1,0 +1,1514 @@
+# HubSkills LMS — Español (es_MX)
+msgid ""
+msgstr ""
+"Project-Id-Version: HubSkills LMS 1.0.1\n"
+"Language: es_MX\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid " Destacar curso na Home"
+msgstr "Destacar curso en la página de inicio"
+
+msgid "%d candidatura(s) de instrutor aguardando aprovação."
+msgstr "%d solicitud(es) de instructor en espera de aprobación."
+
+msgid "+ Adicionar módulo"
+msgstr "+ Añadir módulo"
+
+msgid "+ Adicionar questão"
+msgstr "+ Añadir pregunta"
+
+msgid "+ Novo Curso"
+msgstr "+ Nuevo Curso"
+
+msgid "<strong>Erro:</strong> a senha precisa ter ao menos 8 caracteres, com letras e números."
+msgstr "<strong>Error:</strong> la contraseña debe tener al menos 8 caracteres, con letras y números."
+
+msgid "<strong>Erro:</strong> é necessário aceitar a Política de Privacidade para criar a conta."
+msgstr "<strong>Error:</strong> es necesario aceptar la Política de Privacidad para crear la cuenta."
+
+msgid "A confirmação de senha não confere."
+msgstr "La confirmación de contraseña no coincide."
+
+msgid "A nova senha precisa ter ao menos 8 caracteres, com letras e números."
+msgstr "La nueva contraseña debe tener al menos 8 caracteres, con letras y números."
+
+msgid "A plataforma ficará com o restante."
+msgstr "La plataforma se queda con el resto."
+
+msgid "Abrir"
+msgstr "Abrir"
+
+msgid "Abrir video em nova aba"
+msgstr "Abrir video en una nueva pestaña"
+
+msgid "Access Token"
+msgstr "Access Token"
+
+msgid "Aceito em"
+msgstr "Aceptado el"
+
+msgid "Acesso autenticado"
+msgstr "Acceso autenticado"
+
+msgid "Acesso negado."
+msgstr "Acceso denegado."
+
+msgid "Adicionar Categoria"
+msgstr "Añadir Categoría"
+
+msgid "Adicionar Nova Aula"
+msgstr "Añadir Nueva Lección"
+
+msgid "Adicionar Novo Curso"
+msgstr "Añadir Nuevo Curso"
+
+msgid "Adicionar Novo Quiz"
+msgstr "Añadir Nuevo Quiz"
+
+msgid "Admin: acesso total"
+msgstr "Admin: acceso total"
+
+msgid "Aguardando pagamento"
+msgstr "Esperando pago"
+
+msgid "Aluno"
+msgstr "Alumno"
+
+msgid "Aluno cadastrado"
+msgstr "Alumno registrado"
+
+msgid "Aluno: %s\nCurso: %s\nValor: R$ %s\nMotivo:\n%s\n\nAnalise em: %s"
+msgstr "Alumno: %s\nCurso: %s\nImporte: R$ %s\nMotivo:\n%s\n\nRevisar en: %s"
+
+msgid "Alunos"
+msgstr "Alumnos"
+
+msgid "Amplie o seu LMS com módulos oficiais. Ao clicar em \"Comprar módulo\" você será levado à página oficial para concluir a compra — após o pagamento, você recebe o arquivo do módulo e a chave de licença para ativar aqui mesmo."
+msgstr "Amplía tu LMS con módulos oficiales. Al hacer clic en \"Comprar módulo\" irás a la página oficial para completar la compra — tras el pago recibirás el archivo del módulo y la clave de licencia para activarla aquí mismo."
+
+msgid "Anotações"
+msgstr "Notas"
+
+msgid "Anotações de aulas"
+msgstr "Notas de lecciones"
+
+msgid "Anotações salvas!"
+msgstr "¡Notas guardadas!"
+
+msgid "Ao criar uma conta e se matricular em cursos, coletamos e tratamos: nome, e-mail, matrículas, progresso de aulas, resultados de quizzes, certificados emitidos, dados de gamificação (XP, conquistas) e registros de pedidos/pagamentos."
+msgstr "Al crear una cuenta e inscribirte en cursos, recopilamos y tratamos: nombre, correo electrónico, inscripciones, progreso de lecciones, resultados de quizzes, certificados emitidos, datos de gamificación (XP, logros) y registros de pedidos/pagos."
+
+msgid "Apenas alunos matriculados podem avaliar este curso."
+msgstr "Solo los alumnos inscritos pueden valorar este curso."
+
+msgid "Apenas pedidos pagos podem ser reembolsados."
+msgstr "Solo los pedidos pagados pueden ser reembolsados."
+
+msgid "Aprovado"
+msgstr "Aprobado"
+
+msgid "Aprovar"
+msgstr "Aprobar"
+
+msgid "Aprovar reembolso"
+msgstr "Aprobar reembolso"
+
+msgid "Aproveitamento"
+msgstr "Aprovechamiento"
+
+msgid "Area LMS"
+msgstr "Área LMS"
+
+msgid "Arquivo acima do limite."
+msgstr "El archivo supera el límite."
+
+msgid "Arquivos"
+msgstr "Archivos"
+
+msgid "Arquivos protegidos por login e matricula."
+msgstr "Archivos protegidos por inicio de sesión e inscripción."
+
+msgid "Assinatura digital da instituicao"
+msgstr "Firma digital de la institución"
+
+msgid "Assinatura digital da instituição"
+msgstr "Firma digital de la institución"
+
+msgid "Assinatura digital do instrutor"
+msgstr "Firma digital del instructor"
+
+msgid "Assinatura institucional"
+msgstr "Firma institucional"
+
+msgid "Assistente de dúvidas por IA dentro da aula, treinado no conteúdo do seu curso."
+msgstr "Asistente de dudas con IA dentro de la lección, entrenado con el contenido de tu curso."
+
+msgid "Atalhos Rápidos"
+msgstr "Accesos Rápidos"
+
+msgid "Ativar licença"
+msgstr "Activar licencia"
+
+msgid "Ativo"
+msgstr "Activo"
+
+msgid "Atualização sobre sua solicitação de reembolso"
+msgstr "Actualización sobre tu solicitud de reembolso"
+
+msgid "Auditoria"
+msgstr "Auditoría"
+
+msgid "Aula"
+msgstr "Lección"
+
+msgid "Aula já concluída."
+msgstr "Lección ya completada."
+
+msgid "Aula não pertence a este curso."
+msgstr "La lección no pertenece a este curso."
+
+msgid "Aulas"
+msgstr "Lecciones"
+
+msgid "Aulas exigem login e permissao no curso."
+msgstr "Las lecciones requieren inicio de sesión y permiso en el curso."
+
+msgid "Automático: %s"
+msgstr "Automático: %s"
+
+msgid "Avaliação (0-5)"
+msgstr "Valoración (0-5)"
+
+msgid "Avaliação deve ser entre 1 e 5."
+msgstr "La valoración debe estar entre 1 y 5."
+
+msgid "Avaliação enviada!"
+msgstr "¡Valoración enviada!"
+
+msgid "Avancar"
+msgstr "Avanzar"
+
+msgid "Ação"
+msgstr "Acción"
+
+msgid "Ações"
+msgstr "Acciones"
+
+msgid "B2B & Turmas"
+msgstr "B2B y Grupos"
+
+msgid "Baixar imagem"
+msgstr "Descargar imagen"
+
+msgid "Base"
+msgstr "Base"
+
+msgid "Buscar"
+msgstr "Buscar"
+
+msgid "Buscar Cursos"
+msgstr "Buscar Cursos"
+
+msgid "Buscar aluno..."
+msgstr "Buscar alumno..."
+
+msgid "Cancelado"
+msgstr "Cancelado"
+
+msgid "Candidato"
+msgstr "Candidato"
+
+msgid "Candidatura de instrutor"
+msgstr "Solicitud de instructor"
+
+msgid "Candidatura enviada com sucesso!"
+msgstr "¡Solicitud enviada con éxito!"
+
+msgid "Candidatura não encontrada."
+msgstr "Solicitud no encontrada."
+
+msgid "Candidatura rejeitada."
+msgstr "Solicitud rechazada."
+
+msgid "Candidaturas"
+msgstr "Solicitudes"
+
+msgid "Carga horaria"
+msgstr "Carga horaria"
+
+msgid "Carga horária"
+msgstr "Carga horaria"
+
+msgid "Cargo da assinatura"
+msgstr "Cargo de la firma"
+
+msgid "Cargo da instituição"
+msgstr "Cargo de la institución"
+
+msgid "Carimbo ou assinatura institucional, ate 2MB."
+msgstr "Sello o firma institucional, hasta 2MB."
+
+msgid "Carregando builder…"
+msgstr "Cargando builder…"
+
+msgid "Carregando quiz..."
+msgstr "Cargando quiz..."
+
+msgid "Categoria"
+msgstr "Categoría"
+
+msgid "Categorias"
+msgstr "Categorías"
+
+msgid "Central de compras e suporte"
+msgstr "Centro de compras y soporte"
+
+msgid "Certificacao"
+msgstr "Certificación"
+
+msgid "Certificado"
+msgstr "Certificado"
+
+msgid "Certificado Automático"
+msgstr "Certificado Automático"
+
+msgid "Certificado emitido."
+msgstr "Certificado emitido."
+
+msgid "Certificado não encontrado."
+msgstr "Certificado no encontrado."
+
+msgid "Certificados"
+msgstr "Certificados"
+
+msgid "Certificados emitidos foram retidos para garantir a verificação pública de autenticidade."
+msgstr "Los certificados emitidos se conservaron para garantizar la verificación pública de autenticidad."
+
+msgid "Certificados por conclusao ou emissao manual."
+msgstr "Certificados por finalización o emisión manual."
+
+msgid "Certificamos que"
+msgstr "Certificamos que"
+
+msgid "Chave PIX"
+msgstr "Clave PIX"
+
+msgid "Chave PIX não configurada."
+msgstr "Clave PIX no configurada."
+
+msgid "Chave Pública"
+msgstr "Clave Pública"
+
+msgid "Chave Secreta"
+msgstr "Clave Secreta"
+
+msgid "Chave de licença"
+msgstr "Clave de licencia"
+
+msgid "Chave de licença inválida. Confira se copiou a chave completa."
+msgstr "Clave de licencia inválida. Verifica que copiaste la clave completa."
+
+msgid "Chave de licença recusada pelo servidor de licenças."
+msgstr "Clave de licencia rechazada por el servidor de licencias."
+
+msgid "Cidade"
+msgstr "Ciudad"
+
+msgid "Cidade (para PIX)"
+msgstr "Ciudad (para PIX)"
+
+msgid "Classico institucional"
+msgstr "Clásico institucional"
+
+msgid "Client ID"
+msgstr "Client ID"
+
+msgid "Client Secret"
+msgstr "Client Secret"
+
+msgid "Comissão"
+msgstr "Comisión"
+
+msgid "Comissão Padrão do Instrutor (%)"
+msgstr "Comisión Predeterminada del Instructor (%)"
+
+msgid "Comissão atualizada!"
+msgstr "¡Comisión actualizada!"
+
+msgid "Completou o curso <strong>%s</strong> e recebeu o certificado automaticamente 🎓"
+msgstr "Completó el curso <strong>%s</strong> y recibió el certificado automáticamente 🎓"
+
+msgid "Completou o curso <strong>%s</strong> 🎉"
+msgstr "Completó el curso <strong>%s</strong> 🎉"
+
+msgid "Comprar curso %s"
+msgstr "Comprar curso %s"
+
+msgid "Comprar módulo"
+msgstr "Comprar módulo"
+
+msgid "Concluiu aula <strong>#%d</strong> em %s"
+msgstr "Completó la lección <strong>#%d</strong> en %s"
+
+msgid "Conclusao"
+msgstr "Finalización"
+
+msgid "Concluído em"
+msgstr "Completado el"
+
+msgid "Configurações"
+msgstr "Configuración"
+
+msgid "Configurações Gerais"
+msgstr "Configuración General"
+
+msgid "Configurações de Segurança"
+msgstr "Configuración de Seguridad"
+
+msgid "Configurações salvas!"
+msgstr "¡Configuración guardada!"
+
+msgid "Configure os métodos de pagamento aceitos na plataforma"
+msgstr "Configura los métodos de pago aceptados en la plataforma"
+
+msgid "Conquistas"
+msgstr "Logros"
+
+msgid "Conquistou o badge <strong>%s %s</strong>!"
+msgstr "¡Consiguió la insignia <strong>%s %s</strong>!"
+
+msgid "Consentimento LGPD"
+msgstr "Consentimiento LGPD"
+
+msgid "Continuar Curso"
+msgstr "Continuar Curso"
+
+msgid "Cor Gradiente Fim (hex)"
+msgstr "Color Final del Degradado (hex)"
+
+msgid "Cor Gradiente Início (hex)"
+msgstr "Color Inicial del Degradado (hex)"
+
+msgid "Criador de certificados"
+msgstr "Creador de certificados"
+
+msgid "Criar curso"
+msgstr "Crear curso"
+
+msgid "Curriculo do curso"
+msgstr "Currículo del curso"
+
+msgid "Currículo / Aulas"
+msgstr "Currículo / Lecciones"
+
+msgid "Curso"
+msgstr "Curso"
+
+msgid "Curso indisponível."
+msgstr "Curso no disponible."
+
+msgid "Curso inválido."
+msgstr "Curso inválido."
+
+msgid "Curso não encontrado."
+msgstr "Curso no encontrado."
+
+msgid "Curso salvo com sucesso."
+msgstr "Curso guardado con éxito."
+
+msgid "Cursos"
+msgstr "Cursos"
+
+msgid "Cursos Publicados"
+msgstr "Cursos Publicados"
+
+msgid "Cursos cadastrados"
+msgstr "Cursos registrados"
+
+msgid "Código"
+msgstr "Código"
+
+msgid "Dados de instrutor"
+msgstr "Datos del instructor"
+
+msgid "Dados invalidos."
+msgstr "Datos inválidos."
+
+msgid "Dados puxados automaticamente por aluno: nome, e-mail, documento (CPF se cadastrado), data de conclusão, código de verificação único."
+msgstr "Datos obtenidos automáticamente por alumno: nombre, correo, documento (CPF si está registrado), fecha de finalización, código de verificación único."
+
+msgid "Data"
+msgstr "Fecha"
+
+msgid "Data de conclusao"
+msgstr "Fecha de finalización"
+
+msgid "Data de emissao"
+msgstr "Fecha de emisión"
+
+msgid "Data/Hora"
+msgstr "Fecha/Hora"
+
+msgid "Decisão inválida."
+msgstr "Decisión inválida."
+
+msgid "Desbloquear"
+msgstr "Desbloquear"
+
+msgid "Desbloquear IP"
+msgstr "Desbloquear IP"
+
+msgid "Descreva o motivo da solicitação (mínimo de 10 caracteres)."
+msgstr "Describe el motivo de la solicitud (mínimo 10 caracteres)."
+
+msgid "Descricao completa"
+msgstr "Descripción completa"
+
+msgid "Descrição"
+msgstr "Descripción"
+
+msgid "Detalhes do Curso"
+msgstr "Detalles del Curso"
+
+msgid "Digite o IP..."
+msgstr "Escribe la IP..."
+
+msgid "Diretor Academico"
+msgstr "Director Académico"
+
+msgid "Documento/ID do aluno"
+msgstr "Documento/ID del alumno"
+
+msgid "Drip & Trilhas"
+msgstr "Drip y Rutas de Aprendizaje"
+
+msgid "Duracao"
+msgstr "Duración"
+
+msgid "Duração (ex: 42h)"
+msgstr "Duración (ej: 42h)"
+
+msgid "Duração do bloqueio"
+msgstr "Duración del bloqueo"
+
+msgid "E-mail do aluno"
+msgstr "Correo del alumno"
+
+msgid "Editar"
+msgstr "Editar"
+
+msgid "Editar Aula"
+msgstr "Editar Lección"
+
+msgid "Editar Categoria"
+msgstr "Editar Categoría"
+
+msgid "Editar Curso"
+msgstr "Editar Curso"
+
+msgid "Editar Quiz"
+msgstr "Editar Quiz"
+
+msgid "Edição direta do JSON. Alterações aqui sobrescrevem o builder visual ao salvar."
+msgstr "Edición directa del JSON. Los cambios aquí sobrescriben el builder visual al guardar."
+
+msgid "Email"
+msgstr "Correo electrónico"
+
+msgid "Email & Automations"
+msgstr "Email y Automatizaciones"
+
+msgid "Email de Contato"
+msgstr "Correo de Contacto"
+
+msgid "Emissao"
+msgstr "Emisión"
+
+msgid "Emissão automática ao concluir o curso"
+msgstr "Emisión automática al finalizar el curso"
+
+msgid "Emitido em"
+msgstr "Emitido el"
+
+msgid "Emitir automaticamente ao concluir o curso"
+msgstr "Emitir automáticamente al finalizar el curso"
+
+msgid "Emitir certificado"
+msgstr "Emitir certificado"
+
+msgid "Entrar para Matricular-se"
+msgstr "Inicia sesión para inscribirte"
+
+msgid "Entrar para acessar o quiz"
+msgstr "Inicia sesión para acceder al quiz"
+
+msgid "Enviar material"
+msgstr "Subir material"
+
+msgid "Enviar/escolher imagem"
+msgstr "Subir/elegir imagen"
+
+msgid "Erro Stripe."
+msgstr "Error de Stripe."
+
+msgid "Erro ao cancelar matrícula."
+msgstr "Error al cancelar la inscripción."
+
+msgid "Erro ao criar pedido PayPal."
+msgstr "Error al crear el pedido de PayPal."
+
+msgid "Erro ao criar preferência Mercado Pago."
+msgstr "Error al crear la preferencia de Mercado Pago."
+
+msgid "Erro ao criar sessão PagSeguro."
+msgstr "Error al crear la sesión de PagSeguro."
+
+msgid "Erro ao iniciar checkout PagSeguro."
+msgstr "Error al iniciar el checkout de PagSeguro."
+
+msgid "Especialidade"
+msgstr "Especialidad"
+
+msgid "Esta aula ainda não está disponível."
+msgstr "Esta lección aún no está disponible."
+
+msgid "Esta chave pertence a outro módulo."
+msgstr "Esta clave pertenece a otro módulo."
+
+msgid "Este curso é pago. Conclua o pagamento antes da matrícula."
+msgstr "Este curso es de pago. Completa el pago antes de inscribirte."
+
+msgid "Este e-mail já está em uso por outra conta."
+msgstr "Este correo ya está en uso por otra cuenta."
+
+msgid "Executivo premium"
+msgstr "Ejecutivo premium"
+
+msgid "Exportar CSV"
+msgstr "Exportar CSV"
+
+msgid "Extensões"
+msgstr "Extensiones"
+
+msgid "Extensões HubSkills"
+msgstr "Extensiones HubSkills"
+
+msgid "Falha ao processar o reembolso."
+msgstr "Error al procesar el reembolso."
+
+msgid "Falha na autenticação PayPal."
+msgstr "Falló la autenticación de PayPal."
+
+msgid "Falha no upload da assinatura."
+msgstr "Falló la subida de la firma."
+
+msgid "Falha no upload."
+msgstr "Falló la subida."
+
+msgid "Falhou"
+msgstr "Falló"
+
+msgid "Faça login primeiro."
+msgstr "Inicia sesión primero."
+
+msgid "Fez o quiz <strong>%s</strong> — %d%%. Continue tentando!"
+msgstr "Hizo el quiz <strong>%s</strong> — %d%%. ¡Sigue intentándolo!"
+
+msgid "Finalidades: prestação do serviço educacional, emissão e verificação de certificados, processamento de pagamentos e cumprimento de obrigações legais."
+msgstr "Finalidades: prestación del servicio educativo, emisión y verificación de certificados, procesamiento de pagos y cumplimiento de obligaciones legales."
+
+msgid "Formato de chave inválido. Use a chave exatamente como recebida no e-mail de compra."
+msgstr "Formato de clave inválido. Usa la clave exactamente como la recibiste en el correo de compra."
+
+msgid "Funil de vendas, engajamento aula a aula, taxa de conclusão e exportações em PDF/Excel."
+msgstr "Embudo de ventas, participación lección a lección, tasa de finalización y exportaciones en PDF/Excel."
+
+msgid "Gamification Pro"
+msgstr "Gamification Pro"
+
+msgid "Gamificação"
+msgstr "Gamificación"
+
+msgid "Gateway"
+msgstr "Pasarela"
+
+msgid "Gateway Ativo"
+msgstr "Pasarela Activa"
+
+msgid "Gateway de pagamento inválido."
+msgstr "Pasarela de pago inválida."
+
+msgid "Gateways"
+msgstr "Pasarelas"
+
+msgid "Gateways de Pagamento"
+msgstr "Pasarelas de Pago"
+
+msgid "Geral"
+msgstr "General"
+
+msgid "Gerenciar Alunos"
+msgstr "Gestionar Alumnos"
+
+msgid "Gerenciar Cursos"
+msgstr "Gestionar Cursos"
+
+msgid "Gerenciar Instrutores"
+msgstr "Gestionar Instructores"
+
+msgid "Gestao"
+msgstr "Gestión"
+
+msgid "Grátis"
+msgstr "Gratis"
+
+msgid "HS Admin"
+msgstr "HS Admin"
+
+msgid "HS Instructor"
+msgstr "HS Instructor"
+
+msgid "HS Student"
+msgstr "HS Student"
+
+msgid "HubSkills LMS"
+msgstr "HubSkills LMS"
+
+msgid "HubSkills LMS — Configurações"
+msgstr "HubSkills LMS — Configuración"
+
+msgid "HubSkills LMS — Painel"
+msgstr "HubSkills LMS — Panel"
+
+msgid "HubSkills LMS — Relatórios"
+msgstr "HubSkills LMS — Informes"
+
+msgid "IA Tutor"
+msgstr "Tutor IA"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "ID apos emissao"
+msgstr "ID tras la emisión"
+
+msgid "ID de curso inválido."
+msgstr "ID de curso inválido."
+
+msgid "IP"
+msgstr "IP"
+
+msgid "IP %s desbloqueado."
+msgstr "IP %s desbloqueada."
+
+msgid "IP inválido."
+msgstr "IP inválida."
+
+msgid "Icone"
+msgstr "Icono"
+
+msgid "Imagem acima de 2MB."
+msgstr "Imagen mayor de 2MB."
+
+msgid "Imprimir / PDF"
+msgstr "Imprimir / PDF"
+
+msgid "Informe o nome do curso."
+msgstr "Indica el nombre del curso."
+
+msgid "Informe um e-mail válido."
+msgstr "Indica un correo válido."
+
+msgid "Informe um nome válido."
+msgstr "Indica un nombre válido."
+
+msgid "Instituição"
+msgstr "Institución"
+
+msgid "Instrutor"
+msgstr "Instructor"
+
+msgid "Instrutor aprovado!"
+msgstr "¡Instructor aprobado!"
+
+msgid "Instrutor do Curso"
+msgstr "Instructor del Curso"
+
+msgid "Instrutor responsavel"
+msgstr "Instructor responsable"
+
+msgid "Instrutor/assinatura"
+msgstr "Instructor/firma"
+
+msgid "Instrutor/responsavel"
+msgstr "Instructor/responsable"
+
+msgid "Instrutores"
+msgstr "Instructores"
+
+msgid "Instrutores Ativos"
+msgstr "Instructores Activos"
+
+msgid "Já comprou um módulo? Instale o arquivo recebido (Plugins → Adicionar novo → Enviar plugin) e ative a chave de licença no cartão do módulo acima."
+msgstr "¿Ya compraste un módulo? Instala el archivo recibido (Plugins → Añadir nuevo → Subir plugin) y activa la clave de licencia en la tarjeta del módulo de arriba."
+
+msgid "Já existe uma solicitação de reembolso para este pedido."
+msgstr "Ya existe una solicitud de reembolso para este pedido."
+
+msgid "Já tenho a chave"
+msgstr "Ya tengo la clave"
+
+msgid "Li e concordo com a <a href=\"%s\" target=\"_blank\" rel=\"noopener\">Política de Privacidade</a> e autorizo o tratamento dos meus dados pessoais para fins de matrícula, progresso de cursos e emissão de certificados (LGPD)."
+msgstr "He leído y acepto la <a href=\"%s\" target=\"_blank\" rel=\"noopener\">Política de Privacidad</a> y autorizo el tratamiento de mis datos personales para fines de inscripción, progreso de cursos y emisión de certificados (LGPD)."
+
+msgid "Liberação programada de aulas, pré-requisitos entre cursos e trilhas de aprendizado."
+msgstr "Liberación programada de lecciones, prerrequisitos entre cursos y rutas de aprendizaje."
+
+msgid "Licença do módulo %s ativada com sucesso!"
+msgstr "¡Licencia del módulo %s activada con éxito!"
+
+msgid "Licença removida. O módulo foi desativado."
+msgstr "Licencia eliminada. El módulo fue desactivado."
+
+msgid "Local"
+msgstr "Lugar"
+
+msgid "Log de Atividade Recente"
+msgstr "Registro de Actividad Reciente"
+
+msgid "Log de Auditoria"
+msgstr "Registro de Auditoría"
+
+msgid "Loja de pontos, missões semanais, ranking entre turmas e recompensas customizadas."
+msgstr "Tienda de puntos, misiones semanales, ranking entre grupos y recompensas personalizadas."
+
+msgid "Mais vendido"
+msgstr "Más vendido"
+
+msgid "Marca d agua"
+msgstr "Marca de agua"
+
+msgid "Marcar pago"
+msgstr "Marcar como pagado"
+
+msgid "Marketplace"
+msgstr "Marketplace"
+
+msgid "Materiais"
+msgstr "Materiales"
+
+msgid "Matriculado em"
+msgstr "Inscrito el"
+
+msgid "Matriculado em <strong>%s</strong>"
+msgstr "Inscrito en <strong>%s</strong>"
+
+msgid "Matricular-se"
+msgstr "Inscribirse"
+
+msgid "Matrícula realizada com sucesso!"
+msgstr "¡Inscripción realizada con éxito!"
+
+msgid "Matrículas e progresso"
+msgstr "Inscripciones y progreso"
+
+msgid "Mercado Pago não configurado."
+msgstr "Mercado Pago no configurado."
+
+msgid "Meus certificados"
+msgstr "Mis certificados"
+
+msgid "Meus pedidos"
+msgstr "Mis pedidos"
+
+msgid "Modelo"
+msgstr "Plantilla"
+
+msgid "Modelo automatico do curso salvo."
+msgstr "Plantilla automática del curso guardada."
+
+msgid "Modelo do curso"
+msgstr "Plantilla del curso"
+
+msgid "Moderno azul e ciano"
+msgstr "Moderno azul y cian"
+
+msgid "Modo avançado (JSON)"
+msgstr "Modo avanzado (JSON)"
+
+msgid "Modulo"
+msgstr "Módulo"
+
+msgid "Modulo de certificados indisponivel."
+msgstr "Módulo de certificados no disponible."
+
+msgid "Moeda"
+msgstr "Moneda"
+
+msgid "Monitoramento de segurança e bloqueios"
+msgstr "Monitoreo de seguridad y bloqueos"
+
+msgid "Motivo:"
+msgstr "Motivo:"
+
+msgid "Muitas requisições. Aguarde um instante."
+msgstr "Demasiadas solicitudes. Espera un momento."
+
+msgid "Máx. tentativas de login"
+msgstr "Máx. intentos de inicio de sesión"
+
+msgid "Módulo ativo"
+msgstr "Módulo activo"
+
+msgid "Módulo desconhecido."
+msgstr "Módulo desconocido."
+
+msgid "Nao foi possivel criar a pasta protegida."
+msgstr "No se pudo crear la carpeta protegida."
+
+msgid "Nao foi possivel salvar o arquivo."
+msgstr "No se pudo guardar el archivo."
+
+msgid "Negar"
+msgstr "Denegar"
+
+msgid "Nenhum aluno encontrado."
+msgstr "No se encontraron alumnos."
+
+msgid "Nenhum certificado emitido ainda."
+msgstr "Aún no se han emitido certificados."
+
+msgid "Nenhum curso encontrado."
+msgstr "No se encontraron cursos."
+
+msgid "Nenhum instrutor encontrado."
+msgstr "No se encontraron instructores."
+
+msgid "Nenhum pedido encontrado."
+msgstr "No se encontraron pedidos."
+
+msgid "Nenhum registro encontrado."
+msgstr "No se encontraron registros."
+
+msgid "Nenhum usuário suspenso."
+msgstr "No hay usuarios suspendidos."
+
+msgid "Nenhuma atividade registrada."
+msgstr "No hay actividad registrada."
+
+msgid "Nenhuma candidatura encontrada."
+msgstr "No se encontraron solicitudes."
+
+msgid "Nenhuma solicitação pendente para este pedido."
+msgstr "No hay solicitudes pendientes para este pedido."
+
+msgid "Nivel"
+msgstr "Nivel"
+
+msgid "Nome da Plataforma"
+msgstr "Nombre de la Plataforma"
+
+msgid "Nome do Beneficiário"
+msgstr "Nombre del Beneficiario"
+
+msgid "Nome do aluno"
+msgstr "Nombre del alumno"
+
+msgid "Nome do curso"
+msgstr "Nombre del curso"
+
+msgid "Nome no certificado"
+msgstr "Nombre en el certificado"
+
+msgid "Nota Mínima (%)"
+msgstr "Nota Mínima (%)"
+
+msgid "Nota Mínima Quiz (%)"
+msgstr "Nota Mínima del Quiz (%)"
+
+msgid "Nota mínima Quiz (%)"
+msgstr "Nota mínima del Quiz (%)"
+
+msgid "Nota ou aproveitamento"
+msgstr "Nota o aprovechamiento"
+
+msgid "Nova Aula"
+msgstr "Nueva Lección"
+
+msgid "Nova aula"
+msgstr "Nueva lección"
+
+msgid "Novo"
+msgstr "Nuevo"
+
+msgid "Novo Curso"
+msgstr "Nuevo Curso"
+
+msgid "Novo Quiz"
+msgstr "Nuevo Quiz"
+
+msgid "Novo curso"
+msgstr "Nuevo curso"
+
+msgid "Nº de Aulas"
+msgstr "Nº de Lecciones"
+
+msgid "Não foi possível confirmar o pagamento."
+msgstr "No se pudo confirmar el pago."
+
+msgid "Não foi possível validar o envio. Tente novamente."
+msgstr "No se pudo validar el envío. Inténtalo de nuevo."
+
+msgid "Nível"
+msgstr "Nivel"
+
+msgid "Número de Alunos"
+msgstr "Número de Alumnos"
+
+msgid "O certificado é gerado e enviado por e-mail assim que o aluno completa 100% das aulas e quizzes."
+msgstr "El certificado se genera y se envía por correo en cuanto el alumno completa el 100% de las lecciones y quizzes."
+
+msgid "O player identifica o usuario durante a reproducao."
+msgstr "El reproductor identifica al usuario durante la reproducción."
+
+msgid "O prazo de reembolso (%d dias após a compra) já expirou."
+msgstr "El plazo de reembolso (%d días después de la compra) ya expiró."
+
+msgid "Observacao do certificado"
+msgstr "Observación del certificado"
+
+msgid "Observação da equipe:\n%s"
+msgstr "Observación del equipo:\n%s"
+
+msgid "Observação padrão"
+msgstr "Observación predeterminada"
+
+msgid "Olá %s,\n\nInfelizmente sua candidatura de instrutor não foi aprovada neste momento.\n\n%s\n\nVocê pode se candidatar novamente no futuro.\n\n— HubSkills LMS"
+msgstr "Hola %s,\n\nLamentablemente tu solicitud de instructor no fue aprobada en este momento.\n\n%s\n\nPuedes postularte de nuevo en el futuro.\n\n— HubSkills LMS"
+
+msgid "Olá %s,\n\nO aluno %s acabou de se matricular no curso \"%s\".\n\n— HubSkills LMS"
+msgstr "Hola %s,\n\nEl alumno %s acaba de inscribirse en el curso \"%s\".\n\n— HubSkills LMS"
+
+msgid "Olá %s,\n\nParabéns por completar o curso \"%s\"!\n\nSeu certificado foi emitido com o código: %s\n\nVocê pode verificar seu certificado em: %s\n\n— HubSkills LMS"
+msgstr "Hola %s,\n\n¡Felicidades por completar el curso \"%s\"!\n\nTu certificado fue emitido con el código: %s\n\nPuedes verificar tu certificado en: %s\n\n— HubSkills LMS"
+
+msgid "Olá %s,\n\nSua candidatura para instrutor foi aprovada!\n\nVocê já pode acessar o painel de instrutor e criar seus cursos.\n\n— HubSkills LMS"
+msgstr "Hola %s,\n\n¡Tu solicitud de instructor fue aprobada!\n\nYa puedes acceder al panel de instructor y crear tus cursos.\n\n— HubSkills LMS"
+
+msgid "Olá!\n\nSua solicitação de reembolso do pedido #%1$d (%2$s) foi APROVADA.\nO estorno será processado pelo meio de pagamento original.\n\n%3$s"
+msgstr "¡Hola!\n\nTu solicitud de reembolso del pedido #%1$d (%2$s) fue APROBADA.\nEl reembolso se procesará por el medio de pago original.\n\n%3$s"
+
+msgid "Olá!\n\nSua solicitação de reembolso do pedido #%1$d (%2$s) foi analisada e NÃO foi aprovada.\n\n%3$s"
+msgstr "¡Hola!\n\nTu solicitud de reembolso del pedido #%1$d (%2$s) fue revisada y NO fue aprobada.\n\n%3$s"
+
+msgid "Olá,\n\nUm novo usuário deseja se tornar instrutor:\n\nNome: %s\nEmail: %s\nEspecialidade: %s\n\nAcesse o painel para aprovar ou rejeitar.\n\n— HubSkills LMS"
+msgstr "Hola,\n\nUn nuevo usuario desea convertirse en instructor:\n\nNombre: %s\nCorreo: %s\nEspecialidad: %s\n\nAccede al panel para aprobar o rechazar.\n\n— HubSkills LMS"
+
+msgid "PDFs e materiais"
+msgstr "PDFs y materiales"
+
+msgid "PIX automático com confirmação instantânea, parcelamento no cartão e assinaturas recorrentes."
+msgstr "PIX automático con confirmación instantánea, pagos a plazos con tarjeta y suscripciones recurrentes."
+
+msgid "PNG com fundo transparente fica melhor. Aparece acima da linha de assinatura."
+msgstr "Un PNG con fondo transparente queda mejor. Aparece sobre la línea de firma."
+
+msgid "PNG com fundo transparente, ate 2MB. Aparece acima da linha de assinatura."
+msgstr "PNG con fondo transparente, hasta 2MB. Aparece sobre la línea de firma."
+
+msgid "PagSeguro não configurado."
+msgstr "PagSeguro no configurado."
+
+msgid "Pagamento PayPal não confirmado."
+msgstr "Pago de PayPal no confirmado."
+
+msgid "Pagamento confirmado e matrícula liberada."
+msgstr "Pago confirmado e inscripción habilitada."
+
+msgid "Pagamentos são processados por gateways terceiros (Stripe, PayPal, Mercado Pago, PagSeguro); consulte também as políticas de privacidade desses serviços."
+msgstr "Los pagos son procesados por pasarelas de terceros (Stripe, PayPal, Mercado Pago, PagSeguro); consulta también las políticas de privacidad de esos servicios."
+
+msgid "Pago"
+msgstr "Pagado"
+
+msgid "Pagos"
+msgstr "Pagados"
+
+msgid "Painel Geral"
+msgstr "Panel General"
+
+msgid "Painel operacional"
+msgstr "Panel operativo"
+
+msgid "Parâmetros inválidos."
+msgstr "Parámetros inválidos."
+
+msgid "Passou no quiz <strong>%s</strong> com %d%%! 🧠"
+msgstr "¡Aprobó el quiz <strong>%s</strong> con %d%%! 🧠"
+
+msgid "Pasta bloqueada"
+msgstr "Carpeta bloqueada"
+
+msgid "Payments Pro"
+msgstr "Payments Pro"
+
+msgid "Pedido"
+msgstr "Pedido"
+
+msgid "Pedido inválido."
+msgstr "Pedido inválido."
+
+msgid "Pedido já estava pago."
+msgstr "El pedido ya estaba pagado."
+
+msgid "Pedido não encontrado."
+msgstr "Pedido no encontrado."
+
+msgid "Pedido – Usuário %1$d – Curso %2$d"
+msgstr "Pedido – Usuario %1$d – Curso %2$d"
+
+msgid "Pedidos"
+msgstr "Pedidos"
+
+msgid "Pedidos de compra foram retidos por obrigação fiscal (art. 16, I, LGPD)."
+msgstr "Los pedidos de compra se conservaron por obligación fiscal (art. 16, I, LGPD)."
+
+msgid "Pendente"
+msgstr "Pendiente"
+
+msgid "Perfil atualizado com sucesso!"
+msgstr "¡Perfil actualizado con éxito!"
+
+msgid "Perfil atualizado!"
+msgstr "¡Perfil actualizado!"
+
+msgid "Perfil de instrutor"
+msgstr "Perfil de instructor"
+
+msgid "Preco"
+msgstr "Precio"
+
+msgid "Preço"
+msgstr "Precio"
+
+msgid "Preço (vazio = Grátis)"
+msgstr "Precio (vacío = Gratis)"
+
+msgid "Progresso (%)"
+msgstr "Progreso (%)"
+
+msgid "Protecao"
+msgstr "Protección"
+
+msgid "Public Key"
+msgstr "Public Key"
+
+msgid "Publicado"
+msgstr "Publicado"
+
+msgid "Publicar"
+msgstr "Publicar"
+
+msgid "Questões do Quiz"
+msgstr "Preguntas del Quiz"
+
+msgid "Quiz"
+msgstr "Quiz"
+
+msgid "Quiz inválido."
+msgstr "Quiz inválido."
+
+msgid "Quiz não disponível para as suas matrículas."
+msgstr "Quiz no disponible para tus inscripciones."
+
+msgid "Quiz não encontrado."
+msgstr "Quiz no encontrado."
+
+msgid "Quizzes"
+msgstr "Quizzes"
+
+msgid "Rascunho"
+msgstr "Borrador"
+
+msgid "Reativar"
+msgstr "Reactivar"
+
+msgid "Receita Total"
+msgstr "Ingresos Totales"
+
+msgid "Reembolsado"
+msgstr "Reembolsado"
+
+msgid "Reembolsar"
+msgstr "Reembolsar"
+
+msgid "Reembolso aprovado"
+msgstr "Reembolso aprobado"
+
+msgid "Reembolso aprovado e matrícula cancelada."
+msgstr "Reembolso aprobado e inscripción cancelada."
+
+msgid "Reembolso em análise"
+msgstr "Reembolso en revisión"
+
+msgid "Reembolso negado"
+msgstr "Reembolso denegado"
+
+msgid "Reembolso processado."
+msgstr "Reembolso procesado."
+
+msgid "Reembolso solicitado"
+msgstr "Reembolso solicitado"
+
+msgid "Registro completo de todas as ações administrativas"
+msgstr "Registro completo de todas las acciones administrativas"
+
+msgid "Rejeitar"
+msgstr "Rechazar"
+
+msgid "Relatórios"
+msgstr "Informes"
+
+msgid "Remove o bloqueio de IP de um visitante."
+msgstr "Elimina el bloqueo de IP de un visitante."
+
+msgid "Remover"
+msgstr "Eliminar"
+
+msgid "Remover a licença e desativar este módulo?"
+msgstr "¿Eliminar la licencia y desactivar este módulo?"
+
+msgid "Remover licença"
+msgstr "Eliminar licencia"
+
+msgid "Reports & Analytics"
+msgstr "Reports & Analytics"
+
+msgid "Requisição inválida."
+msgstr "Solicitud inválida."
+
+msgid "Reset XP"
+msgstr "Restablecer XP"
+
+msgid "Resultado"
+msgstr "Resultado"
+
+msgid "Resultados de quizzes"
+msgstr "Resultados de quizzes"
+
+msgid "Resumo"
+msgstr "Resumen"
+
+msgid "Revisao"
+msgstr "Revisión"
+
+msgid "Salvar"
+msgstr "Guardar"
+
+msgid "Salvar Configurações"
+msgstr "Guardar Configuración"
+
+msgid "Salvar curso"
+msgstr "Guardar curso"
+
+msgid "Salvar modelo do curso"
+msgstr "Guardar plantilla del curso"
+
+msgid "Salvo!"
+msgstr "¡Guardado!"
+
+msgid "Sandbox"
+msgstr "Sandbox"
+
+msgid "Segurança"
+msgstr "Seguridad"
+
+msgid "Selecione"
+msgstr "Selecciona"
+
+msgid "Sem nivel definido"
+msgstr "Sin nivel definido"
+
+msgid "Sem permissao neste curso."
+msgstr "Sin permiso en este curso."
+
+msgid "Sem permissao para configurar este curso."
+msgstr "Sin permiso para configurar este curso."
+
+msgid "Sem permissao para criar cursos."
+msgstr "Sin permiso para crear cursos."
+
+msgid "Sem permissao para editar este curso."
+msgstr "Sin permiso para editar este curso."
+
+msgid "Sem permissao para emitir este certificado."
+msgstr "Sin permiso para emitir este certificado."
+
+msgid "Sem permissao para enviar arquivos."
+msgstr "Sin permiso para subir archivos."
+
+msgid "Sem permissão para enviar assinaturas."
+msgstr "Sin permiso para subir firmas."
+
+msgid "Sequência (dias)"
+msgstr "Racha (días)"
+
+msgid "Sessão expirada. Recarregue a página."
+msgstr "Sesión expirada. Recarga la página."
+
+msgid "Seu IP foi temporariamente bloqueado. Tente novamente em 1 hora."
+msgstr "Tu IP fue bloqueada temporalmente. Inténtalo de nuevo en 1 hora."
+
+msgid "Seu navegador nao conseguiu abrir este video."
+msgstr "Tu navegador no pudo abrir este video."
+
+msgid "Seu reembolso foi aprovado"
+msgstr "Tu reembolso fue aprobado"
+
+msgid "Solicitar reembolso"
+msgstr "Solicitar reembolso"
+
+msgid "Solicitação enviada! Você receberá a resposta por e-mail."
+msgstr "¡Solicitud enviada! Recibirás la respuesta por correo."
+
+msgid "Solicitação negada. O aluno foi notificado."
+msgstr "Solicitud denegada. El alumno fue notificado."
+
+msgid "Split automático de comissões para instrutores, saques e extrato financeiro individual."
+msgstr "División automática de comisiones para instructores, retiros y extracto financiero individual."
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Stripe não configurado."
+msgstr "Stripe no configurado."
+
+msgid "Sua conta foi suspensa."
+msgstr "Tu cuenta fue suspendida."
+
+msgid "Subir assinatura"
+msgstr "Subir firma"
+
+msgid "Suspender"
+msgstr "Suspender"
+
+msgid "Suspenso"
+msgstr "Suspendido"
+
+msgid "Tag"
+msgstr "Etiqueta"
+
+msgid "Tags de Curso"
+msgstr "Etiquetas de Curso"
+
+msgid "Templates de e-mail bonitos, sequências automáticas e integração Mailchimp/Brevo."
+msgstr "Plantillas de correo atractivas, secuencias automáticas e integración con Mailchimp/Brevo."
+
+msgid "Tempo Limite (segundos)"
+msgstr "Tiempo Límite (segundos)"
+
+msgid "Tipo de arquivo nao permitido."
+msgstr "Tipo de archivo no permitido."
+
+msgid "Titulo do curso"
+msgstr "Título del curso"
+
+msgid "Todas as Aulas"
+msgstr "Todas las Lecciones"
+
+msgid "Todas as Categorias"
+msgstr "Todas las Categorías"
+
+msgid "Todos"
+msgstr "Todos"
+
+msgid "Todos os Cursos"
+msgstr "Todos los Cursos"
+
+msgid "Todos os Quizzes"
+msgstr "Todos los Quizzes"
+
+msgid "Token"
+msgstr "Token"
+
+msgid "Total de Matrículas"
+msgstr "Total de Inscripciones"
+
+msgid "Total de Usuários"
+msgstr "Total de Usuarios"
+
+msgid "URL de Cancelamento"
+msgstr "URL de Cancelación"
+
+msgid "URL de Sucesso"
+msgstr "URL de Éxito"
+
+msgid "Upload protegido, YouTube, Vimeo, players com DRM e URL externa."
+msgstr "Subida protegida, YouTube, Vimeo, reproductores con DRM y URL externa."
+
+msgid "Uploads nao ficam expostos por link publico direto."
+msgstr "Las subidas no quedan expuestas por enlace público directo."
+
+msgid "Usar modo sandbox"
+msgstr "Usar modo sandbox"
+
+msgid "Use uma imagem PNG, JPG ou WebP."
+msgstr "Usa una imagen PNG, JPG o WebP."
+
+msgid "Usuário"
+msgstr "Usuario"
+
+msgid "Usuário inválido."
+msgstr "Usuario inválido."
+
+msgid "Usuário reativado."
+msgstr "Usuario reactivado."
+
+msgid "Usuário suspenso."
+msgstr "Usuario suspendido."
+
+msgid "Usuários Suspensos"
+msgstr "Usuarios Suspendidos"
+
+msgid "Valor"
+msgstr "Importe"
+
+msgid "Venda para empresas: matrículas em lote, gestor de turma e relatórios por equipe."
+msgstr "Venta a empresas: inscripciones por lote, gestor de grupo e informes por equipo."
+
+msgid "Ver"
+msgstr "Ver"
+
+msgid "Ver Curso"
+msgstr "Ver Curso"
+
+msgid "Ver agora"
+msgstr "Ver ahora"
+
+msgid "Versão da política"
+msgstr "Versión de la política"
+
+msgid "Video protegido nao encontrado."
+msgstr "Video protegido no encontrado."
+
+msgid "Visão geral da plataforma"
+msgstr "Visión general de la plataforma"
+
+msgid "Você já está matriculado neste curso."
+msgstr "Ya estás inscrito en este curso."
+
+msgid "Você já possui uma candidatura ativa."
+msgstr "Ya tienes una solicitud activa."
+
+msgid "Você já tem acesso a este curso."
+msgstr "Ya tienes acceso a este curso."
+
+msgid "Você não está matriculado neste curso."
+msgstr "No estás inscrito en este curso."
+
+msgid "Você pode solicitar a exportação ou a exclusão dos seus dados pessoais a qualquer momento pelos canais de contato do site. Dados de pedidos são retidos pelo prazo fiscal legal; certificados são retidos para verificação pública de autenticidade."
+msgstr "Puedes solicitar la exportación o eliminación de tus datos personales en cualquier momento a través de los canales de contacto del sitio. Los datos de pedidos se conservan por el plazo fiscal legal; los certificados se conservan para la verificación pública de autenticidad."
+
+msgid "Você pode solicitar reembolso em até %d dias após a compra."
+msgstr "Puedes solicitar un reembolso hasta %d días después de la compra."
+
+msgid "Você precisa estar logado."
+msgstr "Necesitas iniciar sesión."
+
+msgid "Você precisa estar matriculado no curso para acessar este quiz."
+msgstr "Necesitas estar inscrito en el curso para acceder a este quiz."
+
+msgid "Voltar"
+msgstr "Volver"
+
+msgid "Webhook Secret"
+msgstr "Webhook Secret"
+
+msgid "Webhook URL"
+msgstr "Webhook URL"
+
+msgid "XP"
+msgstr "XP"
+
+msgid "XP por Aula"
+msgstr "XP por Lección"
+
+msgid "XP por Aula Concluída"
+msgstr "XP por Lección Completada"
+
+msgid "XP por Curso Completo"
+msgstr "XP por Curso Completado"
+
+msgid "XP por Curso Concluído"
+msgstr "XP por Curso Completado"
+
+msgid "XP por Quiz Aprovado"
+msgstr "XP por Quiz Aprobado"
+
+msgid "XP zerado."
+msgstr "XP restablecido."
+
+msgid "[%s] Nova solicitação de reembolso — pedido #%d"
+msgstr "[%s] Nueva solicitud de reembolso — pedido #%d"
+
+msgid "[HubSkills] Certificado emitido: %s"
+msgstr "[HubSkills] Certificado emitido: %s"
+
+msgid "[HubSkills] Nova candidatura de instrutor: %s"
+msgstr "[HubSkills] Nueva solicitud de instructor: %s"
+
+msgid "[HubSkills] Novo aluno matriculado em %s"
+msgstr "[HubSkills] Nuevo alumno inscrito en %s"
+
+msgid "[HubSkills] Parabéns! Sua candidatura foi aprovada"
+msgstr "[HubSkills] ¡Felicidades! Tu solicitud fue aprobada"
+
+msgid "[HubSkills] Sobre sua candidatura de instrutor"
+msgstr "[HubSkills] Sobre tu solicitud de instructor"
+
+msgid "concluiu com exito o curso"
+msgstr "completó con éxito el curso"
+
+msgid "concluído"
+msgstr "completado"
+
+msgid "duração do curso"
+msgstr "duración del curso"
+
+msgid "instrutor do curso"
+msgstr "instructor del curso"
+
+msgid "minutos"
+msgstr "minutos"
+
+msgid "tentativas antes de bloquear"
+msgstr "intentos antes de bloquear"
+
+msgid "Ícone (emoji)"
+msgstr "Icono (emoji)"
+
+msgid "Última atividade"
+msgstr "Última actividad"
+
+msgid "➕ Novo Curso"
+msgstr "➕ Nuevo Curso"
+
+msgid "🎓 Gerenciar Instrutores"
+msgstr "🎓 Gestionar Instructores"
+
+msgid "👨‍🎓 Gerenciar Alunos"
+msgstr "👨‍🎓 Gestionar Alumnos"
+
+msgid "💡 Deixe os campos abaixo em branco para preencher automaticamente com os dados do curso, do aluno e do site."
+msgstr "💡 Deja los campos de abajo en blanco para rellenarlos automáticamente con los datos del curso, del alumno y del sitio."
+
+msgid "💳 Configurar Gateways"
+msgstr "💳 Configurar Pasarelas"
+
+msgid "📦 Ver Pedidos"
+msgstr "📦 Ver Pedidos"
+
+msgid "🔒 Segurança"
+msgstr "🔒 Seguridad"
+

@@ -32,6 +32,7 @@
             { v: 'secure',   l: 'Vídeo protegido (upload)' },
             { v: 'youtube',  l: 'YouTube' },
             { v: 'vimeo',    l: 'Vimeo' },
+            { v: 'drm',      l: 'Player DRM (Panda, VdoCipher…)' },
             { v: 'external', l: 'URL externa' }
         ];
         var TYPES = [
@@ -113,7 +114,7 @@
                 var $l = $(this);
                 var provider = $l.find('.hs-l-provider').val();
                 var type = $l.find('.hs-l-type').val();
-                $l.find('.hs-f-video-url').toggle(['youtube', 'vimeo', 'external'].indexOf(provider) !== -1);
+                $l.find('.hs-f-video-url').toggle(['youtube', 'vimeo', 'drm', 'external'].indexOf(provider) !== -1);
                 $l.find('.hs-f-secure-asset').toggle(provider === 'secure');
                 $l.find('.hs-f-quiz').toggle(type === 'quiz');
             });

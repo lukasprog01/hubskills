@@ -122,6 +122,19 @@ expect( 'youtube.com/watch vira embed', hs_lms_youtube_embed_url( 'https://www.y
 expect( 'URL não-YouTube retorna vazio', hs_lms_youtube_embed_url( 'https://vimeo.com/123' ), '' );
 expect( 'vimeo vira player embed', hs_lms_vimeo_embed_url( 'https://vimeo.com/123456' ), 'https://player.vimeo.com/video/123456' );
 
+// ══ 7. Players DRM (frontend-dashboard.php) ═══════════════
+suite( 'players DRM' );
+expect( 'Panda Video subdomínio aceito', hs_lms_drm_embed_url( 'https://player-vz-123abc.tv.pandavideo.com.br/embed/?v=xyz' ), 'https://player-vz-123abc.tv.pandavideo.com.br/embed/?v=xyz' );
+expect( 'VdoCipher aceito', hs_lms_drm_embed_url( 'https://player.vdocipher.com/v2/?otp=abc&playbackInfo=xyz' ), 'https://player.vdocipher.com/v2/?otp=abc&playbackInfo=xyz' );
+expect( 'Bunny Stream aceito', hs_lms_drm_embed_url( 'https://iframe.mediadelivery.net/embed/123/abc-def' ), 'https://iframe.mediadelivery.net/embed/123/abc-def' );
+expect( 'Cloudflare Stream aceito', hs_lms_drm_embed_url( 'https://customer-xyz.cloudflarestream.com/abc123/iframe' ), 'https://customer-xyz.cloudflarestream.com/abc123/iframe' );
+expect( 'http vira https', hs_lms_drm_embed_url( 'http://player.vdocipher.com/v2/?otp=a' ), 'https://player.vdocipher.com/v2/?otp=a' );
+expect( 'host desconhecido recusado', hs_lms_drm_embed_url( 'https://meusite-pirata.com/embed/1' ), '' );
+expect( 'sufixo forjado recusado', hs_lms_drm_embed_url( 'https://fakepandavideo.com.br/embed/1' ), '' );
+expect( 'domínio embutido em path recusado', hs_lms_drm_embed_url( 'https://evil.com/pandavideo.com.br/embed' ), '' );
+expect( 'URL vazia recusada', hs_lms_drm_embed_url( '' ), '' );
+expect( 'domínio exato aceito', hs_lms_drm_embed_url( 'https://pandavideo.com.br/embed/1' ), 'https://pandavideo.com.br/embed/1' );
+
 // ── Resumo ────────────────────────────────────────────────
 $t = $GLOBALS['__tests'];
 echo "\n" . str_repeat( '═', 54 ) . "\n";

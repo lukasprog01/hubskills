@@ -1132,7 +1132,7 @@ function hs_pagseguro_webhook_handler( WP_REST_Request $request ): WP_REST_Respo
 
 add_action( 'wp_ajax_hs_initiate_payment',     'hs_ajax_initiate_payment' );
 add_action( 'wp_ajax_hs_check_payment_status', 'hs_ajax_check_payment_status' );
-add_action( 'wp_ajax_hs_request_refund',       'hs_ajax_request_refund' );
+// hs_request_refund é tratado em includes/refunds.php (fluxo com aprovação do admin).
 add_action( 'template_redirect', 'hs_handle_payment_return' );
 
 function hs_confirm_mp_payment_for_order( int $order_id, string $payment_id ): bool {
@@ -1322,36 +1322,3 @@ function hs_ajax_check_payment_status(): void {
     ] );
 }
 
-/**
- * AJAX: request a refund for an order.
- */
-function hs_ajax_request_refund(): void {
-    check_ajax_referer( 'hubskills_nonce', 'nonce' );
-
-    $order_id    = (int) ( $_POST['order_id'] ?? 0 );
-    $current_uid = get_current_user_id();
-    $order       = hs_get_order( $order_id );
-
-    if ( ! $order ) {
-        wp_send_json_error( [ 'message' => __( 'Pedido não encontrado.', 'hubskills-lms' ) ] );
-    }
-
-    if ( $order['user_id'] !== $current_uid && ! hs_is_hs_admin( $current_uid ) ) {
-        wp_send_json_error( [ 'message' => __( 'Acesso negado.', 'hubskills-lms' ) ] );
-    }
-
-    if ( ! hs_is_hs_admin( $current_uid ) ) {
-        wp_send_json_error( [ 'message' => __( 'Reembolsos precisam ser processados pelo administrador.', 'hubskills-lms' ) ], 403 );
-    }
-
-    if ( $order['status'] !== 'paid' ) {
-        wp_send_json_error( [ 'message' => __( 'Apenas pedidos pagos podem ser reembolsados.', 'hubskills-lms' ) ] );
-    }
-
-    $refunded = hs_refund_order( $order_id );
-    if ( ! $refunded ) {
-        wp_send_json_error( [ 'message' => __( 'Erro ao processar reembolso.', 'hubskills-lms' ) ] );
-    }
-
-    wp_send_json_success( [ 'message' => __( 'Reembolso solicitado com sucesso.', 'hubskills-lms' ) ] );
-}

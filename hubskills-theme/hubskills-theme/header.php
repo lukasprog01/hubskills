@@ -154,7 +154,7 @@
                         <?php _e( 'Sair', 'hubskills' ); ?>
                     </a>
                     <?php else : ?>
-                    <a href="<?php echo esc_url( home_url('/area-do-aluno/') ); ?>" class="btn btn-student btn-sm">
+                    <a href="<?php echo esc_url( wp_login_url( home_url('/dashboard/') ) ); ?>" class="btn btn-student btn-sm">
                         <i class="fas fa-user-graduate"></i> <?php _e( 'Área do Aluno', 'hubskills' ); ?>
                     </a>
                     <?php endif; ?>

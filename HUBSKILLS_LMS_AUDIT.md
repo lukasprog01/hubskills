@@ -28,6 +28,26 @@
 - Suite de testes automatizados: 39 testes em tests/ (rodar com `php tests/run-tests.php`) cobrindo preco, sanitizacao de curriculo/quiz, midia assinada, path traversal, elegibilidade de reembolso e embeds.
 - CDNs eliminados: 15 bibliotecas + Google Fonts (28 woff2) servidas localmente de assets/vendor.
 
+## Corrigido na rodada de 10/06/2026
+
+- Conflito do hook AJAX `hs_request_refund` resolvido: handler legado removido de payments.php; vale apenas o fluxo de refunds.php (solicitacao do aluno + aprovacao do admin, janela CDC).
+- Sistema de licencas das Extensoes implementado: chave por modulo (formato HSLMS-MODULO-SERIAL-CHECK com checksum sha256), ativacao/desativacao na propria tela com nonce + manage_options, audit log, options `hs_lms_licenses`/`hs_lms_active_extensions` gravadas de verdade, helper `hs_lms_is_extension_active()` para os modulos e filtro `hs_lms_validate_license` para validacao remota futura. Gerador de chaves para a loja: `hs_lms_generate_license_key()`. Testes em tests/test-license.php (18 casos).
+- Internacionalizacao: pasta languages/ criada com .pot (502 strings) e traducoes completas .po/.mo para en_US, en_GB, es_ES, es_MX, es_AR, es_CO e es_CL (mercados mais provaveis de compra; pt_BR/pt_PT ja atendidos pelas strings-fonte). Scripts de build em tests/extract-strings.php, tests/build-langs.php e tests/verify-mo.php.
+
+- Suporte a players de video com DRM: novo provider `drm` aceita links de Panda Video, VdoCipher, Bunny Stream, Cloudflare Stream, Wistia, SproutVideo e api.video (allowlist por dominio/subdominio, extensivel via filtro `hs_lms_drm_embed_hosts`). Iframe com `allow="encrypted-media"` (EME/Widevine/FairPlay) e `referrerpolicy="origin"` (restricao de dominio dos players). Opcao disponivel no builder do wp-admin e no painel do instrutor; aulas legadas com URL desses hosts sao inferidas automaticamente. 10 testes novos na suite (49 no total).
+
+## Implementado na rodada de 12/06/2026 (v1.1.0)
+
+- API de aulas por IA (includes/ai-lessons-api.php): token individual por tutor gerado/revogado no proprio perfil (hash sha256 no banco, exibido uma unica vez), rotas REST `hubskills/v1/ai/*` (me, courses, criar/editar aula). Modo seguro: so cursos com `_hs_instructor_id` do dono do token, lista branca de campos, nunca publica/apaga, rate limit 30 escritas/h, auditoria de toda escrita, sanitizacao via `hs_lms_sanitize_curriculum()`.
+- Backup automatico AWS S3 (includes/backup-aws.php): assinatura SigV4 nativa sobre `wp_remote_request` (sem SDK; compativel com B2/Spaces/MinIO via endpoint custom), dump SQL via `$wpdb` + settings do LMS em zip protegido, agendamento inteligente (diario 3h, so envia se o fingerprint do conteudo mudou), retencao automatica no bucket (ListObjectsV2 + DELETE), tela admin com testar conexao/backup agora/historico.
+- Exportacao WeWeb (includes/export-weweb.php): pacote zip com colecoes JSON normalizadas (courses+curriculo, quizzes, users+meta LMS, enrollments achatadas, orders, settings), dump SQL opcional, hashes de senha opcionais, manifest e guia LEIA-ME-WEWEB.md (caminhos Xano/Supabase/transicao headless). Endpoints REST paginados `hubskills/v1/export/{collection}` com chave `X-HS-Export-Key` para o WeWeb consumir o site ao vivo.
+- Protecao de codigo (includes/code-guard.php): manifesto sha256 de todos os arquivos do plugin (exceto languages/), verificacao diaria via cron + sob demanda, aviso no admin + e-mail (1x/dia) + audit log em violacao, bloqueio do editor de plugins/temas via `map_meta_cap` (equivale a DISALLOW_FILE_EDIT), rebuild automatico do manifesto na troca de versao, tela de status com diff.
+- Versao unificada: header e constante agora em 1.1.0 (resolvida a divergencia 1.0.0/1.0.1 que estava pendente).
+
+## Pendente (adiado a pedido)
+
+- Tela de Configuracoes sem efeito: `hs_get_option()` nunca e chamada; XP do quiz (200/50) e nota minima 70 seguem fixos no codigo.
+
 ## Ainda falta para producao
 
 - Configurar HTTPS real, dominio final, SMTP transacional e backups.
